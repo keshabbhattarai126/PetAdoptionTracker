@@ -37,50 +37,64 @@ public class RegistrationView extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         jPasswordField2 = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(757, 535));
+        setPreferredSize(new java.awt.Dimension(900, 535));
+        setSize(new java.awt.Dimension(800, 535));
         getContentPane().setLayout(null);
 
         jLabel1.setText("Registration");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(350, 40, 69, 17);
+        jLabel1.setBounds(590, 60, 69, 17);
 
         jLabel2.setText("Enter you details to Register");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(300, 110, 165, 17);
+        jLabel2.setBounds(590, 110, 165, 17);
 
         jTextField1.setText("jTextField1");
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(295, 154, 230, 23);
+        jTextField1.setBounds(580, 160, 240, 23);
 
         jLabel3.setText("Name");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(231, 157, 34, 17);
+        jLabel3.setBounds(520, 160, 34, 17);
 
         jTextField2.setText("jTextField2");
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(295, 195, 230, 23);
+        jTextField2.setBounds(580, 200, 240, 23);
 
         jLabel4.setText("Email");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(233, 198, 32, 17);
+        jLabel4.setBounds(520, 200, 32, 17);
 
         jLabel5.setText("Password");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(207, 236, 58, 17);
+        jLabel5.setBounds(500, 240, 58, 17);
 
         jPasswordField1.setText("jPasswordField1");
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(290, 230, 240, 23);
+        jPasswordField1.setBounds(580, 240, 240, 23);
 
         jLabel6.setText("Confirm Password");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(160, 270, 110, 20);
+        jLabel6.setBounds(450, 280, 110, 20);
 
         jPasswordField2.setText("jPasswordField2");
         getContentPane().add(jPasswordField2);
-        jPasswordField2.setBounds(290, 270, 240, 23);
+        jPasswordField2.setBounds(580, 280, 240, 23);
+
+        jButton1.setBackground(new java.awt.Color(38, 78, 201));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Create Account");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(580, 340, 240, 40);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/CreateAccount.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(0, -170, 420, 780);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -122,12 +136,14 @@ public class RegistrationView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField1;
