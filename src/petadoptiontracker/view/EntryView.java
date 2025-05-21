@@ -26,18 +26,39 @@ public class EntryView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        loginButton = new javax.swing.JButton();
+        registerButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 51));
+        setPreferredSize(new java.awt.Dimension(757, 535));
+        setSize(new java.awt.Dimension(757, 535));
+        getContentPane().setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setText("Welcome to Pet Adoption Tracker");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(440, 70, 300, 30);
+
+        loginButton.setBackground(new java.awt.Color(0, 153, 204));
+        loginButton.setForeground(new java.awt.Color(255, 255, 255));
+        loginButton.setText("Login");
+        getContentPane().add(loginButton);
+        loginButton.setBounds(510, 230, 170, 30);
+
+        registerButton.setBackground(new java.awt.Color(153, 153, 255));
+        registerButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerButton.setText("Register");
+        getContentPane().add(registerButton);
+        registerButton.setBounds(510, 280, 170, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/HomePhoto.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(-60, -60, 480, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +99,9 @@ public class EntryView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 }
