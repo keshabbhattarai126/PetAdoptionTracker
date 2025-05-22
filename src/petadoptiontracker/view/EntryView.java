@@ -38,18 +38,18 @@ public class EntryView extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setForeground(new java.awt.Color(38, 78, 201));
         jLabel1.setText("Welcome to Pet Adoption Tracker");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(530, 110, 300, 30);
 
-        loginButton.setBackground(new java.awt.Color(0, 153, 204));
+        loginButton.setBackground(new java.awt.Color(38, 78, 201));
         loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("Login");
         getContentPane().add(loginButton);
         loginButton.setBounds(600, 270, 170, 30);
 
-        registerButton.setBackground(new java.awt.Color(153, 153, 255));
+        registerButton.setBackground(new java.awt.Color(0, 153, 153));
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Register");
         getContentPane().add(registerButton);

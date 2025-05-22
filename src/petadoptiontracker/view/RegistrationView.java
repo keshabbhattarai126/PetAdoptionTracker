@@ -39,6 +39,8 @@ public class RegistrationView extends javax.swing.JFrame {
         jPasswordField2 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(900, 535));
@@ -96,6 +98,15 @@ public class RegistrationView extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(0, -170, 420, 780);
 
+        jLabel8.setText("Already have an account?");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(580, 400, 160, 20);
+
+        jLabel9.setForeground(new java.awt.Color(38, 78, 201));
+        jLabel9.setText("Login");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(740, 400, 42, 20);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -144,6 +155,8 @@ public class RegistrationView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField1;
