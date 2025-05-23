@@ -49,7 +49,11 @@ public class RegistrationView extends javax.swing.JFrame {
 
         jLabel1.setText("Registration");
         getContentPane().add(jLabel1);
+<<<<<<< HEAD
         jLabel1.setBounds(590, 70, 69, 17);
+=======
+        jLabel1.setBounds(590, 70, 64, 16);
+>>>>>>> fb36108c5524fef6ac684aa1a645ac91138fb7a1
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(38, 78, 201));
@@ -59,27 +63,27 @@ public class RegistrationView extends javax.swing.JFrame {
 
         jTextField1.setText("jTextField1");
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(580, 160, 240, 23);
+        jTextField1.setBounds(580, 160, 240, 22);
 
         jLabel3.setText("Name");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(520, 160, 34, 17);
+        jLabel3.setBounds(520, 160, 32, 16);
 
         jTextField2.setText("jTextField2");
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(580, 200, 240, 23);
+        jTextField2.setBounds(580, 200, 240, 22);
 
         jLabel4.setText("Email");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(520, 200, 32, 17);
+        jLabel4.setBounds(520, 200, 30, 16);
 
         jLabel5.setText("Password");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(500, 240, 58, 17);
+        jLabel5.setBounds(500, 240, 50, 16);
 
         jPasswordField1.setText("jPasswordField1");
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(580, 240, 240, 23);
+        jPasswordField1.setBounds(580, 240, 240, 22);
 
         jLabel6.setText("Confirm Password");
         getContentPane().add(jLabel6);
@@ -87,7 +91,7 @@ public class RegistrationView extends javax.swing.JFrame {
 
         jPasswordField2.setText("jPasswordField2");
         getContentPane().add(jPasswordField2);
-        jPasswordField2.setBounds(580, 280, 240, 23);
+        jPasswordField2.setBounds(580, 280, 240, 22);
 
         jButton1.setBackground(new java.awt.Color(38, 78, 201));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));

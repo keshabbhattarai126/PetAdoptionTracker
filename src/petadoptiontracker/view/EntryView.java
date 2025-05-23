@@ -3,20 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package petadoptiontracker.view;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author keshab
  */
 public class EntryView extends javax.swing.JFrame {
-
     /**
      * Creates new form EntryView
      */
     public EntryView() {
         initComponents();
+        setSize(1200,800);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +33,6 @@ public class EntryView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 51));
-        setPreferredSize(new java.awt.Dimension(900, 535));
         setSize(new java.awt.Dimension(800, 535));
         getContentPane().setLayout(null);
 
@@ -52,6 +51,11 @@ public class EntryView extends javax.swing.JFrame {
         registerButton.setBackground(new java.awt.Color(0, 153, 153));
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Register");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(registerButton);
         registerButton.setBounds(600, 320, 170, 30);
 
@@ -63,10 +67,16 @@ public class EntryView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_registerButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -104,4 +114,8 @@ public class EntryView extends javax.swing.JFrame {
     private javax.swing.JButton loginButton;
     private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
+
+    public void addRegistrationNavigation(ActionListener listener){
+        registerButton.addActionListener(listener);
+    }
 }
