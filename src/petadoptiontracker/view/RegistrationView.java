@@ -49,11 +49,13 @@ public class RegistrationView extends javax.swing.JFrame {
 
         jLabel1.setText("Registration");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(590, 60, 69, 17);
+        jLabel1.setBounds(590, 70, 69, 17);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(38, 78, 201));
         jLabel2.setText("Enter you details to Register");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(590, 110, 165, 17);
+        jLabel2.setBounds(590, 110, 260, 20);
 
         jTextField1.setText("jTextField1");
         getContentPane().add(jTextField1);
