@@ -4,11 +4,9 @@
  */
 package petadoptiontracker;
 import petadoptiontracker.controller.EntryController;
-import petadoptiontracker.controller.RegistrationController;
 import petadoptiontracker.view.EntryView;
-import petadoptiontracker.view.RegistrationView;
-/**
- *
+
+/*
  * @author keshab
  */
 public class PetAdoptionTracker {
@@ -17,12 +15,26 @@ public class PetAdoptionTracker {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        EntryView entryView=new EntryView();
-        EntryController entryController=new EntryController(entryView);
-        entryController.open();
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(EntryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(EntryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(EntryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(EntryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        EntryView view = new EntryView();
+        EntryController userController = new EntryController(view);
+        userController.open();
         
-//        RegistrationView registrationView=new RegistrationView();
-//        RegistrationController registrationController=new RegistrationController(registrationView);
-//        registrationController.open();
+    
     }
 }
