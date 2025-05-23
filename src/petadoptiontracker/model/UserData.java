@@ -31,10 +31,10 @@ public class UserData {
     public UserData(){
         
     }
-    public void setId(int id){
+    public void setId(int id){ //setters
         this.id=id;
     }
-    public int getId(){
+    public int getId(){ //getters
         return this.id;
     }
     public void setName(String name){
