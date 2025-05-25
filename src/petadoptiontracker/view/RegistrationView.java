@@ -57,7 +57,7 @@ public class RegistrationView extends javax.swing.JFrame {
 
         jLabel1.setText("Registration");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(590, 70, 68, 15);
+        jLabel1.setBounds(590, 70, 80, 17);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(38, 78, 201));
@@ -65,33 +65,38 @@ public class RegistrationView extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(590, 110, 260, 20);
         getContentPane().add(nameTextField);
-        nameTextField.setBounds(580, 160, 240, 21);
+        nameTextField.setBounds(580, 160, 240, 23);
 
         jLabel3.setText("Name");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(520, 160, 34, 15);
+        jLabel3.setBounds(520, 160, 34, 17);
         getContentPane().add(emailTextField);
-        emailTextField.setBounds(580, 200, 240, 21);
+        emailTextField.setBounds(580, 200, 240, 23);
 
         jLabel4.setText("Email");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(520, 200, 31, 15);
+        jLabel4.setBounds(520, 200, 32, 17);
 
         jLabel5.setText("Password");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(500, 240, 55, 15);
+        jLabel5.setBounds(500, 240, 58, 17);
         getContentPane().add(passwordField);
-        passwordField.setBounds(580, 240, 240, 21);
+        passwordField.setBounds(580, 240, 240, 23);
 
         jLabel6.setText("Confirm Password");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(450, 280, 110, 20);
         getContentPane().add(confirmPasswordField);
-        confirmPasswordField.setBounds(580, 280, 240, 21);
+        confirmPasswordField.setBounds(580, 280, 240, 23);
 
         registerButton.setBackground(new java.awt.Color(38, 78, 201));
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Create Account");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(registerButton);
         registerButton.setBounds(580, 340, 240, 40);
 
@@ -111,11 +116,11 @@ public class RegistrationView extends javax.swing.JFrame {
 
         showPasswordButton.setText("Show");
         getContentPane().add(showPasswordButton);
-        showPasswordButton.setBounds(830, 240, 72, 21);
+        showPasswordButton.setBounds(830, 240, 72, 23);
 
         showPasswordButton1.setText("Show");
         getContentPane().add(showPasswordButton1);
-        showPasswordButton1.setBounds(830, 280, 72, 21);
+        showPasswordButton1.setBounds(830, 280, 72, 23);
 
         uploadImageButton.setText("Upload Image");
         getContentPane().add(uploadImageButton);

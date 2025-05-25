@@ -4,20 +4,23 @@
  */
 package petadoptiontracker.database;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
- * @author Kamal
+ * @author keshab
  */
 public class MySqlConnection implements DbConnection{
-    
     @Override
     public Connection openConnection() {
         try{
             String username = "root";
             String password = "12345";
-            String database = "login_db";
+            String database = "mvc_demo";
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection;
             connection = DriverManager.getConnection(
@@ -47,7 +50,31 @@ public class MySqlConnection implements DbConnection{
         }
     }
 
-    
+    @Override
+    public ResultSet runQuery(Connection conn, String query) {
+        try{
+            Statement stmt = conn.createStatement();
+            ResultSet result = stmt.executeQuery(query);
+            return result;
+        }catch(SQLException e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    @Override
+    public int executeUpdate(Connection conn, String query) {
+          try{
+            Statement stmt = conn.createStatement();
+            int result = stmt.executeUpdate(query);
+            return result;
+        }catch(SQLException e){
+            System.out.println(e);
+            return -1;
+        }
+    }
+
+
 }
 
 
