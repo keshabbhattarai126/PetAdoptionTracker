@@ -93,12 +93,14 @@ public class LoginController {
                 System.out.println(user);
                 if(user != null){
                     
-                    JOptionPane.showMessageDialog(loginView, 
-                        "Login Successfull");
-                    DashboardView dashboardView = new DashboardView();
-                    DashboardController dashboardController= new DashboardController(dashboardView);
+                    JOptionPane.showMessageDialog(loginView, "Login Successful");
+
+                    DashboardView dashboardView = new DashboardView(user);
+                    DashboardController dashboardController = new DashboardController(dashboardView);
                     dashboardController.open();
-                    close();
+                     close();
+                    
+                   
                 } else{
                          JOptionPane.showMessageDialog(loginView, 
                         "Login Failed");
