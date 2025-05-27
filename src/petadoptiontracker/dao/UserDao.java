@@ -77,5 +77,24 @@ public class UserDao {
         }
         return null;
     }
-    
+        public boolean checkEmail(String email){
+            String query="SELECT * FROM users where email=?";
+            Connection conn= mySql.openConnection();
+            try{
+              PreparedStatement stmnt = conn.prepareStatement(query);
+              stmnt.setString(1,email);
+              ResultSet result = stmnt.executeQuery();
+              if(result.next()){
+                return true;
+            }else{
+                return false;
+            }
+            }catch(Exception e){
+                return false;              
+            }finally{
+                mySql.closeConnection(conn);
+                
+            }
+        
+    }
 }
