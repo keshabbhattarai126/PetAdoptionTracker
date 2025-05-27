@@ -115,7 +115,11 @@ public class EntryView extends javax.swing.JFrame {
     private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 
-    public void addRegistrationNavigation(ActionListener listener){
+   public void addLoginListener(ActionListener listener){
+        loginButton.addActionListener(listener);
+    }
+    
+    public void addRegisterListener(ActionListener listener){
         registerButton.addActionListener(listener);
     }
 }

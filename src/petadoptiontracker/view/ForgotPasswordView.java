@@ -4,6 +4,10 @@
  */
 package petadoptiontracker.view;
 
+
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author LeathLOQ
@@ -14,11 +18,31 @@ public class ForgotPasswordView extends javax.swing.JPanel {
      * Creates new form ForgotPasswordView
      */
     public ForgotPasswordView() {
-        initComponents();
+    initComponents();
     }
-    public static void main(String[] args){
-        
+
+     public static void main(String[] args) {
+        // Use SwingUtilities.invokeLater for thread safety
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                // Create the JFrame
+                JFrame frame = new JFrame("Forgot Password");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                
+                // Add the ForgotPasswordView JPanel to the JFrame
+                frame.add(new ForgotPasswordView());
+                
+                // Set the size of the JFrame
+                frame.setSize(350, 400); 
+                
+                // Make the frame visible
+                frame.setVisible(true);
+            }
+        });
     }
+
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,14 +66,16 @@ public class ForgotPasswordView extends javax.swing.JPanel {
         ForgotText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ForgotText.setText("Forgot Password?");
 
-        EmailEntry.setText("Enter your email");
+        EmailEntry.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EmailEntry.setText("Enter your Email");
         EmailEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmailEntryActionPerformed(evt);
             }
         });
 
-        CodeEntry.setText("Enter the code");
+        CodeEntry.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CodeEntry.setText("Enter your Code");
         CodeEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CodeEntryActionPerformed(evt);
@@ -67,30 +93,30 @@ public class ForgotPasswordView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EmailEntry, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                            .addComponent(CodeEntry)))
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CodeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmailEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
+                        .addGap(92, 92, 92)
                         .addComponent(ContinueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                        .addGap(59, 59, 59)
                         .addComponent(ForgotText)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(67, 67, 67)
                 .addComponent(ForgotText)
-                .addGap(40, 40, 40)
+                .addGap(33, 33, 33)
                 .addComponent(EmailEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(52, 52, 52)
                 .addComponent(CodeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(ContinueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

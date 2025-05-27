@@ -1,5 +1,9 @@
 package petadoptiontracker.view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.io.File;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -10,6 +14,7 @@ package petadoptiontracker.view;
  * @author keshab
  */
 public class RegistrationView extends javax.swing.JFrame {
+    File selectedFile;
 
     /**
      * Creates new form LoginView
@@ -29,16 +34,21 @@ public class RegistrationView extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nameTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        emailTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        confirmPasswordField = new javax.swing.JPasswordField();
+        registerButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        noAccountLabel = new javax.swing.JLabel();
+        loginLabel = new javax.swing.JLabel();
+        showPasswordButton = new javax.swing.JButton();
+        showPasswordButton1 = new javax.swing.JButton();
+        uploadImageButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(900, 535));
@@ -47,59 +57,81 @@ public class RegistrationView extends javax.swing.JFrame {
 
         jLabel1.setText("Registration");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(590, 70, 64, 16);
+        jLabel1.setBounds(590, 70, 80, 17);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(38, 78, 201));
         jLabel2.setText("Enter you details to Register");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(590, 110, 260, 20);
-
-        jTextField1.setText("jTextField1");
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(580, 160, 240, 22);
+        getContentPane().add(nameTextField);
+        nameTextField.setBounds(580, 160, 240, 23);
 
         jLabel3.setText("Name");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(520, 160, 32, 16);
-
-        jTextField2.setText("jTextField2");
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(580, 200, 240, 22);
+        jLabel3.setBounds(520, 160, 34, 17);
+        getContentPane().add(emailTextField);
+        emailTextField.setBounds(580, 200, 240, 23);
 
         jLabel4.setText("Email");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(520, 200, 30, 16);
+        jLabel4.setBounds(520, 200, 32, 17);
 
         jLabel5.setText("Password");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(500, 240, 50, 16);
-
-        jPasswordField1.setText("jPasswordField1");
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(580, 240, 240, 22);
+        jLabel5.setBounds(500, 240, 58, 17);
+        getContentPane().add(passwordField);
+        passwordField.setBounds(580, 240, 240, 23);
 
         jLabel6.setText("Confirm Password");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(450, 280, 110, 20);
+        getContentPane().add(confirmPasswordField);
+        confirmPasswordField.setBounds(580, 280, 240, 23);
 
-        jPasswordField2.setText("jPasswordField2");
-        getContentPane().add(jPasswordField2);
-        jPasswordField2.setBounds(580, 280, 240, 22);
-
-        jButton1.setBackground(new java.awt.Color(38, 78, 201));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Create Account");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(580, 340, 240, 40);
+        registerButton.setBackground(new java.awt.Color(38, 78, 201));
+        registerButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerButton.setText("Create Account");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(registerButton);
+        registerButton.setBounds(580, 340, 240, 40);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/CreateAccount.png"))); // NOI18N
         jLabel7.setText("jLabel7");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(0, -170, 420, 780);
 
+        noAccountLabel.setText("Already have an account?");
+        getContentPane().add(noAccountLabel);
+        noAccountLabel.setBounds(580, 400, 160, 20);
+
+        loginLabel.setForeground(new java.awt.Color(38, 78, 201));
+        loginLabel.setText("Login");
+        getContentPane().add(loginLabel);
+        loginLabel.setBounds(740, 400, 42, 20);
+
+        showPasswordButton.setText("Show");
+        getContentPane().add(showPasswordButton);
+        showPasswordButton.setBounds(830, 240, 72, 23);
+
+        showPasswordButton1.setText("Show");
+        getContentPane().add(showPasswordButton1);
+        showPasswordButton1.setBounds(830, 280, 72, 23);
+
+        uploadImageButton.setText("Upload Image");
+        getContentPane().add(uploadImageButton);
+        uploadImageButton.setBounds(630, 310, 150, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,7 +170,8 @@ public class RegistrationView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPasswordField confirmPasswordField;
+    private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -146,9 +179,64 @@ public class RegistrationView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel loginLabel;
+    private javax.swing.JTextField nameTextField;
+    private javax.swing.JLabel noAccountLabel;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton registerButton;
+    private javax.swing.JButton showPasswordButton;
+    private javax.swing.JButton showPasswordButton1;
+    private javax.swing.JButton uploadImageButton;
     // End of variables declaration//GEN-END:variables
+public void addRegisterUserListener(ActionListener listener) {
+        registerButton.addActionListener(listener);
+    }
+    public void togglePasswordField(boolean visible) {
+        passwordField.setEchoChar(visible ? (char) 0 : '*');
+        showPasswordButton.setText(visible ? "Hide" : "Show");
+    }
+
+    public void toggleConfirmPasswordField(boolean visible) {
+        confirmPasswordField.setEchoChar(visible ? (char) 0 : '*');
+        showPasswordButton1.setText(visible ? "Hide" : "Show");
+    }
+
+    public void addLoginListener(MouseListener listener){
+        loginLabel.addMouseListener(listener);
+    }
+    
+    public void showPasswordButtonListener(ActionListener listener){
+        showPasswordButton.addActionListener(listener);
+    }
+    
+    public void showPasswordButton1Listener(ActionListener listener){
+        showPasswordButton1.addActionListener(listener);
+    }
+    public void uploadImageButtonListener(ActionListener listener){
+        uploadImageButton.addActionListener(listener);
+    }
+
+    public void setSelectedFile(File file) {
+        this.selectedFile = file;
+    }
+    
+    public javax.swing.JTextField getNameTextField(){
+        return nameTextField;
+    }
+    
+    public javax.swing.JTextField getEmailTextField(){
+        return emailTextField;
+    }
+    
+    public javax.swing.JPasswordField getPasswordField(){
+            return passwordField;
+    }
+    
+    public javax.swing.JPasswordField getConfirmPasswordField(){
+        return confirmPasswordField;
+    }
+    
+    public File getSelectedFile(){
+        return selectedFile;
+    }
 }

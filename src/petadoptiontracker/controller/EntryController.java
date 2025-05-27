@@ -7,6 +7,7 @@ package petadoptiontracker.controller;
 import java.awt.event.ActionEvent;
 import petadoptiontracker.view.EntryView;
 import java.awt.event.ActionListener;
+import petadoptiontracker.view.LoginView;
 import petadoptiontracker.view.RegistrationView;
 
 /**
@@ -14,28 +15,43 @@ import petadoptiontracker.view.RegistrationView;
  * @author LeathLOQ
  */
 public class EntryController {
-    private EntryView entryView=new EntryView();
-    public EntryController (EntryView entryView){
+    private final EntryView entryView;
+    public EntryController(EntryView entryView){
+        
+        System.err.flush();
         this.entryView=entryView;
-        entryView.addRegistrationNavigation(new RegistrationNavigation());
+        entryView.addLoginListener(new LoginListener());
+        entryView.addRegisterListener(new RegistrationListener());
+        
     }
-    
     public void open(){
         this.entryView.setVisible(true);
     }
     public void close(){
         this.entryView.dispose();
     }
-    
-    
-    class RegistrationNavigation implements ActionListener{
+    class LoginListener implements ActionListener{
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        RegistrationView register= new RegistrationView();
-        RegistrationController registrationController= new RegistrationController(register);
-        registrationController.open();
-        close();
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            LoginView loginView= new LoginView();
+            LoginController loginController= new LoginController(loginView);
+            loginController.open();
+            close();
+        }
+        
     }
+    class RegistrationListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            RegistrationView registrationView= new RegistrationView();
+            RegistrationController registrationController= new RegistrationController(registrationView);
+            registrationController.open();
+            close();
+        }
+        
+    }
+    
 }
-}
+
