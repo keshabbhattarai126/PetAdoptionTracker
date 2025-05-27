@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/RegistrationView.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/DashboardController.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/model/UserData.java</file>
@@ -11,6 +12,28 @@
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/dao/UserDao.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/model/ResetPasswordRequest.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/DashboardView.java</file>
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/controller/RegistrationController.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/controller/EntryController.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/PetAdoptionTracker.java</file>
+=======
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/controller/EntryController.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/PetAdoptionTracker.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/view/EntryView.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/view/RegistrationView.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/controller/RegistrationController.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/view/DashboardView.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/view/PetAdoptionDashboard.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/controller/DashboardController.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/view/LoginView.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/view/ForgotPasswordView.java</file>
+>>>>>>> Stashed changes
+=======
+            <file>file:/C:/Users/Indra%20Kumar/Desktop/PetAdoptionTracker/src/petadoptiontracker/view/DashboardView.java</file>
+>>>>>>> main
+>>>>>>> 7a7284b95b9d403d90a16273e8bdfc579126e765
         </group>
     </open-files>
 </project-private>
