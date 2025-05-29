@@ -4,12 +4,28 @@
  */
 package petadoptiontracker.view;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import petadoptiontracker.model.UserData;
+
 /**
  *
  * @author keshab
  */
 public class DashboardView extends javax.swing.JFrame {
-
+     public DashboardView(UserData user) {
+        initComponents();
+        jLabel1.setText("Welcome, " + user.getName() + "!");
+        
+        byte[] imageData = user.getImage();
+        if (imageData != null) {
+            ImageIcon imageIcon = new ImageIcon(imageData);
+            // Resize image to fit label size (optional)
+            Image img = imageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+            imageIcon = new ImageIcon(img);
+            photoLabel.setIcon(imageIcon);
+        }
+    }
     /**
      * Creates new form DashboardView
      */
@@ -28,6 +44,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        photoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -35,15 +52,22 @@ public class DashboardView extends javax.swing.JFrame {
 
         jButton1.setText("Sign Out");
 
+        photoLabel.setText("jLabel2");
+        photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
+        photoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(285, 285, 285)
-                .addComponent(jLabel1)
-                .addGap(106, 106, 106)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(photoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(106, 106, 106)
+                        .addComponent(jButton1)))
                 .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -53,7 +77,9 @@ public class DashboardView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jButton1))
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(photoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         pack();
@@ -97,5 +123,7 @@ public class DashboardView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel photoLabel;
     // End of variables declaration//GEN-END:variables
+    
 }
