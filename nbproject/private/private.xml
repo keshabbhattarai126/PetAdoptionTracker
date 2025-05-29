@@ -17,6 +17,8 @@
             <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/EntryController.java</file>
             <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/PetAdoptionTracker.java</file>
             <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/DashboardController.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/mail/SMTPSMailSender.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/model/ResetPasswordRequest.java</file>
         </group>
     </open-files>
 </project-private>

@@ -21,7 +21,7 @@ public class ResetPasswordRequest {
     public void setPassword (String password){
         this.password=password;
     }
-    public String getEnail(){
+    public String getEmail(){
         return email;
     }
     public String getPassword(){
