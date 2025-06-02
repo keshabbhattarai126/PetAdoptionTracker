@@ -89,7 +89,7 @@ public class LoginView extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(250, 130, 32, 17);
+        jLabel5.setBounds(250, 130, 30, 16);
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));

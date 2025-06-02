@@ -132,12 +132,17 @@ public class RegistrationController {
                 JOptionPane.showMessageDialog(registrationView, 
                         "Passwords do not match", "Validation Error", 
                         JOptionPane.ERROR_MESSAGE);
+                
 
-            }else if(password.length()<8){
-                JOptionPane.showMessageDialog(registrationView, 
-                        "Please enter 8 character of above password", "Validation", 
-                        JOptionPane.ERROR_MESSAGE);
-            }else if (image == null || !image.exists() || !image.isFile()) {
+            }else if (!password.matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[^a-zA-Z0-9]).{8,}$")) {
+    JOptionPane.showMessageDialog(registrationView, 
+        "Password must be at least 8 characters long and include:\n" +
+        "- At least one uppercase letter\n" +
+        "- At least one number\n" +
+        "- At least one special character", 
+        "Validation Error", 
+        JOptionPane.ERROR_MESSAGE);}
+            else if (image == null || !image.exists() || !image.isFile()) {
                 
                 JOptionPane.showMessageDialog(registrationView, 
                         "Please select a valid image file.", "Validation Error", 
@@ -164,7 +169,7 @@ public class RegistrationController {
                 } catch (IOException ex) {
                         Logger.getLogger(RegistrationController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }           
+            }     
             }
         }   
 }
