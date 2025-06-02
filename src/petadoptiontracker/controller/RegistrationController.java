@@ -133,7 +133,11 @@ public class RegistrationController {
                         "Passwords do not match", "Validation Error", 
                         JOptionPane.ERROR_MESSAGE);
 
-            } else if (image == null || !image.exists() || !image.isFile()) {
+            }else if(password.length()<8){
+                JOptionPane.showMessageDialog(registrationView, 
+                        "Please enter 8 character of above password", "Validation", 
+                        JOptionPane.ERROR_MESSAGE);
+            }else if (image == null || !image.exists() || !image.isFile()) {
                 
                 JOptionPane.showMessageDialog(registrationView, 
                         "Please select a valid image file.", "Validation Error", 
