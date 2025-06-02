@@ -51,13 +51,13 @@ public class RegistrationView extends javax.swing.JFrame {
         uploadImageButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 535));
-        setSize(new java.awt.Dimension(800, 535));
+        setPreferredSize(new java.awt.Dimension(950, 535));
+        setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
         jLabel1.setText("Registration");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(590, 70, 80, 17);
+        jLabel1.setBounds(590, 70, 80, 16);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(38, 78, 201));
@@ -65,29 +65,29 @@ public class RegistrationView extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(590, 110, 260, 20);
         getContentPane().add(nameTextField);
-        nameTextField.setBounds(580, 160, 240, 23);
+        nameTextField.setBounds(580, 160, 240, 22);
 
         jLabel3.setText("Name");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(520, 160, 34, 17);
+        jLabel3.setBounds(520, 160, 32, 16);
         getContentPane().add(emailTextField);
-        emailTextField.setBounds(580, 200, 240, 23);
+        emailTextField.setBounds(580, 200, 240, 22);
 
         jLabel4.setText("Email");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(520, 200, 32, 17);
+        jLabel4.setBounds(520, 200, 30, 16);
 
         jLabel5.setText("Password");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(500, 240, 58, 17);
+        jLabel5.setBounds(500, 240, 50, 16);
         getContentPane().add(passwordField);
-        passwordField.setBounds(580, 240, 240, 23);
+        passwordField.setBounds(580, 240, 240, 22);
 
         jLabel6.setText("Confirm Password");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(450, 280, 110, 20);
         getContentPane().add(confirmPasswordField);
-        confirmPasswordField.setBounds(580, 280, 240, 23);
+        confirmPasswordField.setBounds(580, 280, 240, 22);
 
         registerButton.setBackground(new java.awt.Color(38, 78, 201));
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
