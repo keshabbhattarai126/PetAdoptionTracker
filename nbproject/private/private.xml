@@ -3,7 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/RegistrationController.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/controller/RegistrationController.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/view/ImageUpload.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/view/RegistrationView.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/controller/ImageUploadController.java</file>
+            <file>file:/C:/Users/LeathLOQ/Desktop/PetAdoptionTracker/src/petadoptiontracker/controller/LoginController.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/RegistrationView.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/DashboardController.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/model/UserData.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/LoginView.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/dao/UserDao.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/DashboardView.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/database/MySqlConnection.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/LoginController.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/RegistrationController.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/EntryController.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/PetAdoptionDashboard.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/imagepicker/HomePhoto.jpg</file>
+=======
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/LoginViewNew.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/LoginView.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/RegistrationView.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/EntryView.java</file>
+>>>>>>> 616906fe03b9110420c4d332a1615a7dcd4bca2d
+>>>>>>> main
+>>>>>>> f6e57d678a1846fbe392dea1cb4d78245788087d
         </group>
     </open-files>
 </project-private>

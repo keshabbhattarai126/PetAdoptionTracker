@@ -57,67 +57,67 @@ public class ForgotPasswordView extends javax.swing.JPanel {
         EmailEntry = new javax.swing.JTextField();
         CodeEntry = new javax.swing.JTextField();
         ContinueButton = new javax.swing.JButton();
+        ContinueButton1 = new javax.swing.JButton();
+        CodeLabel = new javax.swing.JLabel();
+        EmailLabel = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 102, 255));
-        setPreferredSize(new java.awt.Dimension(350, 400));
+        setBackground(new java.awt.Color(38, 78, 201));
+        setPreferredSize(new java.awt.Dimension(450, 400));
+        setLayout(null);
 
         ForgotText.setFont(new java.awt.Font("Eras Bold ITC", 0, 24)); // NOI18N
         ForgotText.setForeground(new java.awt.Color(255, 255, 255));
         ForgotText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ForgotText.setText("Forgot Password?");
+        add(ForgotText);
+        ForgotText.setBounds(110, 30, 220, 28);
 
         EmailEntry.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        EmailEntry.setText("Enter your Email");
         EmailEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmailEntryActionPerformed(evt);
             }
         });
+        add(EmailEntry);
+        EmailEntry.setBounds(140, 90, 254, 39);
 
         CodeEntry.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CodeEntry.setText("Enter your Code");
         CodeEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CodeEntryActionPerformed(evt);
             }
         });
+        add(CodeEntry);
+        CodeEntry.setBounds(140, 230, 254, 41);
 
         ContinueButton.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         ContinueButton.setForeground(new java.awt.Color(0, 51, 255));
-        ContinueButton.setText("Continue");
+        ContinueButton.setText("Send");
+        ContinueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContinueButtonActionPerformed(evt);
+            }
+        });
+        add(ContinueButton);
+        ContinueButton.setBounds(150, 160, 131, 35);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CodeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EmailEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(ContinueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(ForgotText)))
-                .addContainerGap(57, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(ForgotText)
-                .addGap(33, 33, 33)
-                .addComponent(EmailEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(CodeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(ContinueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
-        );
+        ContinueButton1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        ContinueButton1.setForeground(new java.awt.Color(0, 51, 255));
+        ContinueButton1.setText("Continue");
+        add(ContinueButton1);
+        ContinueButton1.setBounds(150, 300, 131, 35);
+
+        CodeLabel.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        CodeLabel.setForeground(new java.awt.Color(255, 255, 255));
+        CodeLabel.setText("Code:");
+        add(CodeLabel);
+        CodeLabel.setBounds(50, 230, 80, 35);
+
+        EmailLabel.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        EmailLabel.setForeground(new java.awt.Color(255, 255, 255));
+        EmailLabel.setText("Email:");
+        add(EmailLabel);
+        EmailLabel.setBounds(50, 90, 90, 35);
     }// </editor-fold>//GEN-END:initComponents
 
     private void EmailEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailEntryActionPerformed
@@ -128,11 +128,18 @@ public class ForgotPasswordView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_CodeEntryActionPerformed
 
+    private void ContinueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContinueButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CodeEntry;
+    private javax.swing.JLabel CodeLabel;
     private javax.swing.JButton ContinueButton;
+    private javax.swing.JButton ContinueButton1;
     private javax.swing.JTextField EmailEntry;
+    private javax.swing.JLabel EmailLabel;
     private javax.swing.JLabel ForgotText;
     // End of variables declaration//GEN-END:variables
 }

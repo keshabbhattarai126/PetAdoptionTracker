@@ -30,7 +30,7 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="SignOutButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="173" max="32767" attributes="0"/>
@@ -43,7 +43,7 @@
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="SignOutButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="photoLabel" min="-2" pref="150" max="-2" attributes="0"/>
@@ -58,10 +58,13 @@
         <Property name="text" type="java.lang.String" value="Dashboard"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="SignOutButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sign Out"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SignOutButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="photoLabel">
       <Properties>
