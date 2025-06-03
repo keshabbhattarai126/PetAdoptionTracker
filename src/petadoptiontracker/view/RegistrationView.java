@@ -57,7 +57,7 @@ public class RegistrationView extends javax.swing.JFrame {
 
         jLabel1.setText("Registration");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(590, 70, 80, 16);
+        jLabel1.setBounds(590, 70, 80, 17);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(38, 78, 201));
@@ -65,38 +65,33 @@ public class RegistrationView extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(590, 110, 260, 20);
         getContentPane().add(nameTextField);
-        nameTextField.setBounds(580, 160, 240, 22);
+        nameTextField.setBounds(580, 160, 240, 23);
 
         jLabel3.setText("Name");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(520, 160, 32, 16);
+        jLabel3.setBounds(520, 160, 34, 17);
         getContentPane().add(emailTextField);
-        emailTextField.setBounds(580, 200, 240, 22);
+        emailTextField.setBounds(580, 200, 240, 23);
 
         jLabel4.setText("Email");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(520, 200, 30, 16);
+        jLabel4.setBounds(520, 200, 32, 17);
 
         jLabel5.setText("Password");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(500, 240, 50, 16);
+        jLabel5.setBounds(500, 240, 58, 17);
         getContentPane().add(passwordField);
-        passwordField.setBounds(580, 240, 240, 22);
+        passwordField.setBounds(580, 240, 240, 23);
 
         jLabel6.setText("Confirm Password");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(450, 280, 110, 20);
         getContentPane().add(confirmPasswordField);
-        confirmPasswordField.setBounds(580, 280, 240, 22);
+        confirmPasswordField.setBounds(580, 280, 240, 23);
 
         registerButton.setBackground(new java.awt.Color(38, 78, 201));
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Create Account");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
         getContentPane().add(registerButton);
         registerButton.setBounds(580, 340, 240, 40);
 
@@ -128,10 +123,6 @@ public class RegistrationView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -113,4 +113,30 @@ public class UserDao {
             mySql.closeConnection(conn);
         }
     }
+        
+        public UserData getUserByName(String name) {
+        String sql = "SELECT * FROM demoUsers WHERE name = ?";
+
+        try (Connection conn = mySql.openConnection(); 
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, name);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                UserData user = new UserData();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setImage(rs.getBytes("image")); // If you store user image as BLOB
+                return user;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null; // User not found
+    }
+
 }
