@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import petadoptiontracker.database.MySqlConnection;
 import petadoptiontracker.model.LoginRequest;
+import petadoptiontracker.model.ResetPasswordRequest;
 import petadoptiontracker.model.UserData;
 
 /**
@@ -77,5 +78,39 @@ public class UserDao {
         }
         return null;
     }
-    
+        public boolean checkEmail(String email){
+            String query="SELECT * FROM demoUsers where email=?";
+            Connection conn= mySql.openConnection();
+            try{
+              PreparedStatement stmnt = conn.prepareStatement(query);
+              stmnt.setString(1,email);
+              ResultSet result = stmnt.executeQuery();
+              if(result.next()){
+                return true;
+            }else{
+                return false;
+            }
+            }catch(Exception e){
+                return false;              
+            }finally{
+                mySql.closeConnection(conn);
+                
+            }
+        
+    }
+        public boolean resetPassword(ResetPasswordRequest resetReq){
+        String query = "UPDATE demoUsers SET password=? WHERE email=?";
+        Connection conn=mySql.openConnection();
+        try{
+            PreparedStatement stmnt= conn.prepareStatement(query);
+            stmnt.setString(1,resetReq.getPassword());
+            stmnt.setString(2,resetReq.getEmail());
+            int result = stmnt.executeUpdate();
+            return result>0;
+        }catch(Exception e){
+            return false;
+        }finally{
+            mySql.closeConnection(conn);
+        }
+    }
 }

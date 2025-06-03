@@ -51,8 +51,8 @@ public class RegistrationView extends javax.swing.JFrame {
         uploadImageButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 535));
-        setSize(new java.awt.Dimension(800, 535));
+        setPreferredSize(new java.awt.Dimension(950, 535));
+        setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
         jLabel1.setText("Registration");

@@ -4,12 +4,30 @@
  */
 package petadoptiontracker.view;
 
+import java.awt.Image;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import petadoptiontracker.model.UserData;
+
 /**
  *
  * @author keshab
  */
 public class DashboardView extends javax.swing.JFrame {
-
+     public DashboardView(UserData user) {
+        initComponents();
+        jLabel1.setText("Welcome, " + user.getName() + "!");
+        
+        byte[] imageData = user.getImage();
+        if (imageData != null) {
+            ImageIcon imageIcon = new ImageIcon(imageData);
+            // Resize image to fit label size (optional)
+            Image img = imageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+            imageIcon = new ImageIcon(img);
+            photoLabel.setIcon(imageIcon);
+        }
+    }
     /**
      * Creates new form DashboardView
      */
@@ -27,13 +45,23 @@ public class DashboardView extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        SignOutButton = new javax.swing.JButton();
+        photoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Dashboard");
 
-        jButton1.setText("Sign Out");
+        SignOutButton.setText("Sign Out");
+        SignOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignOutButtonActionPerformed(evt);
+            }
+        });
+
+        photoLabel.setText("jLabel2");
+        photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
+        photoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -41,9 +69,12 @@ public class DashboardView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(285, 285, 285)
-                .addComponent(jLabel1)
-                .addGap(106, 106, 106)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(photoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(106, 106, 106)
+                        .addComponent(SignOutButton)))
                 .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -52,12 +83,18 @@ public class DashboardView extends javax.swing.JFrame {
                 .addGap(115, 115, 115)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addContainerGap(321, Short.MAX_VALUE))
+                    .addComponent(SignOutButton))
+                .addGap(26, 26, 26)
+                .addComponent(photoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SignOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignOutButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SignOutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,7 +132,11 @@ public class DashboardView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton SignOutButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel photoLabel;
     // End of variables declaration//GEN-END:variables
+    public void addSignOutListener(ActionListener listener){
+        SignOutButton.addActionListener(listener);
+    }   
 }

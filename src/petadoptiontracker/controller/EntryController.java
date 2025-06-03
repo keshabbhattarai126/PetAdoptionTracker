@@ -16,6 +16,7 @@ import petadoptiontracker.view.RegistrationView;
  */
 public class EntryController {
     private final EntryView entryView;
+    
     public EntryController(EntryView entryView){
         
         System.err.flush();
