@@ -17,6 +17,10 @@
             <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/MyRequestView.java</file>
             <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/MyRequestController.java</file>
             <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/ImageUploadController.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/database/DbConnection.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/database/MySqlConnection.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/model/UserData.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/mail/SMTPSMailSender.java</file>
         </group>
     </open-files>
 </project-private>

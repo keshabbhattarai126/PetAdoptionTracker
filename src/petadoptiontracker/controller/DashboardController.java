@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.DashboardView;
-import petadoptiontracker.view.MyRequestView;
+//import petadoptiontracker.view.MyRequestView;
 
 /**
  *
@@ -28,7 +28,7 @@ public class DashboardController {
         this.dashboardView = dashboardView;
 
         // Register button listeners
-        dashboardView.addMyRequestButtonListener(new MyRequestListener());
+//        dashboardView.addMyRequestButtonListener(new MyRequestListener());
         dashboardView.addSearchButtonListener(new SearchButtonListener());
     }
 
@@ -40,15 +40,15 @@ public class DashboardController {
         dashboardView.dispose();
     }
 
-    class MyRequestListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            MyRequestView myRequestView = new MyRequestView();
-            MyRequestController myRequestController = new MyRequestController(myRequestView);
-            myRequestController.open();
-            close(); 
-        }
-    }
+//    class MyRequestListener implements ActionListener {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            MyRequestView myRequestView = new MyRequestView();
+//            MyRequestController myRequestController = new MyRequestController(myRequestView);
+//            myRequestController.open();
+//            close(); 
+//        }
+//    }
 
     class SearchButtonListener implements ActionListener {
         @Override

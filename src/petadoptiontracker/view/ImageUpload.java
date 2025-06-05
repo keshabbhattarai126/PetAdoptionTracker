@@ -42,11 +42,11 @@ public class ImageUpload extends javax.swing.JFrame {
 
         imageButton1.setText("Upload");
         getContentPane().add(imageButton1);
-        imageButton1.setBounds(640, 160, 72, 23);
+        imageButton1.setBounds(340, 240, 72, 23);
 
         imageButton2.setText("Upload");
         getContentPane().add(imageButton2);
-        imageButton2.setBounds(640, 220, 72, 23);
+        imageButton2.setBounds(190, 220, 72, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

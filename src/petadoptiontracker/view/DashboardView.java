@@ -60,109 +60,103 @@ public class DashboardView extends javax.swing.JFrame {
         nameResult = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         emailResult = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jTabbedPane4 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(950, 535));
+        getContentPane().setLayout(null);
 
         jLabel1.setText("Dashboard");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(430, 10, 64, 17);
 
         photoLabel.setText("jLabel2");
         photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
         photoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
+        getContentPane().add(photoLabel);
+        photoLabel.setBounds(68, 34, 80, 80);
 
         myRequestButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         myRequestButton.setText("My Request");
+        getContentPane().add(myRequestButton);
+        myRequestButton.setBounds(34, 187, 152, 29);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
+        getContentPane().add(dashboardButton);
+        dashboardButton.setBounds(34, 126, 152, 29);
 
         jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton4.setText("Profile Setting");
+        getContentPane().add(jButton4);
+        jButton4.setBounds(34, 243, 152, 29);
 
         jButton5.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton5.setText("Sign Out");
+        getContentPane().add(jButton5);
+        jButton5.setBounds(34, 303, 152, 29);
 
         jLabel2.setText("This is Dashboard");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(590, 10, 106, 17);
+        getContentPane().add(searchField);
+        searchField.setBounds(320, 60, 195, 23);
 
         searchButton.setText("Search");
+        getContentPane().add(searchButton);
+        searchButton.setBounds(520, 60, 72, 23);
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(371, 303, 0, 0);
 
         jLabel4.setText("Name");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(290, 450, 34, 17);
+        getContentPane().add(nameResult);
+        nameResult.setBounds(340, 450, 130, 23);
 
         jLabel5.setText("Email");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(490, 450, 32, 17);
+        getContentPane().add(emailResult);
+        emailResult.setBounds(540, 450, 189, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myRequestButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(photoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(222, 222, 222)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(emailResult)
-                                            .addComponent(nameResult))))
-                                .addGap(18, 18, 18)
-                                .addComponent(searchButton)))))
-                .addContainerGap(294, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(photoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(dashboardButton)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(myRequestButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel2)))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(nameResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(emailResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(162, Short.MAX_VALUE))
-        );
+        jPanel1.setBackground(new java.awt.Color(38, 78, 201));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 270, 510);
+
+        jPanel3.setLayout(null);
+
+        jLabel9.setText("This is tab1");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(120, 70, 68, 17);
+
+        jTabbedPane4.addTab("tab1", jPanel3);
+
+        jPanel4.setLayout(null);
+
+        jLabel10.setText("This is tab 2");
+        jPanel4.add(jLabel10);
+        jLabel10.setBounds(170, 70, 100, 60);
+
+        jTabbedPane4.addTab("tab2", jPanel4);
+
+        jPanel5.setLayout(null);
+
+        jLabel11.setText("This is tab 3");
+        jPanel5.add(jLabel11);
+        jLabel11.setBounds(210, 40, 110, 40);
+
+        jTabbedPane4.addTab("tab3", jPanel5);
+
+        getContentPane().add(jTabbedPane4);
+        jTabbedPane4.setBounds(320, 100, 380, 290);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,10 +202,18 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JButton myRequestButton;
     private javax.swing.JTextField nameResult;
     private javax.swing.JLabel photoLabel;
