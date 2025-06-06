@@ -11,6 +11,7 @@
 package petadoptiontracker.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import petadoptiontracker.view.DashboardView;
 
 import petadoptiontracker.view.DashboardView;
@@ -39,15 +40,21 @@ public class DashboardController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            signOut();
+            int confirm = JOptionPane.showConfirmDialog(
+                    dashboardView,
+                    "Are you sure you want to log out?",
+                    "Logout Confirmation",
+                    JOptionPane.YES_NO_OPTION
+            );
+
+            if (confirm == JOptionPane.YES_OPTION) {            
+            SessionManager.logout();            
+            dashboardView.dispose();
+            EntryView entryView = new EntryView();
+            EntryController entryController = new EntryController(entryView);
+            entryController.open();
+            }
         }
         
-    }
-    public void signOut() {
-        SessionManager.logout();            
-        dashboardView.dispose();
-        EntryView entryView = new EntryView();
-        EntryController entryController = new EntryController(entryView);
-        entryController.open();
     }
 }
