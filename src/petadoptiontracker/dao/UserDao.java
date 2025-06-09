@@ -67,7 +67,8 @@ public class UserDao {
                     result.getString("name"),
                     result.getString("email"),
                     result.getString("password"),
-                    result.getBytes("image")                 
+                    result.getBytes("image"),
+                        result.getString("role")
                 );
                 user.setId(result.getInt("id"));
                 
