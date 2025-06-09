@@ -21,14 +21,14 @@ public class UserDao {
     MySqlConnection mySql = new MySqlConnection();
     public boolean registerUser(UserData userData){
         Connection conn= mySql.openConnection();
-         String createTableSQL = "CREATE TABLE IF NOT EXISTS demoUsers ("
+         String createTableSQL = "CREATE TABLE IF NOT EXISTS Users ("
             + "id INT AUTO_INCREMENT PRIMARY KEY, "               
             + "name VARCHAR(50) NOT NULL, "
             + "email VARCHAR(100) UNIQUE NOT NULL, "
             + "password VARCHAR(255) NOT NULL, "
             + "image BLOB NOT NULL"
             + ")";
-         String query=  "INSERT INTO demoUsers (name, email, password,image) VALUES (?, ?, ?,?)";
+         String query=  "INSERT INTO Users (name, email, password,image) VALUES (?, ?, ?,?)";
          
         try {
             PreparedStatement createtbl= conn.prepareStatement(createTableSQL);
@@ -55,7 +55,7 @@ public class UserDao {
     
     public UserData loginUser(LoginRequest loginData){
         Connection conn = mySql.openConnection();
-        String sql = "SELECT * FROM demoUsers where email = ? and password = ?";
+        String sql = "SELECT * FROM Users where email = ? and password = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, loginData.getEmail());
             pstmt.setString(2, loginData.getPassword());
@@ -79,7 +79,7 @@ public class UserDao {
         return null;
     }
         public boolean checkEmail(String email){
-            String query="SELECT * FROM demoUsers where email=?";
+            String query="SELECT * FROM Users where email=?";
             Connection conn= mySql.openConnection();
             try{
               PreparedStatement stmnt = conn.prepareStatement(query);
@@ -99,7 +99,7 @@ public class UserDao {
         
     }
         public boolean resetPassword(ResetPasswordRequest resetReq){
-        String query = "UPDATE demoUsers SET password=? WHERE email=?";
+        String query = "UPDATE Users SET password=? WHERE email=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt= conn.prepareStatement(query);
