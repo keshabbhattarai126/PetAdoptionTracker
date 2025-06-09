@@ -19,7 +19,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
      public AdminDashboardView(UserData user) {
         initComponents();
         
-        jLabel1.setText("Welcome, " + user.getName() + "!");
+        jLabel1.setText("Welcome, " + user.getName() +" "+user.getRole()+ "!");
         
         byte[] imageData = user.getImage();
         if (imageData != null) {
@@ -76,7 +76,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel1.setText("Dashboard");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(430, 10, 64, 17);
+        jLabel1.setBounds(430, 10, 170, 20);
 
         photoLabel.setText("jLabel2");
         photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
@@ -106,7 +106,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel2.setText("This is Admin Dashboard");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(526, 10, 170, 20);
+        jLabel2.setBounds(400, 40, 170, 20);
         getContentPane().add(searchField);
         searchField.setBounds(320, 60, 195, 23);
 
