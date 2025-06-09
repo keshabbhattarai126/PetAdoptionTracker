@@ -127,7 +127,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(emailResult);
         emailResult.setBounds(540, 450, 189, 23);
 
-        jPanel1.setBackground(new java.awt.Color(38, 78, 201));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 270, 510);
 

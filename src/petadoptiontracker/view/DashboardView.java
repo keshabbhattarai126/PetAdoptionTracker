@@ -19,7 +19,7 @@ public class DashboardView extends javax.swing.JFrame {
      public DashboardView(UserData user) {
         initComponents();
         
-        jLabel1.setText("Welcome, " + user.getName() + "!");
+        jLabel1.setText("Welcome, " + user.getName() +user.getRole()+"!");
         
         byte[] imageData = user.getImage();
         if (imageData != null) {
@@ -75,7 +75,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel1.setText("Dashboard");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(430, 10, 64, 17);
+        jLabel1.setBounds(360, 10, 260, 20);
 
         photoLabel.setText("jLabel2");
         photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
@@ -105,7 +105,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel2.setText("This is Dashboard");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(590, 10, 106, 17);
+        jLabel2.setBounds(610, 60, 106, 17);
         getContentPane().add(searchField);
         searchField.setBounds(320, 60, 195, 23);
 
