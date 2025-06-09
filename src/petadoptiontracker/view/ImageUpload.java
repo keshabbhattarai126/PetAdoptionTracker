@@ -49,6 +49,7 @@ public class ImageUpload extends javax.swing.JFrame {
         imageButton2.setBounds(190, 220, 72, 23);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.DashboardView;
+import petadoptiontracker.view.EntryView;
 //import petadoptiontracker.view.MyRequestView;
 
 /**
@@ -30,6 +31,7 @@ public class DashboardController {
         // Register button listeners
 //        dashboardView.addMyRequestButtonListener(new MyRequestListener());
         dashboardView.addSearchButtonListener(new SearchButtonListener());
+        dashboardView.addSignOutButtonListener(new SignOutListener());
     }
 
     public void open() {
@@ -49,6 +51,28 @@ public class DashboardController {
 //            close(); 
 //        }
 //    }
+    
+    class SignOutListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int confirm = JOptionPane.showConfirmDialog(
+                    dashboardView,
+                    "Are you sure you want to log out?",
+                    "Logout Confirmation",
+                    JOptionPane.YES_NO_OPTION
+            );
+
+            if (confirm == JOptionPane.YES_OPTION) {            
+            SessionManager.logout();            
+            dashboardView.dispose();
+            EntryView entryView = new EntryView();
+            EntryController entryController = new EntryController(entryView);
+            entryController.open();
+            }
+        }
+        
+    }
     
     
 

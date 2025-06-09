@@ -122,6 +122,7 @@ public class RegistrationView extends javax.swing.JFrame {
         uploadImageButton.setBounds(630, 310, 150, 30);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

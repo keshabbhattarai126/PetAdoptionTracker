@@ -103,6 +103,7 @@ public class LoginView extends javax.swing.JFrame {
         jLabel7.setBounds(0, 0, 950, 535);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

@@ -19,6 +19,8 @@ public class DashboardView extends javax.swing.JFrame {
      public DashboardView(UserData user) {
         initComponents();
         
+        
+        
         jLabel1.setText("Welcome, " + user.getName() +user.getRole()+"!");
         
         byte[] imageData = user.getImage();
@@ -51,7 +53,7 @@ public class DashboardView extends javax.swing.JFrame {
         myRequestButton = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        signOutButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
@@ -70,6 +72,7 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(950, 535));
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
@@ -98,10 +101,10 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(jButton4);
         jButton4.setBounds(34, 243, 152, 29);
 
-        jButton5.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton5.setText("Sign Out");
-        getContentPane().add(jButton5);
-        jButton5.setBounds(34, 303, 152, 29);
+        signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        signOutButton.setText("Sign Out");
+        getContentPane().add(signOutButton);
+        signOutButton.setBounds(34, 303, 152, 29);
 
         jLabel2.setText("This is Dashboard");
         getContentPane().add(jLabel2);
@@ -159,6 +162,7 @@ public class DashboardView extends javax.swing.JFrame {
         jTabbedPane4.setBounds(320, 100, 380, 290);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -200,7 +204,6 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton dashboardButton;
     private javax.swing.JTextField emailResult;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -219,6 +222,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel photoLabel;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
+    private javax.swing.JButton signOutButton;
     // End of variables declaration//GEN-END:variables
     
     public void addMyRequestButtonListener(ActionListener listener) {
@@ -244,6 +248,9 @@ public void clearSearchResult() {
     nameResult.setText("");
     emailResult.setText("");
 }
+public void addSignOutButtonListener(ActionListener listener){
+        signOutButton.addActionListener(listener);
+    } 
 
 
 
