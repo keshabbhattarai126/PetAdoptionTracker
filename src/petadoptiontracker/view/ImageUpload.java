@@ -36,35 +36,19 @@ public class ImageUpload extends javax.swing.JFrame {
         imageButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(950, 535));
+        getContentPane().setLayout(null);
 
         imageButton1.setText("Upload");
+        getContentPane().add(imageButton1);
+        imageButton1.setBounds(340, 240, 72, 23);
 
         imageButton2.setText("Upload");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(imageButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(197, Short.MAX_VALUE)
-                .addComponent(imageButton2)
-                .addGap(131, 131, 131))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(imageButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(imageButton2)
-                .addContainerGap(165, Short.MAX_VALUE))
-        );
+        getContentPane().add(imageButton2);
+        imageButton2.setBounds(190, 220, 72, 23);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -97,10 +81,10 @@ public class ImageUpload extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            ImageUpload view = new ImageUpload();
-            ImageUploadController controller = new ImageUploadController(view);
-            controller.open();
-        }
+                ImageUpload view = new ImageUpload();
+                ImageUploadController controller = new ImageUploadController(view);
+                controller.open();
+            }
         });
     }
 
@@ -111,11 +95,10 @@ public class ImageUpload extends javax.swing.JFrame {
 
     private File selectedFile;
 
-public void setSelectedFile(File file) {
-    this.selectedFile = file;
-    System.out.println("Selected file: " + file.getAbsolutePath());
-}
-
+    public void setSelectedFile(File file) {
+        this.selectedFile = file;
+        System.out.println("Selected file: " + file.getAbsolutePath());
+    }
 
     public void ImageButton1Listener(ActionListener listener){
         imageButton1.addActionListener(listener);
