@@ -98,7 +98,7 @@ public class LoginController {
                 if(user != null){
                     
                     JOptionPane.showMessageDialog(loginView, "Login Successful");
-
+                    SessionManager.login(userDao.loginUser(loginRequest));
                     DashboardView dashboardView = new DashboardView(user);
                     DashboardController dashboardController = new DashboardController(dashboardView);
                     dashboardController.open();

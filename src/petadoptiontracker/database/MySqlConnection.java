@@ -20,7 +20,7 @@ public class MySqlConnection implements DbConnection{
         try{
             String username = "root";
             String password = "12345";
-            String database = "mvc_demo";
+            String database = "PetAdoptionTracker";
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection;
             connection = DriverManager.getConnection(
