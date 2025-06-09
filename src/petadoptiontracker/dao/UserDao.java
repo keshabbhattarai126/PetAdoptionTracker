@@ -26,10 +26,10 @@ public class UserDao {
             + "name VARCHAR(50) NOT NULL, "
             + "email VARCHAR(100) UNIQUE NOT NULL, "
             + "password VARCHAR(255) NOT NULL, "
-            + "image BLOB NOT NULL"
+            + "image BLOB NOT NULL,"
             + "role VARCHAR(10) NOT NULL DEFAULT 'USER'" 
             + ")";
-         String query=  "INSERT INTO demoUsers (name, email, password,image,role) VALUES (?, ?, ?,?)";
+         String query=  "INSERT INTO demoUsers (name, email, password,image,role) VALUES (?, ?, ?,?,?)";
          
         try {
             PreparedStatement createtbl= conn.prepareStatement(createTableSQL);
@@ -43,7 +43,7 @@ public class UserDao {
             pstmt.setString(2, userData.getEmail());
             pstmt.setString(3, userData.getPassword());
             pstmt.setBytes(4, userData.getImage());
-            pstmt.setString(5, userData.getRole());
+            pstmt.setString(5, userData.getRole() != null ? userData.getRole() : "USER");
             int result = pstmt.executeUpdate();
             return result > 0;
         } catch (SQLException ex) {

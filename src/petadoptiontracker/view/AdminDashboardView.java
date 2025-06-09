@@ -103,9 +103,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jButton5);
         jButton5.setBounds(34, 303, 152, 29);
 
-        jLabel2.setText("This is Dashboard");
+        jLabel2.setText("This is Admin Dashboard");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(590, 10, 106, 17);
+        jLabel2.setBounds(526, 10, 170, 20);
         getContentPane().add(searchField);
         searchField.setBounds(320, 60, 195, 23);
 
