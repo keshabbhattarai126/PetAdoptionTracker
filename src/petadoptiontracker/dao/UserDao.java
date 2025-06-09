@@ -131,7 +131,7 @@ public class UserDao {
                 user.setId(rs.getInt("id"));
                 user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
-                user.setImage(rs.getBytes("image")); // If you store user image as BLOB
+                user.setImage(rs.getBytes("image"));
                 return user;
             }
 
@@ -139,7 +139,7 @@ public class UserDao {
             e.printStackTrace();
         }
 
-        return null; // User not found
+        return null;
     }
 
 }

@@ -21,7 +21,6 @@ public class ImageUpload extends javax.swing.JFrame {
      */
     public ImageUpload() {
         initComponents();
-        
     }
 
     /**
@@ -82,10 +81,10 @@ public class ImageUpload extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            ImageUpload view = new ImageUpload();
-            ImageUploadController controller = new ImageUploadController(view);
-            controller.open();
-        }
+                ImageUpload view = new ImageUpload();
+                ImageUploadController controller = new ImageUploadController(view);
+                controller.open();
+            }
         });
     }
 
@@ -96,11 +95,10 @@ public class ImageUpload extends javax.swing.JFrame {
 
     private File selectedFile;
 
-public void setSelectedFile(File file) {
-    this.selectedFile = file;
-    System.out.println("Selected file: " + file.getAbsolutePath());
-}
-
+    public void setSelectedFile(File file) {
+        this.selectedFile = file;
+        System.out.println("Selected file: " + file.getAbsolutePath());
+    }
 
     public void ImageButton1Listener(ActionListener listener){
         imageButton1.addActionListener(listener);

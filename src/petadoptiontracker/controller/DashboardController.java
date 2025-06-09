@@ -1,4 +1,3 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -22,6 +21,7 @@ import petadoptiontracker.view.EntryView;
  *
  * @author keshab
  */
+
 public class DashboardController {
     private final DashboardView dashboardView;
 
@@ -64,16 +64,15 @@ public class DashboardController {
             );
 
             if (confirm == JOptionPane.YES_OPTION) {            
-            SessionManager.logout();            
-            dashboardView.dispose();
-            EntryView entryView = new EntryView();
-            EntryController entryController = new EntryController(entryView);
-            entryController.open();
+                SessionManager.logout();            
+                dashboardView.dispose();
+                EntryView entryView = new EntryView();
+                EntryController entryController = new EntryController(entryView);
+                entryController.open();
             }
         }
         
     }
-    
     
 
     class SearchButtonListener implements ActionListener {
