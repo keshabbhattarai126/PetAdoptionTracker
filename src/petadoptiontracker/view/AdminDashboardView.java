@@ -399,6 +399,7 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     
     public javax.swing.JTabbedPane getTabbedPane(){
         return jTabbedPane4;
+    }
     
     public String getSelectedPetStatus() {
         return (String) petStatus.getSelectedItem(); // Get the selected item as a String
