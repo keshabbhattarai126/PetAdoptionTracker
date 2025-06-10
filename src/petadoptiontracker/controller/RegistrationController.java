@@ -152,7 +152,7 @@ public class RegistrationController {
 //                when data is validated
                 try {
                     byte []imageData = Files.readAllBytes(image.toPath());
-                    UserData userData= new UserData(name,email,password,imageData);
+                    UserData userData= new UserData(name,email,password,imageData,"USER");
                     boolean result= userDao.registerUser(userData);
                     if(result == true){
                             JOptionPane.showMessageDialog(registrationView, 

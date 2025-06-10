@@ -15,18 +15,21 @@ public class UserData {
     private String email;
     private String password;
     private  byte[] image;
-    public UserData(String name,String email, String password, byte[] image){
+    private String role;
+    public UserData(String name,String email, String password, byte[] image, String role){
         this.name= name;
         this.email=email;
         this.password=password;
         this.image=image;
+        this.role=role;
     }
-    public UserData(int id,String name,String email, String password, byte[] image){
+    public UserData(int id,String name,String email, String password, byte[] image, String role){
         this.id=id;
         this.name= name;
         this.email=email;
         this.password=password;
         this.image=image;
+        this.role=role;
     }
     public UserData(){
         
@@ -60,6 +63,20 @@ public class UserData {
     }
     public byte[] getImage(){
         return this.image;
+    }
+
+    /**
+     * @return the role
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * @param role the role to set
+     */
+    public void setRole(String role) {
+        this.role = role;
     }
     
 }
