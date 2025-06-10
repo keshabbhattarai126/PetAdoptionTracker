@@ -24,6 +24,9 @@ public class AdminDashboardController {
         adminDashboardView.addSignOutButtonListener(new SignOutListener());
         adminDashboardView.addPetButtonListener(new AddPetListener());
         adminDashboardView.addPetPhotoUploadButtonListener(new UploadPhotoListener());
+        adminDashboardView.addPetTabButtonListener(new AddPetTabListener());
+        adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
+        
         
         // Add admin-specific listeners here as you build features
     }
@@ -142,7 +145,21 @@ public class AdminDashboardController {
         
     }
     
+    class AddPetTabListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            adminDashboardView.getTabbedPane().setSelectedIndex(2);
+        }
+    }
     
+    class ViewPetTabListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            adminDashboardView.getTabbedPane().setSelectedIndex(1);
+        }
+    }
 
     class SearchButtonListener implements ActionListener {
         @Override

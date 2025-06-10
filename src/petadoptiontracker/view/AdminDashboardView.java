@@ -48,9 +48,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         photoLabel = new javax.swing.JLabel();
-        myRequestButton = new javax.swing.JButton();
+        addPetTab = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        viewPetTab = new javax.swing.JButton();
         signOutButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
@@ -97,31 +97,31 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(photoLabel);
         photoLabel.setBounds(68, 34, 80, 80);
 
-        myRequestButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        myRequestButton.setText("My Request");
-        getContentPane().add(myRequestButton);
-        myRequestButton.setBounds(34, 187, 152, 29);
+        addPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        addPetTab.setText("Add Pet");
+        getContentPane().add(addPetTab);
+        addPetTab.setBounds(34, 187, 152, 31);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 152, 29);
+        dashboardButton.setBounds(34, 126, 152, 31);
 
-        jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton4.setText("Profile Setting");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(34, 243, 152, 29);
+        viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        viewPetTab.setText("View Pet");
+        getContentPane().add(viewPetTab);
+        viewPetTab.setBounds(34, 243, 107, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(34, 303, 152, 29);
+        signOutButton.setBounds(34, 303, 152, 31);
 
         jLabel2.setText("This is Admin Dashboard");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(400, 40, 170, 20);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 23);
+        searchField.setBounds(320, 60, 195, 22);
 
         searchButton.setText("Search");
         getContentPane().add(searchButton);
@@ -131,15 +131,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 450, 34, 17);
+        jLabel4.setBounds(290, 450, 32, 16);
         getContentPane().add(nameResult);
-        nameResult.setBounds(340, 450, 130, 23);
+        nameResult.setBounds(340, 450, 130, 22);
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 32, 17);
+        jLabel5.setBounds(490, 450, 30, 16);
         getContentPane().add(emailResult);
-        emailResult.setBounds(540, 450, 189, 23);
+        emailResult.setBounds(540, 450, 189, 22);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         getContentPane().add(jPanel1);
@@ -165,31 +165,31 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel9.setText("Add Pet");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(130, 20, 68, 17);
+        jLabel9.setBounds(130, 20, 68, 16);
 
         jLabel6.setText("Status");
         jPanel3.add(jLabel6);
         jLabel6.setBounds(280, 60, 90, 20);
         jPanel3.add(petSex);
-        petSex.setBounds(150, 170, 64, 23);
+        petSex.setBounds(150, 170, 64, 22);
 
         jLabel7.setText("Category (cat/dog)");
         jPanel3.add(jLabel7);
         jLabel7.setBounds(30, 70, 120, 20);
         jPanel3.add(petStatus);
-        petStatus.setBounds(270, 90, 64, 23);
+        petStatus.setBounds(270, 90, 64, 22);
 
         jLabel8.setText("Breed");
         jPanel3.add(jLabel8);
         jLabel8.setBounds(30, 110, 90, 20);
         jPanel3.add(petBreed1);
-        petBreed1.setBounds(150, 110, 64, 23);
+        petBreed1.setBounds(150, 110, 64, 22);
 
         jLabel12.setText("Age");
         jPanel3.add(jLabel12);
         jLabel12.setBounds(30, 140, 90, 20);
         jPanel3.add(petAge1);
-        petAge1.setBounds(150, 140, 64, 23);
+        petAge1.setBounds(150, 140, 64, 22);
 
         jLabel13.setText("Sex");
         jPanel3.add(jLabel13);
@@ -203,11 +203,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(jLabel14);
         jLabel14.setBounds(30, 210, 90, 20);
         jPanel3.add(petName2);
-        petName2.setBounds(150, 70, 64, 23);
+        petName2.setBounds(150, 70, 64, 22);
 
         addPetButton.setText("Add Pet");
         jPanel3.add(addPetButton);
-        addPetButton.setBounds(280, 160, 77, 23);
+        addPetButton.setBounds(280, 160, 72, 23);
 
         jTabbedPane4.addTab("tab1", jPanel3);
 
@@ -256,9 +256,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPetButton;
+    private javax.swing.JButton addPetTab;
     private javax.swing.JButton dashboardButton;
     private javax.swing.JTextField emailResult;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -278,7 +278,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JButton myRequestButton;
     private javax.swing.JTextField nameResult;
     private javax.swing.JTextField petAge1;
     private javax.swing.JTextField petBreed1;
@@ -290,10 +289,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton signOutButton;
+    private javax.swing.JButton viewPetTab;
     // End of variables declaration//GEN-END:variables
     
     public void addMyRequestButtonListener(ActionListener listener) {
-    myRequestButton.addActionListener(listener);
+    addPetTab.addActionListener(listener);
     }
     
     public void addSearchButtonListener(ActionListener listener) {
@@ -359,6 +359,19 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
      */
     public javax.swing.JTextField getPetStatus() {
         return petStatus;
+    }
+    
+    public void addPetTabButtonListener(ActionListener listener) {
+    addPetTab.addActionListener(listener);
+    }
+    
+    public void viewPetTabButtonListener(ActionListener listener) {
+    viewPetTab.addActionListener(listener);
+    }
+    
+    public javax.swing.JTabbedPane getTabbedPane(){
+        return jTabbedPane4;
+    
     }
 
 
