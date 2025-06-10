@@ -56,8 +56,8 @@ public class AdminDashboardController {
                 String name = adminDashboardView.getPetName().getText();
                 String breed = adminDashboardView.getPetBreed().getText();
                 String ageText = adminDashboardView.getPetAge().getText();
-                String sex = adminDashboardView.getPetSex().getText();
-                String status = adminDashboardView.getPetStatus().getText();
+                String sex = adminDashboardView.getSelectedPetSex();
+                String status = adminDashboardView.getSelectedPetStatus();
 
                 // Validation
                 if (name.isEmpty() || breed.isEmpty() || ageText.isEmpty() ||
