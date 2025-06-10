@@ -51,8 +51,8 @@ public class RegistrationView extends javax.swing.JFrame {
         uploadImageButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 535));
-        setSize(new java.awt.Dimension(800, 535));
+        setPreferredSize(new java.awt.Dimension(950, 535));
+        setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
         jLabel1.setText("Registration");
@@ -92,11 +92,6 @@ public class RegistrationView extends javax.swing.JFrame {
         registerButton.setBackground(new java.awt.Color(38, 78, 201));
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Create Account");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
         getContentPane().add(registerButton);
         registerButton.setBounds(580, 340, 240, 40);
 
@@ -127,11 +122,8 @@ public class RegistrationView extends javax.swing.JFrame {
         uploadImageButton.setBounds(630, 310, 150, 30);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

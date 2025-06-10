@@ -17,6 +17,7 @@ import petadoptiontracker.view.DashboardView;
 import petadoptiontracker.view.LoginView;
 import petadoptiontracker.view.RegistrationView;
 import petadoptiontracker.model.ResetPasswordRequest;
+import petadoptiontracker.view.AdminDashboardView;
 
 /**
  *
@@ -98,7 +99,7 @@ public class LoginController {
                 if(user != null){
                     
                     JOptionPane.showMessageDialog(loginView, "Login Successful");
-
+                    SessionManager.login(userDao.loginUser(loginRequest));
                     DashboardView dashboardView = new DashboardView(user);
                     DashboardController dashboardController = new DashboardController(dashboardView);
                     dashboardController.open();
@@ -110,6 +111,19 @@ public class LoginController {
                         "Login Failed");
                          System.out.println("Insert Failed");
                      }
+                
+                if (user != null) {
+                    if ("ADMIN".equalsIgnoreCase(user.getRole())) {
+                        AdminDashboardView adminView = new AdminDashboardView(user);
+                        AdminDashboardController adminController = new AdminDashboardController(adminView);
+                        adminController.open();
+                    } else {
+                        DashboardView dashboardView = new DashboardView(user);
+                        DashboardController dashboardController = new DashboardController(dashboardView);
+                        dashboardController.open();
+                    }
+                    close();
+                }
                      
                 
             }
