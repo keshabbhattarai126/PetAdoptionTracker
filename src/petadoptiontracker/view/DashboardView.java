@@ -18,7 +18,7 @@ import petadoptiontracker.model.UserData;
 public class DashboardView extends javax.swing.JFrame {
     public DashboardView(UserData user) {
         initComponents();
-        jLabel1.setText("Welcome, " + user.getName() + user.getRole() + "!");
+        jLabel1.setText("Welcome, " + user.getName() +" "+ user.getRole() + "!");
         byte[] imageData = user.getImage();
         if (imageData != null) {
             ImageIcon imageIcon = new ImageIcon(imageData);
