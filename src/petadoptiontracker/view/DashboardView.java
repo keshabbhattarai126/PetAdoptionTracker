@@ -77,28 +77,28 @@ public class DashboardView extends javax.swing.JFrame {
         myRequestButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         myRequestButton.setText("My Request");
         getContentPane().add(myRequestButton);
-        myRequestButton.setBounds(34, 187, 152, 29);
+        myRequestButton.setBounds(34, 187, 152, 31);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 152, 29);
+        dashboardButton.setBounds(34, 126, 152, 31);
 
         jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton4.setText("Profile Setting");
         getContentPane().add(jButton4);
-        jButton4.setBounds(34, 243, 152, 29);
+        jButton4.setBounds(34, 243, 157, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(34, 303, 152, 29);
+        signOutButton.setBounds(34, 303, 152, 31);
 
         jLabel2.setText("This is Dashboard");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(610, 60, 106, 17);
+        jLabel2.setBounds(610, 60, 94, 16);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 23);
+        searchField.setBounds(320, 60, 195, 22);
 
         searchButton.setText("Search");
         getContentPane().add(searchButton);
@@ -108,15 +108,15 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 450, 34, 17);
+        jLabel4.setBounds(290, 450, 32, 16);
         getContentPane().add(nameResult);
-        nameResult.setBounds(340, 450, 130, 23);
+        nameResult.setBounds(340, 450, 130, 22);
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 32, 17);
+        jLabel5.setBounds(490, 450, 30, 16);
         getContentPane().add(emailResult);
-        emailResult.setBounds(540, 450, 189, 23);
+        emailResult.setBounds(540, 450, 189, 22);
 
         jPanel1.setBackground(new java.awt.Color(38, 78, 201));
         getContentPane().add(jPanel1);
@@ -126,7 +126,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel9.setText("This is tab1");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(120, 70, 68, 17);
+        jLabel9.setBounds(120, 70, 59, 16);
 
         jTabbedPane4.addTab("tab1", jPanel3);
 
