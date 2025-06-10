@@ -66,6 +66,7 @@ public class EntryView extends javax.swing.JFrame {
         jLabel2.setBounds(-60, -60, 540, 600);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
