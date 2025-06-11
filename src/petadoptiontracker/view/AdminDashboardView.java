@@ -6,10 +6,13 @@ package petadoptiontracker.view;
 
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 
 /**
@@ -67,7 +70,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         petStatus = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -99,34 +103,20 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(photoLabel);
         photoLabel.setBounds(68, 34, 80, 80);
 
-<<<<<<< HEAD
-        myRequestButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        myRequestButton.setText("My Request");
-        getContentPane().add(myRequestButton);
-        myRequestButton.setBounds(34, 187, 152, 31);
-=======
         addPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        addPetTab.setText("My Request");
+        addPetTab.setText("Add Pet");
         getContentPane().add(addPetTab);
         addPetTab.setBounds(34, 187, 152, 31);
->>>>>>> 47cae230d9c98be4f28adda223dd639c4f2bc686
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
         dashboardButton.setBounds(34, 126, 152, 31);
 
-<<<<<<< HEAD
-        jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton4.setText("Profile Setting");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(34, 243, 157, 31);
-=======
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        viewPetTab.setText("Profile Setting");
+        viewPetTab.setText("View Pet");
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 243, 157, 31);
->>>>>>> 47cae230d9c98be4f28adda223dd639c4f2bc686
+        viewPetTab.setBounds(34, 243, 107, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
@@ -171,9 +161,21 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jPanel5.setLayout(null);
 
-        jLabel11.setText("This is tab 3");
-        jPanel5.add(jLabel11);
-        jLabel11.setBounds(210, 40, 110, 40);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(10, -10, 452, 402);
 
         jTabbedPane4.addTab("tab3", jPanel5);
 
@@ -194,22 +196,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel6.setText("Status");
         jPanel3.add(jLabel6);
-<<<<<<< HEAD
-        jLabel6.setBounds(280, 60, 90, 20);
-        jPanel3.add(petSex);
-        petSex.setBounds(150, 170, 64, 22);
-=======
         jLabel6.setBounds(260, 60, 90, 20);
->>>>>>> 47cae230d9c98be4f28adda223dd639c4f2bc686
 
         jLabel7.setText("Category (cat/dog)");
         jPanel3.add(jLabel7);
         jLabel7.setBounds(30, 70, 120, 20);
-<<<<<<< HEAD
-        jPanel3.add(petStatus);
-        petStatus.setBounds(270, 90, 64, 22);
-=======
->>>>>>> 47cae230d9c98be4f28adda223dd639c4f2bc686
 
         jLabel8.setText("Breed");
         jPanel3.add(jLabel8);
@@ -240,8 +231,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         addPetButton.setText("Add Pet");
         jPanel3.add(addPetButton);
         addPetButton.setBounds(280, 160, 72, 23);
-<<<<<<< HEAD
-=======
 
         petSex1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         petSex1.addActionListener(new java.awt.event.ActionListener() {
@@ -251,12 +240,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         });
         jPanel3.add(petSex1);
         petSex1.setBounds(150, 170, 90, 20);
->>>>>>> 47cae230d9c98be4f28adda223dd639c4f2bc686
 
         jTabbedPane4.addTab("tab1", jPanel3);
 
         getContentPane().add(jTabbedPane4);
-        jTabbedPane4.setBounds(320, 100, 380, 290);
+        jTabbedPane4.setBounds(320, 100, 690, 330);
 
         pack();
         setLocationRelativeTo(null);
@@ -313,7 +301,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField emailResult;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -329,8 +316,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameResult;
     private javax.swing.JTextField petAge1;
     private javax.swing.JTextField petBreed1;
@@ -432,6 +421,24 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     public String getSelectedPetStatus() {
         return (String) petStatus.getSelectedItem(); // Get the selected item as a String
     }
+    
+    public void setPetTableData(List<PetModel> petList) {
+    String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+ 
+    for (PetModel pet : petList) {
+        Object[] row = {
+            pet.getId(),
+            pet.getName(),
+            pet.getBreed(),
+            pet.getAge(),
+            pet.getSex(),
+            pet.getStatus()
+        };
+        model.addRow(row);
+    }
+    jTable1.setModel(model);
+}
 
 
 

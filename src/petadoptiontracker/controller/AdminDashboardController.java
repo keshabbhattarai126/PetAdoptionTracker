@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import petadoptiontracker.dao.AdminDao;
@@ -28,6 +29,7 @@ public class AdminDashboardController {
         adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
         
         
+        
         // Add admin-specific listeners here as you build features
     }
 
@@ -38,6 +40,11 @@ public class AdminDashboardController {
     public void close() {
         adminDashboardView.dispose();
     }
+     public void loadPetTable() {
+    AdminDao adminDao = new AdminDao();
+    List<PetModel> petList = adminDao.getAllPets();
+    adminDashboardView.setPetTableData(petList);
+     }
     
     class UploadPhotoListener implements ActionListener {
         @Override
@@ -158,6 +165,7 @@ public class AdminDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             adminDashboardView.getTabbedPane().setSelectedIndex(1);
+            loadPetTable();
         }
     }
 
@@ -182,4 +190,12 @@ public class AdminDashboardController {
             }
         }
     }
+    
+//    public void loadPetTable() {
+//    AdminDao adminDao = new AdminDao();
+//    List<PetModel> petList = adminDao.getAllPets();
+//    adminDashboardView.setPetTableData(petList);
+//}
+   
+    
 }
