@@ -82,7 +82,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         petName2 = new javax.swing.JTextField();
         addPetButton = new javax.swing.JButton();
-        petSex1 = new javax.swing.JComboBox<>();
+        petSex = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(950, 535));
@@ -100,7 +100,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         photoLabel.setBounds(68, 34, 80, 80);
 
         addPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        addPetTab.setText("My Request");
+        addPetTab.setText("Add Pet");
         getContentPane().add(addPetTab);
         addPetTab.setBounds(34, 187, 152, 31);
 
@@ -110,9 +110,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
         dashboardButton.setBounds(34, 126, 152, 31);
 
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        viewPetTab.setText("Profile Setting");
+        viewPetTab.setText("View Pet");
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 243, 157, 31);
+        viewPetTab.setBounds(34, 243, 107, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
@@ -216,14 +216,14 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(addPetButton);
         addPetButton.setBounds(280, 160, 72, 23);
 
-        petSex1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
-        petSex1.addActionListener(new java.awt.event.ActionListener() {
+        petSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        petSex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                petSex1ActionPerformed(evt);
+                petSexActionPerformed(evt);
             }
         });
-        jPanel3.add(petSex1);
-        petSex1.setBounds(150, 170, 90, 20);
+        jPanel3.add(petSex);
+        petSex.setBounds(150, 170, 90, 20);
 
         jTabbedPane4.addTab("tab1", jPanel3);
 
@@ -238,9 +238,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_petStatusActionPerformed
 
-    private void petSex1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petSex1ActionPerformed
+    private void petSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petSexActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_petSex1ActionPerformed
+    }//GEN-LAST:event_petSexActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,7 +308,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField petBreed1;
     private javax.swing.JTextField petName2;
     private javax.swing.JButton petPhotoUploadButton;
-    private javax.swing.JComboBox<String> petSex1;
+    private javax.swing.JComboBox<String> petSex;
     private javax.swing.JComboBox<String> petStatus;
     private javax.swing.JLabel photoLabel;
     private javax.swing.JButton searchButton;
@@ -376,10 +376,10 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
      * @return the petSex
      */
     public JComboBox<String> getPetSex() {
-        return petStatus;
+        return petSex;
     }
     public String getSelectedPetSex() {
-        return (String) petStatus.getSelectedItem();
+        return (String) petSex.getSelectedItem();
     }
 
     /**
@@ -387,6 +387,10 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
      */
     public JComboBox<String> getPetStatus() {
         return petStatus;
+    }
+        
+    public String getSelectedPetStatus() {
+        return (String) petStatus.getSelectedItem(); 
     }
     
     public void addPetTabButtonListener(ActionListener listener) {
@@ -400,11 +404,6 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     public javax.swing.JTabbedPane getTabbedPane(){
         return jTabbedPane4;
     }
-    
-    public String getSelectedPetStatus() {
-        return (String) petStatus.getSelectedItem(); // Get the selected item as a String
-    }
-
 
 
 }
