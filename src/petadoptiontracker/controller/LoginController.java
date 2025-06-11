@@ -80,56 +80,41 @@ public class LoginController {
     }
     }
     
-    class LoginUserListener implements ActionListener{
+    class LoginUserListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String email = loginView.getEmailTextField().getText();
+        String password = String.valueOf(loginView.getPasswordField().getPassword());
+        if (email.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(loginView,
+                    "Please fill in all the fields.", "Validation Error",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+            LoginRequest loginRequest = new LoginRequest(email, password);
+            UserData user = userDao.loginUser(loginRequest);
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-             String email= loginView.getEmailTextField().getText();
-            String password= String.valueOf(loginView.getPasswordField().getPassword());
-            if(email.isEmpty()||password.isEmpty()){
-                 
-                JOptionPane.showMessageDialog(loginView, 
-                        "Please fill in all the fields.", "Validation Error", 
-                        JOptionPane.ERROR_MESSAGE);
-                
-            } else {
-                LoginRequest loginRequest= new LoginRequest(email,password);
-                UserData user=userDao.loginUser(loginRequest);
-                System.out.println(user);
-                if(user != null){
-                    
-                    JOptionPane.showMessageDialog(loginView, "Login Successful");
-                    SessionManager.login(userDao.loginUser(loginRequest));
+            if (user != null) {
+                JOptionPane.showMessageDialog(loginView, "Login Successful");
+                SessionManager.login(user);
+
+                if ("ADMIN".equalsIgnoreCase(user.getRole())) {
+                    AdminDashboardView adminView = new AdminDashboardView(user);
+                    AdminDashboardController adminController = new AdminDashboardController(adminView);
+                    adminController.open();
+                } else {
                     DashboardView dashboardView = new DashboardView(user);
                     DashboardController dashboardController = new DashboardController(dashboardView);
                     dashboardController.open();
-                     close();
-                    
-                   
-                } else{
-                         JOptionPane.showMessageDialog(loginView, 
-                        "Login Failed");
-                         System.out.println("Insert Failed");
-                     }
-                
-                if (user != null) {
-                    if ("ADMIN".equalsIgnoreCase(user.getRole())) {
-                        AdminDashboardView adminView = new AdminDashboardView(user);
-                        AdminDashboardController adminController = new AdminDashboardController(adminView);
-                        adminController.open();
-                    } else {
-                        DashboardView dashboardView = new DashboardView(user);
-                        DashboardController dashboardController = new DashboardController(dashboardView);
-                        dashboardController.open();
-                    }
-                    close();
                 }
-                     
-                
+                close();
+            } else {
+                JOptionPane.showMessageDialog(loginView,
+                        "Login Failed");
+                System.out.println("Insert Failed");
             }
         }
-        
     }
+}
     
     class ResetPassword implements MouseListener {
         @Override

@@ -98,7 +98,7 @@ public class AdminDao {
                 pet.setBreed(rs.getString("breed"));
                 pet.setAge(rs.getInt("age"));
                 pet.setSex(rs.getString("sex"));
-                pet.setPhoto(rs.getBytes("photo"));
+                //pet.setPhoto(rs.getBytes("photo"));
                 pet.setStatus(rs.getString("status"));
                 pets.add(pet);
             }

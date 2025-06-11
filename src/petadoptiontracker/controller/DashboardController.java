@@ -96,4 +96,13 @@ public class DashboardController {
             }
         }
     }
+//    adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
+ 
+//class ViewPetTabListener implements ActionListener {
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        adminDashboardView.getTabbedPane().setSelectedIndex(2); // tab3 index
+//        // Load data into the table
+//    }
+//}
 }

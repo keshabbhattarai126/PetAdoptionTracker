@@ -4,7 +4,9 @@
  */
 package petadoptiontracker;
 import petadoptiontracker.controller.EntryController;
+import petadoptiontracker.controller.LoginController;
 import petadoptiontracker.view.EntryView;
+import petadoptiontracker.view.LoginView;
 
 /*
  * @author keshab
@@ -34,6 +36,8 @@ public class PetAdoptionTracker {
         EntryView view = new EntryView();
         EntryController userController = new EntryController(view);
         userController.open();
+
+       
         
     
     }
