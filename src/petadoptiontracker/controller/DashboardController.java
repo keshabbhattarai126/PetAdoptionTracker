@@ -18,6 +18,7 @@ import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.DashboardView;
 import petadoptiontracker.view.EntryView;
 
+
 //import petadoptiontracker.view.MyRequestView;
 
 /**
@@ -35,7 +36,7 @@ public class DashboardController {
 //        dashboardView.addMyRequestButtonListener(new MyRequestListener());
         dashboardView.addSearchButtonListener(new SearchButtonListener());
         dashboardView.addSignOutButtonListener(new SignOutListener());
-//        dashboardView.viewPetTabButtonListener(new ViewPetTabListener());
+        dashboardView.viewPetTabButtonListener(new ViewPetTabListener());
     }
 
     public void open() {
@@ -46,9 +47,9 @@ public class DashboardController {
         dashboardView.dispose();
     }
      public void loadPetTable() {
-    UserDao adminDao = new UserDao();
-    List<PetModel> petList = adminDao.getAllPets();
-    dashboardView.setPetTableData(petList);
+    UserDao userDao = new UserDao();
+    List<PetModel> petList = userDao.getAllPets();
+    dashboardView.setTableData(petList);
      }
 //    class MyRequestListener implements ActionListener {
 //        @Override
@@ -81,14 +82,17 @@ public class DashboardController {
         }
         
     }
-//     class ViewPetTabListener implements ActionListener{
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            dashboardView.getTabbedPane().setSelectedIndex(1);
-//            loadPetTable();
-//        }
-//    }
+    class ViewPetTabListener implements ActionListener{
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          dashboardView.getTabbedPane().setSelectedIndex(1);
+
+          loadPetTable();
+          
+        }
+    
+    }
     
 
     class SearchButtonListener implements ActionListener {

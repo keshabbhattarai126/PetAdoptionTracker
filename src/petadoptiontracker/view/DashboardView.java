@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.controller.DashboardController;
 import petadoptiontracker.dao.UserDao;
@@ -52,7 +53,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         photoLabel = new javax.swing.JLabel();
-        myRequestButton = new javax.swing.JButton();
+        viewPetTab = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         signOutButton = new javax.swing.JButton();
@@ -89,10 +90,10 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(photoLabel);
         photoLabel.setBounds(68, 34, 80, 80);
 
-        myRequestButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        myRequestButton.setText("My Request");
-        getContentPane().add(myRequestButton);
-        myRequestButton.setBounds(34, 187, 152, 31);
+        viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        viewPetTab.setText("View Pet");
+        getContentPane().add(viewPetTab);
+        viewPetTab.setBounds(34, 187, 152, 31);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
@@ -161,7 +162,7 @@ public class DashboardView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel4.add(jScrollPane1);
-        jScrollPane1.setBounds(-30, 0, 452, 280);
+        jScrollPane1.setBounds(-30, 0, 460, 280);
 
         jTabbedPane4.addTab("tab2", jPanel4);
 
@@ -174,7 +175,7 @@ public class DashboardView extends javax.swing.JFrame {
         jTabbedPane4.addTab("tab3", jPanel5);
 
         getContentPane().add(jTabbedPane4);
-        jTabbedPane4.setBounds(320, 100, 380, 290);
+        jTabbedPane4.setBounds(290, 90, 380, 290);
 
         pack();
         setLocationRelativeTo(null);
@@ -223,16 +224,16 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton myRequestButton;
     private javax.swing.JTextField nameResult;
     private javax.swing.JLabel photoLabel;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton signOutButton;
+    private javax.swing.JButton viewPetTab;
     // End of variables declaration//GEN-END:variables
 
     public void addMyRequestButtonListener(ActionListener listener) {
-        myRequestButton.addActionListener(listener);
+        viewPetTab.addActionListener(listener);
     }
 
     public void addSearchButtonListener(ActionListener listener) {
@@ -257,12 +258,14 @@ public class DashboardView extends javax.swing.JFrame {
         signOutButton.addActionListener(listener);
     }
 
-    public Object getTabbedPane() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public JTabbedPane getTabbedPane() {
+    return jTabbedPane4;
+}
 
-    public void viewPetTabButtonListener() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+    public void viewPetTabButtonListener(ActionListener listener) {
+        viewPetTab.addActionListener(listener);
+        
     }
     public void setTableData(List<PetModel> petList) {
     String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};

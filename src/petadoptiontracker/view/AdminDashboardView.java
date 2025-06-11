@@ -425,9 +425,7 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
         return jTabbedPane4;
     }
 
-    public String getSelectedPetStatus() {
-        return (String) petStatus.getSelectedItem(); // Get the selected item as a String
-    }
+
     
     
     public void setPetTableData(List<PetModel> petList) {
