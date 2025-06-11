@@ -175,7 +175,7 @@ public class DashboardView extends javax.swing.JFrame {
         jTabbedPane4.addTab("tab3", jPanel5);
 
         getContentPane().add(jTabbedPane4);
-        jTabbedPane4.setBounds(290, 90, 380, 290);
+        jTabbedPane4.setBounds(290, 90, 450, 290);
 
         pack();
         setLocationRelativeTo(null);
