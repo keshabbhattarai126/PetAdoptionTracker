@@ -30,6 +30,7 @@ public class AdminDashboardController {
         
         
         
+        
         // Add admin-specific listeners here as you build features
     }
 
@@ -152,6 +153,7 @@ public class AdminDashboardController {
         
     }
     
+    
     class AddPetTabListener implements ActionListener{
 
         @Override
@@ -190,7 +192,8 @@ public class AdminDashboardController {
             }
         }
     }
-    
+ 
+}    
 //    public void loadPetTable() {
 //    AdminDao adminDao = new AdminDao();
 //    List<PetModel> petList = adminDao.getAllPets();
@@ -198,4 +201,4 @@ public class AdminDashboardController {
 //}
    
     
-}
+

@@ -14,6 +14,9 @@ import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
+//import javax.swing.table.DefaultTableModel;
+//import java.util.List;
+//import petadoptiontracker.model.PetModel;
 
 /**
  *
@@ -421,6 +424,7 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     public String getSelectedPetStatus() {
         return (String) petStatus.getSelectedItem(); // Get the selected item as a String
     }
+    
     
     public void setPetTableData(List<PetModel> petList) {
     String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};
