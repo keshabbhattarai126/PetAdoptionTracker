@@ -6,11 +6,17 @@ package petadoptiontracker.view;
 
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
+//import javax.swing.table.DefaultTableModel;
+//import java.util.List;
+//import petadoptiontracker.model.PetModel;
 
 /**
  *
@@ -67,7 +73,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         petStatus = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -157,9 +164,21 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jPanel5.setLayout(null);
 
-        jLabel11.setText("This is tab 3");
-        jPanel5.add(jLabel11);
-        jLabel11.setBounds(210, 40, 110, 40);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(10, -10, 452, 402);
 
         jTabbedPane4.addTab("tab3", jPanel5);
 
@@ -228,7 +247,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jTabbedPane4.addTab("tab1", jPanel3);
 
         getContentPane().add(jTabbedPane4);
-        jTabbedPane4.setBounds(320, 100, 380, 290);
+        jTabbedPane4.setBounds(320, 100, 690, 330);
 
         pack();
         setLocationRelativeTo(null);
@@ -285,7 +304,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField emailResult;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -301,8 +319,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameResult;
     private javax.swing.JTextField petAge1;
     private javax.swing.JTextField petBreed1;
@@ -404,6 +424,31 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     public javax.swing.JTabbedPane getTabbedPane(){
         return jTabbedPane4;
     }
+
+    public String getSelectedPetStatus() {
+        return (String) petStatus.getSelectedItem(); // Get the selected item as a String
+    }
+    
+    
+    public void setPetTableData(List<PetModel> petList) {
+    String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+ 
+    for (PetModel pet : petList) {
+        Object[] row = {
+            pet.getId(),
+            pet.getName(),
+            pet.getBreed(),
+            pet.getAge(),
+            pet.getSex(),
+            pet.getStatus()
+        };
+        model.addRow(row);
+    }
+    jTable1.setModel(model);
+}
+
+
 
 
 }
