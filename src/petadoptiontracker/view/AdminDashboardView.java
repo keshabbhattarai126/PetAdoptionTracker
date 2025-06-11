@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
-//import javax.swing.table.DefaultTableModel;
+//import javax.swing.table.DefaultTabåleModel;
 //import java.util.List;
 //import petadoptiontracker.model.PetModel;
 
@@ -75,6 +75,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        deletePetEntryButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         petStatus = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -179,6 +180,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jPanel5.add(jScrollPane1);
         jScrollPane1.setBounds(10, -10, 452, 402);
+
+        deletePetEntryButton.setText("Delete Entry");
+        jPanel5.add(deletePetEntryButton);
+        deletePetEntryButton.setBounds(540, 230, 110, 20);
 
         jTabbedPane4.addTab("tab3", jPanel5);
 
@@ -301,6 +306,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton addPetButton;
     private javax.swing.JButton addPetTab;
     private javax.swing.JButton dashboardButton;
+    private javax.swing.JButton deletePetEntryButton;
     private javax.swing.JTextField emailResult;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -445,6 +451,12 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     jTable1.setModel(model);
 }
 
+    public void addDeletePetEntryListener(ActionListener listener) {
+    deletePetEntryButton.addActionListener(listener);
+}
+    public javax.swing.JTable getPetTable() {
+    return jTable1;
+}
 
 
 
