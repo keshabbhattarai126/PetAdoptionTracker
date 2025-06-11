@@ -6,9 +6,13 @@ package petadoptiontracker.view;
 
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import petadoptiontracker.controller.DashboardController;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 
 /**
@@ -16,6 +20,15 @@ import petadoptiontracker.model.UserData;
  * @author keshab
  */
 public class DashboardView extends javax.swing.JFrame {
+    
+
+    public static void setPetTableData(List<PetModel> petList) {
+        
+      
+        throw new UnsupportedOperationException("Not supported yet."); 
+        
+    }
+    
     public DashboardView(UserData user) {
         initComponents();
         jLabel1.setText("Welcome, " + user.getName() +" "+ user.getRole() + "!");
@@ -25,6 +38,7 @@ public class DashboardView extends javax.swing.JFrame {
             Image img = imageIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
             imageIcon = new ImageIcon(img);
             photoLabel.setIcon(imageIcon);
+            
         }
     }
 
@@ -55,7 +69,8 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
 
@@ -132,9 +147,21 @@ public class DashboardView extends javax.swing.JFrame {
 
         jPanel4.setLayout(null);
 
-        jLabel10.setText("This is tab 2");
-        jPanel4.add(jLabel10);
-        jLabel10.setBounds(170, 70, 100, 60);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel4.add(jScrollPane1);
+        jScrollPane1.setBounds(-30, 0, 452, 280);
 
         jTabbedPane4.addTab("tab2", jPanel4);
 
@@ -183,7 +210,6 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField emailResult;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -194,7 +220,9 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton myRequestButton;
     private javax.swing.JTextField nameResult;
     private javax.swing.JLabel photoLabel;
@@ -228,4 +256,29 @@ public class DashboardView extends javax.swing.JFrame {
     public void addSignOutButtonListener(ActionListener listener) {
         signOutButton.addActionListener(listener);
     }
+
+    public Object getTabbedPane() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void viewPetTabButtonListener() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    public void setTableData(List<PetModel> petList) {
+    String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+ 
+    for (PetModel pet : petList) {
+        Object[] row = {
+            pet.getId(),
+            pet.getName(),
+            pet.getBreed(),
+            pet.getAge(),
+            pet.getSex(),
+            pet.getStatus()
+        };
+        model.addRow(row);
+    }
+    jTable1.setModel(model);
+}
 }

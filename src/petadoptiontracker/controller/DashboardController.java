@@ -10,11 +10,14 @@
 package petadoptiontracker.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JOptionPane;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.DashboardView;
 import petadoptiontracker.view.EntryView;
+
 //import petadoptiontracker.view.MyRequestView;
 
 /**
@@ -32,6 +35,7 @@ public class DashboardController {
 //        dashboardView.addMyRequestButtonListener(new MyRequestListener());
         dashboardView.addSearchButtonListener(new SearchButtonListener());
         dashboardView.addSignOutButtonListener(new SignOutListener());
+//        dashboardView.viewPetTabButtonListener(new ViewPetTabListener());
     }
 
     public void open() {
@@ -41,7 +45,11 @@ public class DashboardController {
     public void close() {
         dashboardView.dispose();
     }
-
+     public void loadPetTable() {
+    UserDao adminDao = new UserDao();
+    List<PetModel> petList = adminDao.getAllPets();
+    dashboardView.setPetTableData(petList);
+     }
 //    class MyRequestListener implements ActionListener {
 //        @Override
 //        public void actionPerformed(ActionEvent e) {
@@ -73,6 +81,14 @@ public class DashboardController {
         }
         
     }
+//     class ViewPetTabListener implements ActionListener{
+//
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            dashboardView.getTabbedPane().setSelectedIndex(1);
+//            loadPetTable();
+//        }
+//    }
     
 
     class SearchButtonListener implements ActionListener {
@@ -101,8 +117,8 @@ public class DashboardController {
 //class ViewPetTabListener implements ActionListener {
 //    @Override
 //    public void actionPerformed(ActionEvent e) {
-//        adminDashboardView.getTabbedPane().setSelectedIndex(2); // tab3 index
-//        // Load data into the table
+//        dashboardView.getTabbedPane().setSelectedIndex(2); // tab3 index
+//         Load data into the table
 //    }
 //}
 }

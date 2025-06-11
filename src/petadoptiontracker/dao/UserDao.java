@@ -8,8 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import petadoptiontracker.database.MySqlConnection;
 import petadoptiontracker.model.LoginRequest;
+import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.ResetPasswordRequest;
 import petadoptiontracker.model.UserData;
 
@@ -140,6 +142,10 @@ public class UserDao {
         }
 
         return null;
+    }
+
+    public List<PetModel> getAllPets() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
