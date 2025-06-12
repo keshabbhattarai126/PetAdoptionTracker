@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
-//import javax.swing.table.DefaultTableModel;
+//import javax.swing.table.DefaultTabåleModel;
 //import java.util.List;
 //import petadoptiontracker.model.PetModel;
 
@@ -75,6 +75,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        deletePetEntryButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         petStatus = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -92,7 +93,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         petSex = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 535));
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
@@ -108,6 +108,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         addPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         addPetTab.setText("Add Pet");
+        addPetTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPetTabActionPerformed(evt);
+            }
+        });
         getContentPane().add(addPetTab);
         addPetTab.setBounds(34, 187, 152, 31);
 
@@ -118,8 +123,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewPetTab.setText("View Pet");
+        viewPetTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewPetTabActionPerformed(evt);
+            }
+        });
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 243, 107, 31);
+        viewPetTab.setBounds(34, 243, 150, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
@@ -180,7 +190,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel5.add(jScrollPane1);
         jScrollPane1.setBounds(10, -10, 452, 402);
 
-        jTabbedPane4.addTab("tab3", jPanel5);
+        deletePetEntryButton.setText("Delete Entry");
+        jPanel5.add(deletePetEntryButton);
+        deletePetEntryButton.setBounds(540, 230, 110, 20);
+
+        jTabbedPane4.addTab("View Pet", jPanel5);
 
         jPanel3.setLayout(null);
 
@@ -244,7 +258,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(petSex);
         petSex.setBounds(150, 170, 90, 20);
 
-        jTabbedPane4.addTab("tab1", jPanel3);
+        jTabbedPane4.addTab("Add Pet", jPanel3);
 
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(320, 100, 690, 330);
@@ -260,6 +274,17 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private void petSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petSexActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_petSexActionPerformed
+
+    private void viewPetTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPetTabActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(1); // This switches the tab
+
+    }//GEN-LAST:event_viewPetTabActionPerformed
+
+    private void addPetTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetTabActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(2);
+    }//GEN-LAST:event_addPetTabActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,6 +326,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton addPetButton;
     private javax.swing.JButton addPetTab;
     private javax.swing.JButton dashboardButton;
+    private javax.swing.JButton deletePetEntryButton;
     private javax.swing.JTextField emailResult;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -426,8 +452,6 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     }
 
 
-    
-    
     public void setPetTableData(List<PetModel> petList) {
     String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};
     DefaultTableModel model = new DefaultTableModel(columns, 0);
@@ -446,6 +470,12 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     jTable1.setModel(model);
 }
 
+    public void addDeletePetEntryListener(ActionListener listener) {
+    deletePetEntryButton.addActionListener(listener);
+}
+    public javax.swing.JTable getPetTable() {
+    return jTable1;
+}
 
 
 

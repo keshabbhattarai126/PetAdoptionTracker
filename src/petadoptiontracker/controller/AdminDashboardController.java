@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.AdminDao;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.PetModel;
@@ -27,6 +28,7 @@ public class AdminDashboardController {
         adminDashboardView.addPetPhotoUploadButtonListener(new UploadPhotoListener());
         adminDashboardView.addPetTabButtonListener(new AddPetTabListener());
         adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
+        adminDashboardView.addDeletePetEntryListener(new DeletePetEntryListener()); //Delete Operation
         
         
         
@@ -192,13 +194,36 @@ public class AdminDashboardController {
             }
         }
     }
- 
+    class DeletePetEntryListener implements java.awt.event.ActionListener {
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent e) {
+            javax.swing.JTable table = adminDashboardView.getPetTable();
+            int selectedRow = table.getSelectedRow();
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(adminDashboardView, "Please select a pet to delete.");
+                return;
+            }
+            int confirm = JOptionPane.showConfirmDialog(
+            adminDashboardView,
+            "Are you sure you want to delete the selected pet?",
+            "Delete Confirmation",
+            JOptionPane.YES_NO_OPTION
+            );
+            
+            if (confirm == JOptionPane.YES_OPTION) {
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                int petId = (Integer) model.getValueAt(selectedRow, 0); // Assuming ID is in column 0
+                // Delete from database
+                petadoptiontracker.dao.AdminDao adminDao = new petadoptiontracker.dao.AdminDao();
+                boolean deleted = adminDao.deletePet(petId);
+                
+                if (deleted) {
+                    model.removeRow(selectedRow);
+                    JOptionPane.showMessageDialog(adminDashboardView, "Pet deleted successfully.");
+                } else {
+                    JOptionPane.showMessageDialog(adminDashboardView, "Failed to delete pet from database.");
+                }
+            }
+        }
+    }
 }    
-//    public void loadPetTable() {
-//    AdminDao adminDao = new AdminDao();
-//    List<PetModel> petList = adminDao.getAllPets();
-//    adminDashboardView.setPetTableData(petList);
-//}
-   
-    
-
