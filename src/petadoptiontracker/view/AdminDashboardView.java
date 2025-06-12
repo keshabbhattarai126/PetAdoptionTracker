@@ -76,6 +76,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         deletePetEntryButton = new javax.swing.JButton();
+        viewPetProfileButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         petStatus = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -184,6 +185,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
         deletePetEntryButton.setText("Delete Entry");
         jPanel5.add(deletePetEntryButton);
         deletePetEntryButton.setBounds(540, 230, 110, 20);
+
+        viewPetProfileButton.setText("View Pet Profile");
+        jPanel5.add(viewPetProfileButton);
+        viewPetProfileButton.setBounds(540, 180, 130, 20);
 
         jTabbedPane4.addTab("tab3", jPanel5);
 
@@ -340,6 +345,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton signOutButton;
+    private javax.swing.JButton viewPetProfileButton;
     private javax.swing.JButton viewPetTab;
     // End of variables declaration//GEN-END:variables
     
@@ -457,7 +463,10 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     public javax.swing.JTable getPetTable() {
     return jTable1;
 }
-
+   public void addViewPetProfileListener(ActionListener listener) {
+    viewPetProfileButton.addActionListener(listener);
+}
+ 
 
 
 }
