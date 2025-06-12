@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.AdminDao;
 import petadoptiontracker.dao.UserDao;
@@ -15,6 +16,7 @@ import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.AdminDashboardView;
 import petadoptiontracker.view.EntryView;
+import petadoptiontracker.view.PetProfileView;
 
 public class AdminDashboardController {
     private final AdminDashboardView adminDashboardView;
@@ -29,6 +31,7 @@ public class AdminDashboardController {
         adminDashboardView.addPetTabButtonListener(new AddPetTabListener());
         adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
         adminDashboardView.addDeletePetEntryListener(new DeletePetEntryListener()); //Delete Operation
+        adminDashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
         
         
         
@@ -226,4 +229,29 @@ public class AdminDashboardController {
             }
         }
     }
+    class ViewPetProfileListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JTable table = adminDashboardView.getPetTable(); // getPetTable() returns your JTable
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(adminDashboardView, "Please select a pet to view.");
+            return;
+        }
+        // Assuming pet ID is in column 0
+        int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
+
+        // Fetch pet details from DAO
+        AdminDao adminDao = new AdminDao();
+        PetModel pet = adminDao.getPetById(petId);
+
+        if (pet != null) {
+            PetProfileView profileView = new PetProfileView(pet);
+            profileView.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(adminDashboardView, "Could not load pet details.");
+        }
+    }
+}
+
 }    
