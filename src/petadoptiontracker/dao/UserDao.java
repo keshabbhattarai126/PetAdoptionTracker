@@ -8,8 +8,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import petadoptiontracker.database.MySqlConnection;
 import petadoptiontracker.model.LoginRequest;
+import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.ResetPasswordRequest;
 import petadoptiontracker.model.UserData;
 
@@ -141,5 +144,38 @@ public class UserDao {
 
         return null;
     }
+      
+        
+
+//   import java.util.ArrayList;
+
+public List<PetModel> getAllPets() {
+    List<PetModel> petList = new ArrayList<>();
+    String sql = "SELECT * FROM Pets"; // Adjust table name and columns if needed
+    Connection conn = mySql.openConnection();
+
+    try (PreparedStatement stmt = conn.prepareStatement(sql);
+         ResultSet rs = stmt.executeQuery()) {
+
+        while (rs.next()) {
+            PetModel pet = new PetModel();
+            pet.setId(rs.getInt("id")); // Adjust column names as per your schema
+            pet.setName(rs.getString("name"));
+            pet.setBreed(rs.getString("breed"));
+            pet.setAge(rs.getInt("age"));
+            pet.setSex(rs.getString("sex"));
+            pet.setStatus(rs.getString("status"));
+            petList.add(pet);
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        mySql.closeConnection(conn);
+    }
+
+    return petList;
+}
+
 
 }
