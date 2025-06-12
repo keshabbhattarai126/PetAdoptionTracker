@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/AdminDashboardController.java</file>
             <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/AdminDashboardView.java</file>
+=======
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/AdminDashboardView.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/AdminDashboardController.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/RegistrationView.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/DashboardView.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/EntryView.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/DashboardController.java</file>
+>>>>>>> 85ce4f194bc6af1f9faef1e028fd2e601b484fea
         </group>
     </open-files>
 </project-private>
