@@ -34,7 +34,7 @@ public class AdminDashboardController {
         adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
         adminDashboardView.addDeletePetEntryListener(new DeletePetEntryListener()); //Delete Operation
         adminDashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
-        adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener2());
+        adminDashboardView.petPhotoUpload2Listener(new UploadPhotoListener2());
         adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener3());
         
         
