@@ -6,11 +6,13 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.AdminDao;
+import petadoptiontracker.dao.RequestDao;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
@@ -36,6 +38,7 @@ public class AdminDashboardController {
         adminDashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
         adminDashboardView.petPhotoUpload2Listener(new UploadPhotoListener2());
         adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener3());
+        adminDashboardView.addDashboardButtonListener(new DashboardButtonListener());
         
         
         // Add admin-specific listeners here as you build features
@@ -52,6 +55,12 @@ public class AdminDashboardController {
     AdminDao adminDao = new AdminDao();
     List<PetModel> petList = adminDao.getAllPets();
     adminDashboardView.setPetTableData(petList);
+     }
+     
+     public void loadRequestsTable() {
+    RequestDao requestDao = new RequestDao();
+    List<Map<String, Object>> requests = requestDao.getAllRequestsWithUserAndPet();
+    adminDashboardView.setRequestsTableData(requests); // Implement this in your view
      }
     
     class UploadPhotoListener implements ActionListener {
@@ -181,6 +190,15 @@ public class AdminDashboardController {
             loadPetTable();
         }
     }
+    
+    class DashboardButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        adminDashboardView.getTabbedPane().setSelectedIndex(0); // tab2 = dashboard
+        loadRequestsTable();
+    }
+    }
+  
 
     class SearchButtonListener implements ActionListener {
         @Override
@@ -280,5 +298,5 @@ public class AdminDashboardController {
 //                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
             }
         }
-    }
+    }   
 }    
