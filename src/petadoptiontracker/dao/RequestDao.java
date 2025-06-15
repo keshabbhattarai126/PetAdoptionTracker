@@ -9,6 +9,11 @@ import petadoptiontracker.database.MySqlConnection;
 import petadoptiontracker.model.Request;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.sql.ResultSet;
+import java.util.HashMap;
 
 /**
  *
@@ -50,4 +55,33 @@ public class RequestDao {
             mySql.closeConnection(conn);
         }
     }
+    public List<Map<String, Object>> getAllRequestsWithUserAndPet() {
+    List<Map<String, Object>> requests = new ArrayList<>();
+    String sql = "SELECT u.name AS user_name, u.email, "
+               //+ "u.phone, " // Uncomment if/when you add phone to users table
+               + "p.name AS pet_name, p.breed AS pet_breed, "
+               + "ar.status, ar.request_date "
+               + "FROM adoption_requests ar "
+               + "JOIN users u ON ar.user_id = u.id "
+               + "JOIN pets p ON ar.pet_id = p.id";
+    try (Connection conn = mySql.openConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql);
+         ResultSet rs = pstmt.executeQuery()) {
+        while (rs.next()) {
+            Map<String, Object> req = new HashMap<>();
+            req.put("user_name", rs.getString("user_name"));
+            req.put("email", rs.getString("email"));
+            // req.put("phone", rs.getString("phone")); // Uncomment when available
+            req.put("pet_name", rs.getString("pet_name"));
+            req.put("pet_breed", rs.getString("pet_breed"));
+            req.put("status", rs.getString("status"));
+            req.put("request_date", rs.getString("request_date"));
+            requests.add(req);
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+    return requests;
+}
+
 }
