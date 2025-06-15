@@ -92,6 +92,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
         petName2 = new javax.swing.JTextField();
         addPetButton = new javax.swing.JButton();
         petSex = new javax.swing.JComboBox<>();
+        petPhotoUpload2 = new javax.swing.JButton();
+        petPhotoUpload3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(950, 535));
@@ -199,7 +201,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel5.add(viewPetProfileButton);
         viewPetProfileButton.setBounds(540, 180, 130, 20);
 
-        jTabbedPane4.addTab("tab3", jPanel5);
+        jTabbedPane4.addTab("View Pet", jPanel5);
 
         jPanel3.setLayout(null);
 
@@ -263,6 +265,24 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(petSex);
         petSex.setBounds(150, 170, 90, 20);
 
+        petPhotoUpload2.setText("Upload");
+        petPhotoUpload2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                petPhotoUpload2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(petPhotoUpload2);
+        petPhotoUpload2.setBounds(230, 210, 75, 23);
+
+        petPhotoUpload3.setText("Upload");
+        petPhotoUpload3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                petPhotoUpload3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(petPhotoUpload3);
+        petPhotoUpload3.setBounds(190, 240, 72, 23);
+
         jTabbedPane4.addTab("Add Pet", jPanel3);
 
         getContentPane().add(jTabbedPane4);
@@ -290,6 +310,14 @@ public class AdminDashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTabbedPane4.setSelectedIndex(2);
     }//GEN-LAST:event_addPetTabActionPerformed
+
+    private void petPhotoUpload2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petPhotoUpload2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_petPhotoUpload2ActionPerformed
+
+    private void petPhotoUpload3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petPhotoUpload3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_petPhotoUpload3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,6 +386,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField petAge1;
     private javax.swing.JTextField petBreed1;
     private javax.swing.JTextField petName2;
+    private javax.swing.JButton petPhotoUpload2;
+    private javax.swing.JButton petPhotoUpload3;
     private javax.swing.JButton petPhotoUploadButton;
     private javax.swing.JComboBox<String> petSex;
     private javax.swing.JComboBox<String> petStatus;
@@ -485,7 +515,11 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
    public void addViewPetProfileListener(ActionListener listener) {
     viewPetProfileButton.addActionListener(listener);
 }
- 
-
+   public void petPhotoUpload2Listener(ActionListener listener) {
+    petPhotoUpload2.addActionListener(listener);
+}
+   public void petPhotoUpload3Listener(ActionListener listener) {
+    petPhotoUpload3.addActionListener(listener);
+}
 
 }

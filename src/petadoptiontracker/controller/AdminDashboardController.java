@@ -21,6 +21,8 @@ import petadoptiontracker.view.PetProfileView;
 public class AdminDashboardController {
     private final AdminDashboardView adminDashboardView;
     private File selectedPetImage = null;
+    private File selectedPetImage2 = null;
+    private File selectedPetImage3 = null;
 
     public AdminDashboardController(AdminDashboardView view) {
         this.adminDashboardView = view;
@@ -32,8 +34,8 @@ public class AdminDashboardController {
         adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
         adminDashboardView.addDeletePetEntryListener(new DeletePetEntryListener()); //Delete Operation
         adminDashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
-        
-        
+        adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener2());
+        adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener3());
         
         
         // Add admin-specific listeners here as you build features
@@ -98,6 +100,8 @@ public class AdminDashboardController {
 
                 // Read image file
                 byte[] imageBytes = Files.readAllBytes(selectedPetImage.toPath());
+                byte[] imageBytes2 = Files.readAllBytes(selectedPetImage2.toPath());
+                byte[] imageBytes3 = Files.readAllBytes(selectedPetImage3.toPath());
 
                 // Create PetModel
                 PetModel newPet = new PetModel();
@@ -106,6 +110,8 @@ public class AdminDashboardController {
                 newPet.setAge(age);
                 newPet.setSex(sex);
                 newPet.setPhoto(imageBytes);
+                newPet.setPhoto2(imageBytes2);
+                newPet.setPhoto3(imageBytes3);
                 newPet.setStatus(status.isEmpty() ? "Available" : status);
 
                 // Save to database
@@ -253,5 +259,26 @@ public class AdminDashboardController {
         }
     }
 }
-
+    class UploadPhotoListener2 implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JFileChooser fileChooser = new JFileChooser();
+            int result = fileChooser.showOpenDialog(adminDashboardView);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                selectedPetImage2 = fileChooser.getSelectedFile();
+//                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
+            }
+        }
+    }
+    class UploadPhotoListener3 implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JFileChooser fileChooser = new JFileChooser();
+            int result = fileChooser.showOpenDialog(adminDashboardView);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                selectedPetImage3 = fileChooser.getSelectedFile();
+//                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
+            }
+        }
+    }
 }    

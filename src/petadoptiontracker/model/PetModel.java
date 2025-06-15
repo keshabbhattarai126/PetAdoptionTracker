@@ -15,6 +15,8 @@ public class PetModel {
     private int age;
     private String sex;
     private byte[] photo;
+    private byte[] photo2;
+    private byte[] photo3;
     private String status;
 
     /**
@@ -99,6 +101,28 @@ public class PetModel {
      */
     public void setPhoto(byte[] photo) {
         this.photo = photo;
+    }
+    
+    public byte[] getPhoto2() {
+        return photo2;
+    }
+
+    /**
+     * @param photo the photo to set
+     */
+    public void setPhoto2(byte[] photo) {
+        this.photo = photo2;
+    }
+    
+    public byte[] getPhoto3() {
+        return photo3;
+    }
+
+    /**
+     * @param photo the photo to set
+     */
+    public void setPhoto3(byte[] photo) {
+        this.photo3= photo;
     }
 
     /**
