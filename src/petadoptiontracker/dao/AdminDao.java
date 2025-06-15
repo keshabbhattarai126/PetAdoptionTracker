@@ -29,10 +29,12 @@ public class AdminDao {
             + "age INT NOT NULL, "
             + "sex VARCHAR(10) NOT NULL, "
             + "photo BLOB, "
+            + "photo2 BLOB, "
+            + "photo3 BLOB, "
             + "status VARCHAR(20) DEFAULT 'Available'"
             + ")";
         
-        String query = "INSERT INTO Pets (name, breed, age, sex, photo, status) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Pets (name, breed, age, sex, photo,photo2,photo3, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             // Create pets table if not exists
@@ -47,7 +49,10 @@ public class AdminDao {
                 pstmt.setInt(3, pet.getAge());
                 pstmt.setString(4, pet.getSex());
                 pstmt.setBytes(5, pet.getPhoto());
-                pstmt.setString(6, pet.getStatus() != null ? pet.getStatus() : "Available");
+                pstmt.setBytes(6, pet.getPhoto2());
+                pstmt.setBytes(7, pet.getPhoto3());
+                pstmt.setString(8, pet.getStatus() != null ? pet.getStatus() : "Available");
+                
                 
                 int result = pstmt.executeUpdate();
                 return result > 0;
