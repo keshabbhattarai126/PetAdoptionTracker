@@ -29,12 +29,12 @@ public class AdminDao {
             + "age INT NOT NULL, "
             + "sex VARCHAR(10) NOT NULL, "
             + "photo BLOB, "
-            + "photo BLOB2, "
-            + "photo BLOB3, "
+            + "photo2 BLOB, "
+            + "photo3 BLOB, "
             + "status VARCHAR(20) DEFAULT 'Available'"
             + ")";
         
-        String query = "INSERT INTO Pets (name, breed, age, sex, photo,photo2,photo3 status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Pets (name, breed, age, sex, photo,photo2,photo3, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             // Create pets table if not exists
