@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.controller.DashboardController;
 import petadoptiontracker.dao.UserDao;
@@ -71,9 +72,10 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        petTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        requestButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(950, 535));
@@ -153,7 +155,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jPanel4.setLayout(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        petTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -164,7 +166,7 @@ public class DashboardView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(petTable);
 
         jPanel4.add(jScrollPane1);
         jScrollPane1.setBounds(-30, 0, 460, 280);
@@ -181,6 +183,10 @@ public class DashboardView extends javax.swing.JFrame {
 
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(290, 90, 450, 290);
+
+        requestButton.setText("Request");
+        getContentPane().add(requestButton);
+        requestButton.setBounds(740, 330, 72, 23);
 
         pack();
         setLocationRelativeTo(null);
@@ -233,9 +239,10 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameResult;
+    private javax.swing.JTable petTable;
     private javax.swing.JLabel photoLabel;
+    private javax.swing.JButton requestButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton signOutButton;
@@ -292,6 +299,12 @@ public class DashboardView extends javax.swing.JFrame {
         };
         model.addRow(row);
     }
-    jTable1.setModel(model);
+    petTable.setModel(model);
+}
+    public void requestButtonListener(ActionListener listener){
+        requestButton.addActionListener(listener);
+    }
+    public JTable getPetTable() {
+    return petTable;
 }
 }

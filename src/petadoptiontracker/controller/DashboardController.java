@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import petadoptiontracker.dao.RequestDao;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
@@ -37,6 +39,7 @@ public class DashboardController {
         dashboardView.addSearchButtonListener(new SearchButtonListener());
         dashboardView.addSignOutButtonListener(new SignOutListener());
         dashboardView.viewPetTabButtonListener(new ViewPetTabListener());
+        dashboardView.requestButtonListener(new RequestButtonListener());
     }
 
     public void open() {
@@ -125,4 +128,36 @@ public class DashboardController {
 //         Load data into the table
 //    }
 //}
+    class RequestButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JTable table = dashboardView.getPetTable();
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(dashboardView, "Please select a pet to request.");
+            return;
+        }
+
+        // Assuming pet ID is in column 0
+        int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
+
+        // Get the current user (from session manager or controller)
+        UserData currentUser = SessionManager.getCurrentUser();
+        if (currentUser == null) {
+            JOptionPane.showMessageDialog(dashboardView, "User not logged in.");
+            return;
+        }
+        int userId = currentUser.getId();
+
+        // Save the request
+        RequestDao requestDao = new RequestDao();
+        boolean success = requestDao.createRequest(userId, petId);
+
+        if (success) {
+            JOptionPane.showMessageDialog(dashboardView, "Request submitted!");
+        } else {
+            JOptionPane.showMessageDialog(dashboardView, "Failed to submit request.");
+        }
+    }
+}
 }
