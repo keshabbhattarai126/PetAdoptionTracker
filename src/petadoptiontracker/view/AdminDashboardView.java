@@ -206,7 +206,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel5.add(jScrollPane1);
-        jScrollPane1.setBounds(10, -10, 452, 402);
+        jScrollPane1.setBounds(10, 2, 452, 390);
 
         deletePetEntryButton.setText("Delete Entry");
         jPanel5.add(deletePetEntryButton);
@@ -269,7 +269,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         addPetButton.setText("Add Pet");
         jPanel3.add(addPetButton);
+
         addPetButton.setBounds(280, 160, 72, 23);
+
 
         petSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         petSex.addActionListener(new java.awt.event.ActionListener() {
@@ -296,7 +298,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         jPanel3.add(petPhotoUpload3);
-        petPhotoUpload3.setBounds(190, 240, 72, 23);
+        petPhotoUpload3.setBounds(320, 210, 72, 23);
 
         jTabbedPane4.addTab("Add Pet", jPanel3);
 
