@@ -76,7 +76,6 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         requestButton = new javax.swing.JButton();
-        viewPetProfileButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(950, 535));
@@ -96,12 +95,12 @@ public class DashboardView extends javax.swing.JFrame {
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewPetTab.setText("View Pet");
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 187, 160, 29);
+        viewPetTab.setBounds(34, 187, 160, 31);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 160, 29);
+        dashboardButton.setBounds(34, 126, 160, 31);
 
         jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton4.setText("Profile Setting");
@@ -111,18 +110,18 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(34, 243, 160, 29);
+        jButton4.setBounds(34, 243, 160, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(34, 303, 160, 29);
+        signOutButton.setBounds(34, 303, 160, 31);
 
         jLabel2.setText("This is Dashboard");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(610, 60, 106, 17);
+        jLabel2.setBounds(610, 60, 94, 16);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 23);
+        searchField.setBounds(320, 60, 195, 22);
 
         searchButton.setText("Search");
         getContentPane().add(searchButton);
@@ -132,15 +131,15 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 450, 34, 17);
+        jLabel4.setBounds(290, 450, 32, 16);
         getContentPane().add(nameResult);
-        nameResult.setBounds(340, 450, 130, 23);
+        nameResult.setBounds(340, 450, 130, 22);
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 32, 17);
+        jLabel5.setBounds(490, 450, 30, 16);
         getContentPane().add(emailResult);
-        emailResult.setBounds(540, 450, 189, 23);
+        emailResult.setBounds(540, 450, 189, 22);
 
         jPanel1.setBackground(new java.awt.Color(38, 78, 201));
         getContentPane().add(jPanel1);
@@ -150,7 +149,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel9.setText("This is tab1");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(120, 70, 68, 17);
+        jLabel9.setBounds(120, 70, 59, 16);
 
         jTabbedPane4.addTab("tab1", jPanel3);
 
@@ -187,11 +186,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         requestButton.setText("Request");
         getContentPane().add(requestButton);
-        requestButton.setBounds(740, 330, 79, 23);
-
-        viewPetProfileButton.setText("View Profile");
-        getContentPane().add(viewPetProfileButton);
-        viewPetProfileButton.setBounds(740, 270, 100, 23);
+        requestButton.setBounds(740, 330, 72, 23);
 
         pack();
         setLocationRelativeTo(null);
@@ -251,7 +246,6 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton signOutButton;
-    private javax.swing.JButton viewPetProfileButton;
     private javax.swing.JButton viewPetTab;
     // End of variables declaration//GEN-END:variables
 
@@ -312,8 +306,5 @@ public class DashboardView extends javax.swing.JFrame {
     }
     public JTable getPetTable() {
     return petTable;
-}
-     public void addViewPetProfileListener(ActionListener listener) {
-    viewPetProfileButton.addActionListener(listener);
 }
 }
