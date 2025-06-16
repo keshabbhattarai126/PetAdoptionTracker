@@ -4,19 +4,61 @@
  */
 package petadoptiontracker.view;
 
+import java.awt.Dimension;
+import java.awt.Font;
+import java.util.List;
+import java.util.Map;
+import javax.swing.Box;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import petadoptiontracker.dao.RequestDao;
+
 /**
  *
  * @author LeathLOQ
  */
-public class NotificationView extends javax.swing.JFrame {
-
+public final class NotificationView extends javax.swing.JFrame {
+    private final RequestDao requestDao;
     /**
      * Creates new form NotificationView
      */
     public NotificationView() {
         initComponents();
+        requestDao=new RequestDao();
+        List<Map<String, Object>> requestList = requestDao.getAllRequestsWithUserAndPet();
+        updateRequestLabels(requestList);
+    }
+   // This method will dynamically create labels based on the fetched adoption requests
+    public void updateRequestLabels(List<Map<String, Object>> requestList) {
+    requestContentPanel.removeAll();  // Clear previous labels
+
+    if (requestList.isEmpty()) {
+        JLabel noDataLabel = new JLabel("No adoption requests found.");
+        noDataLabel.setFont(new Font("Arial", Font.ITALIC, 14));
+        requestContentPanel.add(noDataLabel);
+    } else {
+        for (Map<String, Object> request : requestList) {
+            String userName = (String) request.getOrDefault("user_name", "User");
+            String petName = (String) request.getOrDefault("pet_name", "Pet");
+            String petBreed = (String) request.getOrDefault("pet_breed", "Breed");
+            String status = (String) request.getOrDefault("status", "Pending");
+            
+            String message = String.format("%s has requested a %s of breed %s. Status: %s \n", userName, petName, petBreed, status);
+            JLabel requestLabel = new JLabel(message);
+            requestLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+            requestLabel.setAlignmentX(LEFT_ALIGNMENT);
+            requestLabel.setPreferredSize(new Dimension(400, 30));
+
+            requestContentPanel.add(requestLabel);
+            requestContentPanel.add(Box.createVerticalStrut(10));
+        }
     }
 
+    // Refresh the panel
+    requestContentPanel.revalidate();
+    requestContentPanel.repaint();
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,18 +68,16 @@ public class NotificationView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanelRequestContainer = new javax.swing.JScrollPane();
+        requestContentPanel = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+
+        requestContentPanel.setLayout(new javax.swing.BoxLayout(requestContentPanel, javax.swing.BoxLayout.PAGE_AXIS));
+        jPanelRequestContainer.setViewportView(requestContentPanel);
+
+        getContentPane().add(jPanelRequestContainer);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +118,7 @@ public class NotificationView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jPanelRequestContainer;
+    private javax.swing.JPanel requestContentPanel;
     // End of variables declaration//GEN-END:variables
 }

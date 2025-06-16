@@ -1,9 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+* Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+*/
 package petadoptiontracker.controller;
-
+ 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -18,11 +18,11 @@ import petadoptiontracker.view.LoginView;
 import petadoptiontracker.view.RegistrationView;
 import petadoptiontracker.model.ResetPasswordRequest;
 import petadoptiontracker.view.AdminDashboardView;
-
+ 
 /**
- *
- * @author keshab
- */
+*
+* @author keshab
+*/
 public class LoginController {
     private final UserDao userDao= new UserDao();
     private final LoginView loginView;
@@ -34,7 +34,7 @@ public class LoginController {
         loginView.showPasswordButtonListener(new ShowPasswordListener());
         ResetPassword resetPass = new ResetPassword();
         this.loginView.forgotPassword(resetPass);
-
+ 
     }
     public void open(){
         this.loginView.setVisible(true);
@@ -43,7 +43,7 @@ public class LoginController {
         this.loginView.dispose();
     }
     class RegistrationListener implements MouseListener{
-
+ 
         @Override
         public void mouseClicked(MouseEvent e) {
             RegistrationView registrationView= new RegistrationView();
@@ -51,26 +51,24 @@ public class LoginController {
             registrationController.open();
             close();
         }
-
+ 
         @Override
         public void mousePressed(MouseEvent e) {
         }
-
+ 
         @Override
         public void mouseReleased(MouseEvent e) {
-
+ 
         }
-
+ 
         @Override
         public void mouseEntered(MouseEvent e) {
-
+ 
         }
-
+ 
         @Override
         public void mouseExited(MouseEvent e) {
-        
         }
-        
     }
     class ShowPasswordListener implements ActionListener {
     @Override
@@ -79,7 +77,6 @@ public class LoginController {
         loginView.togglePasswordField(isPasswordVisible);
     }
     }
-    
     class LoginUserListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -92,11 +89,11 @@ public class LoginController {
         } else {
             LoginRequest loginRequest = new LoginRequest(email, password);
             UserData user = userDao.loginUser(loginRequest);
-
+ 
             if (user != null) {
                 JOptionPane.showMessageDialog(loginView, "Login Successful");
                 SessionManager.login(user);
-
+ 
                 if ("ADMIN".equalsIgnoreCase(user.getRole())) {
                     AdminDashboardView adminView = new AdminDashboardView(user);
                     AdminDashboardController adminController = new AdminDashboardController(adminView);
@@ -115,7 +112,6 @@ public class LoginController {
         }
     }
 }
-    
     class ResetPassword implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -157,19 +153,17 @@ public class LoginController {
                 }
             }
         }
-
+ 
         @Override
         public void mousePressed(MouseEvent e) {}
-
+ 
         @Override
         public void mouseReleased(MouseEvent e) {}
-
+ 
         @Override
         public void mouseEntered(MouseEvent e) {}
-
+ 
         @Override
         public void mouseExited(MouseEvent e) {}
     }
-    
 }
-

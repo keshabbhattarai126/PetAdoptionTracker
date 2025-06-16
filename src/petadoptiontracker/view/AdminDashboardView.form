@@ -505,15 +505,15 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="notificationButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagepicker/notification (2).png"/>
+          <Image iconType="3" name="/imagepicker/notification.png"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="790" y="30" width="50" height="40"/>
+          <AbsoluteConstraints x="820" y="10" width="50" height="40"/>
         </Constraint>
       </Constraints>
     </Component>

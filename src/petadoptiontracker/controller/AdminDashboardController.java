@@ -304,10 +304,9 @@ public class AdminDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             NotificationView notificationView= new NotificationView();
-            
-//            LoginController loginController= new LoginController(loginView);
-//            loginController.open();
+            notificationView.setVisible(true);
             close();
         }    
     }
 }    
+    

@@ -96,7 +96,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         petSex = new javax.swing.JComboBox<>();
         petPhotoUpload2 = new javax.swing.JButton();
         petPhotoUpload3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        notificationButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(950, 535));
@@ -303,9 +303,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(320, 100, 690, 330);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/notification (2).png"))); // NOI18N
-        getContentPane().add(jButton1);
-        jButton1.setBounds(790, 30, 50, 40);
+        notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/notification.png"))); // NOI18N
+        getContentPane().add(notificationButton);
+        notificationButton.setBounds(820, 10, 50, 40);
 
         pack();
         setLocationRelativeTo(null);
@@ -380,7 +380,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton dashboardButton;
     private javax.swing.JButton deletePetEntryButton;
     private javax.swing.JTextField emailResult;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -403,6 +402,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameResult;
+    private javax.swing.JButton notificationButton;
     private javax.swing.JTextField petAge1;
     private javax.swing.JTextField petBreed1;
     private javax.swing.JTextField petName2;
@@ -563,4 +563,7 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
    public void addDashboardButtonListener(ActionListener listener) {
     dashboardButton.addActionListener(listener);
 }
+   public void addNotifcationButtonListener(ActionListener listener){
+       notificationButton.addActionListener(listener);
+   }
 }
