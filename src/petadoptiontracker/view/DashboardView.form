@@ -329,8 +329,7 @@
         </Container>
       </SubComponents>
     </Container>
-
-    <Component class="javax.swing.JButton" name="requestButton">
+    <Component class="javax.swing.JButton" name="requestButton1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="ff" red="0" type="rgb"/>
@@ -346,7 +345,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="favoriteButton">
+    <Component class="javax.swing.JButton" name="favoriteButton1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="33" red="ff" type="rgb"/>
@@ -359,7 +358,6 @@
         </Constraint>
       </Constraints>
     </Component>
-
     <Component class="javax.swing.JButton" name="heartButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

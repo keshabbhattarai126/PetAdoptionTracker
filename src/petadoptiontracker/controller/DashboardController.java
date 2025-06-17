@@ -47,6 +47,7 @@ public class DashboardController {
         dashboardView.addHeartButtonListener(new HeartButtonListener());
         dashboardView.addDashboardTabButtonListener(new DashboardTabListener());
         dashboardView.addProfileTabButtonListener(new ProfileTabListener());
+        dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
 
 
     }
