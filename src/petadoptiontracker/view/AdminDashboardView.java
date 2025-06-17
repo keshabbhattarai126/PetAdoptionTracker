@@ -304,6 +304,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jTabbedPane4.setBounds(320, 100, 690, 330);
 
         notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/notification.png"))); // NOI18N
+        notificationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notificationButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(notificationButton);
         notificationButton.setBounds(820, 10, 50, 40);
 
@@ -337,6 +342,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private void petPhotoUpload3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petPhotoUpload3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_petPhotoUpload3ActionPerformed
+
+    private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notificationButtonActionPerformed
 
     /**
      * @param args the command line arguments
