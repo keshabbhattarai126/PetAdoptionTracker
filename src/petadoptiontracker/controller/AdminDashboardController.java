@@ -5,18 +5,26 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.List;
+import java.util.Map;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.AdminDao;
+import petadoptiontracker.dao.RequestDao;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.AdminDashboardView;
 import petadoptiontracker.view.EntryView;
+import petadoptiontracker.view.PetProfileView;
 
 public class AdminDashboardController {
     private final AdminDashboardView adminDashboardView;
     private File selectedPetImage = null;
+    private File selectedPetImage2 = null;
+    private File selectedPetImage3 = null;
 
     public AdminDashboardController(AdminDashboardView view) {
         this.adminDashboardView = view;
@@ -26,6 +34,11 @@ public class AdminDashboardController {
         adminDashboardView.addPetPhotoUploadButtonListener(new UploadPhotoListener());
         adminDashboardView.addPetTabButtonListener(new AddPetTabListener());
         adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
+        adminDashboardView.addDeletePetEntryListener(new DeletePetEntryListener()); //Delete Operation
+        adminDashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
+        adminDashboardView.petPhotoUpload2Listener(new UploadPhotoListener2());
+        adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener3());
+        adminDashboardView.addDashboardButtonListener(new DashboardButtonListener());
         
         
         // Add admin-specific listeners here as you build features
@@ -38,6 +51,17 @@ public class AdminDashboardController {
     public void close() {
         adminDashboardView.dispose();
     }
+     public void loadPetTable() {
+    AdminDao adminDao = new AdminDao();
+    List<PetModel> petList = adminDao.getAllPets();
+    adminDashboardView.setPetTableData(petList);
+     }
+     
+     public void loadRequestsTable() {
+    RequestDao requestDao = new RequestDao();
+    List<Map<String, Object>> requests = requestDao.getAllRequestsWithUserAndPet();
+    adminDashboardView.setRequestsTableData(requests); // Implement this in your view
+     }
     
     class UploadPhotoListener implements ActionListener {
         @Override
@@ -85,6 +109,8 @@ public class AdminDashboardController {
 
                 // Read image file
                 byte[] imageBytes = Files.readAllBytes(selectedPetImage.toPath());
+                byte[] imageBytes2 = Files.readAllBytes(selectedPetImage2.toPath());
+                byte[] imageBytes3 = Files.readAllBytes(selectedPetImage3.toPath());
 
                 // Create PetModel
                 PetModel newPet = new PetModel();
@@ -93,6 +119,8 @@ public class AdminDashboardController {
                 newPet.setAge(age);
                 newPet.setSex(sex);
                 newPet.setPhoto(imageBytes);
+                newPet.setPhoto2(imageBytes2);
+                newPet.setPhoto3(imageBytes3);
                 newPet.setStatus(status.isEmpty() ? "Available" : status);
 
                 // Save to database
@@ -145,6 +173,7 @@ public class AdminDashboardController {
         
     }
     
+    
     class AddPetTabListener implements ActionListener{
 
         @Override
@@ -158,8 +187,18 @@ public class AdminDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             adminDashboardView.getTabbedPane().setSelectedIndex(1);
+            loadPetTable();
         }
     }
+    
+    class DashboardButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        adminDashboardView.getTabbedPane().setSelectedIndex(0); // tab2 = dashboard
+        loadRequestsTable();
+    }
+    }
+  
 
     class SearchButtonListener implements ActionListener {
         @Override
@@ -182,4 +221,82 @@ public class AdminDashboardController {
             }
         }
     }
+    class DeletePetEntryListener implements java.awt.event.ActionListener {
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent e) {
+            javax.swing.JTable table = adminDashboardView.getPetTable();
+            int selectedRow = table.getSelectedRow();
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(adminDashboardView, "Please select a pet to delete.");
+                return;
+            }
+            int confirm = JOptionPane.showConfirmDialog(
+            adminDashboardView,
+            "Are you sure you want to delete the selected pet?",
+            "Delete Confirmation",
+            JOptionPane.YES_NO_OPTION
+            );
+            
+            if (confirm == JOptionPane.YES_OPTION) {
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                int petId = (Integer) model.getValueAt(selectedRow, 0); // Assuming ID is in column 0
+                // Delete from database
+                petadoptiontracker.dao.AdminDao adminDao = new petadoptiontracker.dao.AdminDao();
+                boolean deleted = adminDao.deletePet(petId);
+                
+                if (deleted) {
+                    model.removeRow(selectedRow);
+                    JOptionPane.showMessageDialog(adminDashboardView, "Pet deleted successfully.");
+                } else {
+                    JOptionPane.showMessageDialog(adminDashboardView, "Failed to delete pet from database.");
+                }
+            }
+        }
+    }
+    class ViewPetProfileListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JTable table = adminDashboardView.getPetTable(); // getPetTable() returns your JTable
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(adminDashboardView, "Please select a pet to view.");
+            return;
+        }
+        // Assuming pet ID is in column 0
+        int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
+
+        // Fetch pet details from DAO
+        AdminDao adminDao = new AdminDao();
+        PetModel pet = adminDao.getPetById(petId);
+
+        if (pet != null) {
+            PetProfileView profileView = new PetProfileView(pet);
+            profileView.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(adminDashboardView, "Could not load pet details.");
+        }
+    }
 }
+    class UploadPhotoListener2 implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JFileChooser fileChooser = new JFileChooser();
+            int result = fileChooser.showOpenDialog(adminDashboardView);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                selectedPetImage2 = fileChooser.getSelectedFile();
+//                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
+            }
+        }
+    }
+    class UploadPhotoListener3 implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JFileChooser fileChooser = new JFileChooser();
+            int result = fileChooser.showOpenDialog(adminDashboardView);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                selectedPetImage3 = fileChooser.getSelectedFile();
+//                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
+            }
+        }
+    }   
+}    

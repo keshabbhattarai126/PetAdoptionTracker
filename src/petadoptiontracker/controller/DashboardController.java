@@ -10,11 +10,17 @@
 package petadoptiontracker.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import petadoptiontracker.dao.RequestDao;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.DashboardView;
 import petadoptiontracker.view.EntryView;
+
+
 //import petadoptiontracker.view.MyRequestView;
 
 /**
@@ -32,6 +38,8 @@ public class DashboardController {
 //        dashboardView.addMyRequestButtonListener(new MyRequestListener());
         dashboardView.addSearchButtonListener(new SearchButtonListener());
         dashboardView.addSignOutButtonListener(new SignOutListener());
+        dashboardView.viewPetTabButtonListener(new ViewPetTabListener());
+        dashboardView.requestButtonListener(new RequestButtonListener());
     }
 
     public void open() {
@@ -41,7 +49,11 @@ public class DashboardController {
     public void close() {
         dashboardView.dispose();
     }
-
+     public void loadPetTable() {
+    UserDao userDao = new UserDao();
+    List<PetModel> petList = userDao.getAllPets();
+    dashboardView.setTableData(petList);
+     }
 //    class MyRequestListener implements ActionListener {
 //        @Override
 //        public void actionPerformed(ActionEvent e) {
@@ -73,6 +85,17 @@ public class DashboardController {
         }
         
     }
+    class ViewPetTabListener implements ActionListener{
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          dashboardView.getTabbedPane().setSelectedIndex(1);
+
+          loadPetTable();
+          
+        }
+    
+    }
     
 
     class SearchButtonListener implements ActionListener {
@@ -96,4 +119,45 @@ public class DashboardController {
             }
         }
     }
+//    adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
+ 
+//class ViewPetTabListener implements ActionListener {
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        dashboardView.getTabbedPane().setSelectedIndex(2); // tab3 index
+//         Load data into the table
+//    }
+//}
+    class RequestButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JTable table = dashboardView.getPetTable();
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(dashboardView, "Please select a pet to request.");
+            return;
+        }
+
+        // Assuming pet ID is in column 0
+        int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
+
+        // Get the current user (from session manager or controller)
+        UserData currentUser = SessionManager.getCurrentUser();
+        if (currentUser == null) {
+            JOptionPane.showMessageDialog(dashboardView, "User not logged in.");
+            return;
+        }
+        int userId = currentUser.getId();
+
+        // Save the request
+        RequestDao requestDao = new RequestDao();
+        boolean success = requestDao.createRequest(userId, petId);
+
+        if (success) {
+            JOptionPane.showMessageDialog(dashboardView, "Request submitted!");
+        } else {
+            JOptionPane.showMessageDialog(dashboardView, "Failed to submit request.");
+        }
+    }
+}
 }

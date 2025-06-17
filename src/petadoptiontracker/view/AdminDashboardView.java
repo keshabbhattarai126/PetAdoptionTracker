@@ -6,11 +6,18 @@ package petadoptiontracker.view;
 
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
+//import javax.swing.table.DefaultTabåleModel;
+//import java.util.List;
+//import petadoptiontracker.model.PetModel;
 
 /**
  *
@@ -65,9 +72,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        requestsTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        deletePetEntryButton = new javax.swing.JButton();
+        viewPetProfileButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         petStatus = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -83,9 +94,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
         petName2 = new javax.swing.JTextField();
         addPetButton = new javax.swing.JButton();
         petSex = new javax.swing.JComboBox<>();
+        petPhotoUpload2 = new javax.swing.JButton();
+        petPhotoUpload3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 535));
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
@@ -93,7 +105,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(430, 10, 170, 20);
 
-        photoLabel.setText("jLabel2");
         photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
         photoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
         getContentPane().add(photoLabel);
@@ -101,6 +112,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         addPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         addPetTab.setText("Add Pet");
+        addPetTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPetTabActionPerformed(evt);
+            }
+        });
         getContentPane().add(addPetTab);
         addPetTab.setBounds(34, 187, 152, 31);
 
@@ -111,8 +127,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewPetTab.setText("View Pet");
+        viewPetTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewPetTabActionPerformed(evt);
+            }
+        });
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 243, 107, 31);
+        viewPetTab.setBounds(34, 243, 150, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
@@ -139,7 +160,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 30, 16);
+        jLabel5.setBounds(490, 450, 29, 16);
         getContentPane().add(emailResult);
         emailResult.setBounds(540, 450, 189, 22);
 
@@ -149,19 +170,51 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jPanel4.setLayout(null);
 
-        jLabel10.setText("This is tab 2");
-        jPanel4.add(jLabel10);
-        jLabel10.setBounds(170, 70, 100, 60);
+        requestsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(requestsTable);
+
+        jPanel4.add(jScrollPane2);
+        jScrollPane2.setBounds(40, 10, 520, 190);
 
         jTabbedPane4.addTab("tab2", jPanel4);
 
         jPanel5.setLayout(null);
 
-        jLabel11.setText("This is tab 3");
-        jPanel5.add(jLabel11);
-        jLabel11.setBounds(210, 40, 110, 40);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        jTabbedPane4.addTab("tab3", jPanel5);
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(10, -10, 452, 402);
+
+        deletePetEntryButton.setText("Delete Entry");
+        jPanel5.add(deletePetEntryButton);
+        deletePetEntryButton.setBounds(540, 230, 110, 20);
+
+        viewPetProfileButton.setText("View Pet Profile");
+        jPanel5.add(viewPetProfileButton);
+        viewPetProfileButton.setBounds(540, 180, 130, 20);
+
+        jTabbedPane4.addTab("View Pet", jPanel5);
 
         jPanel3.setLayout(null);
 
@@ -225,10 +278,28 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(petSex);
         petSex.setBounds(150, 170, 90, 20);
 
-        jTabbedPane4.addTab("tab1", jPanel3);
+        petPhotoUpload2.setText("Upload");
+        petPhotoUpload2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                petPhotoUpload2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(petPhotoUpload2);
+        petPhotoUpload2.setBounds(230, 210, 75, 23);
+
+        petPhotoUpload3.setText("Upload");
+        petPhotoUpload3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                petPhotoUpload3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(petPhotoUpload3);
+        petPhotoUpload3.setBounds(190, 240, 72, 23);
+
+        jTabbedPane4.addTab("Add Pet", jPanel3);
 
         getContentPane().add(jTabbedPane4);
-        jTabbedPane4.setBounds(320, 100, 380, 290);
+        jTabbedPane4.setBounds(320, 100, 690, 330);
 
         pack();
         setLocationRelativeTo(null);
@@ -241,6 +312,25 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private void petSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petSexActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_petSexActionPerformed
+
+    private void viewPetTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPetTabActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(1); // This switches the tab
+
+    }//GEN-LAST:event_viewPetTabActionPerformed
+
+    private void addPetTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetTabActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(2);
+    }//GEN-LAST:event_addPetTabActionPerformed
+
+    private void petPhotoUpload2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petPhotoUpload2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_petPhotoUpload2ActionPerformed
+
+    private void petPhotoUpload3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petPhotoUpload3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_petPhotoUpload3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,10 +372,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton addPetButton;
     private javax.swing.JButton addPetTab;
     private javax.swing.JButton dashboardButton;
+    private javax.swing.JButton deletePetEntryButton;
     private javax.swing.JTextField emailResult;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -301,19 +390,26 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameResult;
     private javax.swing.JTextField petAge1;
     private javax.swing.JTextField petBreed1;
     private javax.swing.JTextField petName2;
+    private javax.swing.JButton petPhotoUpload2;
+    private javax.swing.JButton petPhotoUpload3;
     private javax.swing.JButton petPhotoUploadButton;
     private javax.swing.JComboBox<String> petSex;
     private javax.swing.JComboBox<String> petStatus;
     private javax.swing.JLabel photoLabel;
+    private javax.swing.JTable requestsTable;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton signOutButton;
+    private javax.swing.JButton viewPetProfileButton;
     private javax.swing.JButton viewPetTab;
     // End of variables declaration//GEN-END:variables
     
@@ -406,4 +502,58 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
     }
 
 
+    public void setPetTableData(List<PetModel> petList) {
+    String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+ 
+    for (PetModel pet : petList) {
+        Object[] row = {
+            pet.getId(),
+            pet.getName(),
+            pet.getBreed(),
+            pet.getAge(),
+            pet.getSex(),
+            pet.getStatus()
+        };
+        model.addRow(row);
+    }
+    jTable1.setModel(model);
+}
+    public void setRequestsTableData(List<Map<String, Object>> requestList) {
+    // Define the columns you want to display
+    String[] columns = {"User Name", "Email", "Pet Name", "Pet Breed", "Status", "Request Date"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+    for (Map<String, Object> request : requestList) {
+        Object[] row = {
+            request.getOrDefault("user_name", ""),
+            request.getOrDefault("email", ""),
+            request.getOrDefault("pet_name", ""),
+            request.getOrDefault("pet_breed", ""),
+            request.getOrDefault("status", ""),
+            request.getOrDefault("request_date", "")
+        };
+        model.addRow(row);
+    }
+    requestsTable.setModel(model); // Replace with your actual table variable name
+}
+
+    public void addDeletePetEntryListener(ActionListener listener) {
+    deletePetEntryButton.addActionListener(listener);
+}
+    public javax.swing.JTable getPetTable() {
+    return jTable1;
+}
+   public void addViewPetProfileListener(ActionListener listener) {
+    viewPetProfileButton.addActionListener(listener);
+}
+   public void petPhotoUpload2Listener(ActionListener listener) {
+    petPhotoUpload2.addActionListener(listener);
+}
+   public void petPhotoUpload3Listener(ActionListener listener) {
+    petPhotoUpload3.addActionListener(listener);
+}
+   public void addDashboardButtonListener(ActionListener listener) {
+    dashboardButton.addActionListener(listener);
+}
 }

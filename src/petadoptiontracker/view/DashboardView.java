@@ -6,9 +6,15 @@ package petadoptiontracker.view;
 
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import petadoptiontracker.controller.DashboardController;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 
 /**
@@ -16,6 +22,15 @@ import petadoptiontracker.model.UserData;
  * @author keshab
  */
 public class DashboardView extends javax.swing.JFrame {
+    
+
+    public static void setPetTableData(List<PetModel> petList) {
+        
+      
+        throw new UnsupportedOperationException("Not supported yet."); 
+        
+    }
+    
     public DashboardView(UserData user) {
         initComponents();
         jLabel1.setText("Welcome, " + user.getName() +" "+ user.getRole() + "!");
@@ -25,6 +40,7 @@ public class DashboardView extends javax.swing.JFrame {
             Image img = imageIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
             imageIcon = new ImageIcon(img);
             photoLabel.setIcon(imageIcon);
+            
         }
     }
 
@@ -38,7 +54,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         photoLabel = new javax.swing.JLabel();
-        myRequestButton = new javax.swing.JButton();
+        viewPetTab = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         signOutButton = new javax.swing.JButton();
@@ -55,9 +71,11 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        petTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        requestButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(950, 535));
@@ -74,29 +92,34 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(photoLabel);
         photoLabel.setBounds(68, 34, 80, 80);
 
-        myRequestButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        myRequestButton.setText("My Request");
-        getContentPane().add(myRequestButton);
-        myRequestButton.setBounds(34, 187, 152, 31);
+        viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        viewPetTab.setText("View Pet");
+        getContentPane().add(viewPetTab);
+        viewPetTab.setBounds(34, 187, 160, 31);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 152, 31);
+        dashboardButton.setBounds(34, 126, 160, 31);
 
         jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton4.setText("Profile Setting");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4);
-        jButton4.setBounds(34, 243, 157, 31);
+        jButton4.setBounds(34, 243, 160, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(34, 303, 152, 31);
+        signOutButton.setBounds(34, 303, 160, 31);
 
         jLabel2.setText("This is Dashboard");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(610, 60, 94, 16);
+        jLabel2.setBounds(610, 60, 92, 16);
         getContentPane().add(searchField);
         searchField.setBounds(320, 60, 195, 22);
 
@@ -114,7 +137,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 30, 16);
+        jLabel5.setBounds(490, 450, 29, 16);
         getContentPane().add(emailResult);
         emailResult.setBounds(540, 450, 189, 22);
 
@@ -126,15 +149,27 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel9.setText("This is tab1");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(120, 70, 59, 16);
+        jLabel9.setBounds(120, 70, 58, 16);
 
         jTabbedPane4.addTab("tab1", jPanel3);
 
         jPanel4.setLayout(null);
 
-        jLabel10.setText("This is tab 2");
-        jPanel4.add(jLabel10);
-        jLabel10.setBounds(170, 70, 100, 60);
+        petTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(petTable);
+
+        jPanel4.add(jScrollPane1);
+        jScrollPane1.setBounds(-30, 0, 460, 280);
 
         jTabbedPane4.addTab("tab2", jPanel4);
 
@@ -147,11 +182,20 @@ public class DashboardView extends javax.swing.JFrame {
         jTabbedPane4.addTab("tab3", jPanel5);
 
         getContentPane().add(jTabbedPane4);
-        jTabbedPane4.setBounds(320, 100, 380, 290);
+        jTabbedPane4.setBounds(290, 90, 450, 290);
+
+        requestButton.setText("Request");
+        getContentPane().add(requestButton);
+        requestButton.setBounds(740, 330, 72, 23);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -183,7 +227,6 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField emailResult;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -194,17 +237,20 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JButton myRequestButton;
     private javax.swing.JTextField nameResult;
+    private javax.swing.JTable petTable;
     private javax.swing.JLabel photoLabel;
+    private javax.swing.JButton requestButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton signOutButton;
+    private javax.swing.JButton viewPetTab;
     // End of variables declaration//GEN-END:variables
 
     public void addMyRequestButtonListener(ActionListener listener) {
-        myRequestButton.addActionListener(listener);
+        viewPetTab.addActionListener(listener);
     }
 
     public void addSearchButtonListener(ActionListener listener) {
@@ -228,4 +274,37 @@ public class DashboardView extends javax.swing.JFrame {
     public void addSignOutButtonListener(ActionListener listener) {
         signOutButton.addActionListener(listener);
     }
+
+    public JTabbedPane getTabbedPane() {
+    return jTabbedPane4;
+}
+
+
+    public void viewPetTabButtonListener(ActionListener listener) {
+        viewPetTab.addActionListener(listener);
+        
+    }
+    public void setTableData(List<PetModel> petList) {
+    String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+ 
+    for (PetModel pet : petList) {
+        Object[] row = {
+            pet.getId(),
+            pet.getName(),
+            pet.getBreed(),
+            pet.getAge(),
+            pet.getSex(),
+            pet.getStatus()
+        };
+        model.addRow(row);
+    }
+    petTable.setModel(model);
+}
+    public void requestButtonListener(ActionListener listener){
+        requestButton.addActionListener(listener);
+    }
+    public JTable getPetTable() {
+    return petTable;
+}
 }
