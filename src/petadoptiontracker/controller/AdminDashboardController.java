@@ -41,6 +41,7 @@ public class AdminDashboardController {
         adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener3());
         adminDashboardView.addDashboardButtonListener(new DashboardButtonListener());
         adminDashboardView.addNotifcationButtonListener(new NotifcationButtonListener());
+        adminDashboardView.addEditEntryButtonListener(new EditEntryButtonListener());
         
         // Add admin-specific listeners here as you build features
     }
@@ -308,5 +309,72 @@ public class AdminDashboardController {
             close();
         }    
     }
+    
+    class EditEntryButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JTable table = adminDashboardView.getPetTable();
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(adminDashboardView, "Please select a pet to edit.");
+            return;
+        }
+
+        // Get pet ID from the selected row (assumed in column 0)
+        Object value = table.getModel().getValueAt(selectedRow, 0);
+        int petId;
+        try {
+            petId = (value instanceof Integer) ? (Integer) value : Integer.parseInt(value.toString());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(adminDashboardView, "Invalid pet ID.");
+            return;
+        }
+
+        // Fetch current pet data
+        AdminDao adminDao = new AdminDao();
+        PetModel pet = adminDao.getPetById(petId);
+        if (pet == null) {
+            JOptionPane.showMessageDialog(adminDashboardView, "Could not load pet details.");
+            return;
+        }
+
+        // Show a dialog to edit pet details (simplest: use JOptionPane for each field)
+        String newName = JOptionPane.showInputDialog(adminDashboardView, "Edit Name:", pet.getName());
+        if (newName == null) return; // Cancelled
+        String newBreed = JOptionPane.showInputDialog(adminDashboardView, "Edit Breed:", pet.getBreed());
+        if (newBreed == null) return;
+        String newAgeStr = JOptionPane.showInputDialog(adminDashboardView, "Edit Age:", pet.getAge());
+        if (newAgeStr == null) return;
+        int newAge;
+        try {
+            newAge = Integer.parseInt(newAgeStr);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(adminDashboardView, "Invalid age.");
+            return;
+        }
+        String newSex = JOptionPane.showInputDialog(adminDashboardView, "Edit Sex:", pet.getSex());
+        if (newSex == null) return;
+        String newStatus = JOptionPane.showInputDialog(adminDashboardView, "Edit Status:", pet.getStatus());
+        if (newStatus == null) return;
+
+        // Update model
+        pet.setName(newName.trim());
+        pet.setBreed(newBreed.trim());
+        pet.setAge(newAge);
+        pet.setSex(newSex.trim());
+        pet.setStatus(newStatus.trim());
+
+        // Update in database
+        boolean success = adminDao.updatePet(pet);
+        if (success) {
+            JOptionPane.showMessageDialog(adminDashboardView, "Pet updated successfully!");
+            // Reload table data
+            loadPetTable();
+        } else {
+            JOptionPane.showMessageDialog(adminDashboardView, "Failed to update pet.");
+        }
+    }
+}
+
 }    
     
