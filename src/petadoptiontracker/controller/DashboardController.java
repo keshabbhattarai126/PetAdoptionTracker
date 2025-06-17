@@ -13,12 +13,15 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import petadoptiontracker.dao.AdminDao;
+import petadoptiontracker.dao.FavoritesDao;
 import petadoptiontracker.dao.RequestDao;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.DashboardView;
 import petadoptiontracker.view.EntryView;
+import petadoptiontracker.view.PetProfileView;
 
 
 //import petadoptiontracker.view.MyRequestView;
@@ -40,6 +43,10 @@ public class DashboardController {
         dashboardView.addSignOutButtonListener(new SignOutListener());
         dashboardView.viewPetTabButtonListener(new ViewPetTabListener());
         dashboardView.requestButtonListener(new RequestButtonListener());
+        dashboardView.addFavoriteButtonListener(new FavoriteButtonListener());
+        dashboardView.addHeartButtonListener(new HeartButtonListener());
+       dashboardView.addViewPetProfileListener(new ViewPetProfileListener());
+
     }
 
     public void open() {
@@ -159,5 +166,80 @@ public class DashboardController {
             JOptionPane.showMessageDialog(dashboardView, "Failed to submit request.");
         }
     }
+    
 }
+    class FavoriteButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JTable table = dashboardView.getPetTable();
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(dashboardView, "Please select a pet to favorite.");
+            return;
+        }
+        int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
+        UserData currentUser = SessionManager.getCurrentUser();
+        if (currentUser == null) {
+            JOptionPane.showMessageDialog(dashboardView, "User not logged in.");
+            return;
+        }
+        FavoritesDao favoritesDao = new FavoritesDao();
+        boolean success = favoritesDao.addToFavorites(currentUser.getId(), petId);
+        if (success) {
+            JOptionPane.showMessageDialog(dashboardView, "Pet added to favorites!");
+        } else {
+            JOptionPane.showMessageDialog(dashboardView, "Already in favorites or failed.");
+        }
+    }
 }
+
+class HeartButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        UserData currentUser = SessionManager.getCurrentUser();
+        if (currentUser == null) {
+            JOptionPane.showMessageDialog(dashboardView, "User not logged in.");
+            return;
+        }
+        FavoritesDao favoritesDao = new FavoritesDao();
+        List<PetModel> favorites = favoritesDao.getFavoritesByUser(currentUser.getId());
+        // Show favorites in a simple dialog for now
+        StringBuilder sb = new StringBuilder();
+        for (PetModel pet : favorites) {
+            sb.append(pet.getName())
+              .append(" (").append(pet.getBreed()).append(") ")
+              .append("- Age: ").append(pet.getAge())
+              .append(", Sex: ").append(pet.getSex())
+              .append("\n");
+
+        }
+        JOptionPane.showMessageDialog(dashboardView, sb.length() > 0 ? sb.toString() : "No favorites yet.");
+    }
+}
+class ViewPetProfileListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JTable table = dashboardView.getPetTable(); // getPetTable() returns your JTable
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(dashboardView, "Please select a pet to view.");
+            return;
+        }
+        // Assuming pet ID is in column 0
+        int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
+
+        // Fetch pet details from DAO
+        AdminDao adminDao = new AdminDao();
+        PetModel pet = adminDao.getPetById(petId);
+
+        if (pet != null) {
+            PetProfileView profileView = new PetProfileView(pet);
+            profileView.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(dashboardView, "Could not load pet details.");
+        }
+    }
+}
+
+}
+//jgnsfjglskgpdoahjpeh

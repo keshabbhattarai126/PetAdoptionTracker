@@ -96,6 +96,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         petSex = new javax.swing.JComboBox<>();
         petPhotoUpload2 = new javax.swing.JButton();
         petPhotoUpload3 = new javax.swing.JButton();
+        notificationButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(950, 535));
@@ -301,6 +302,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(320, 100, 690, 330);
 
+        notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/notification.png"))); // NOI18N
+        notificationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notificationButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(notificationButton);
+        notificationButton.setBounds(820, 10, 50, 40);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -331,6 +341,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private void petPhotoUpload3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petPhotoUpload3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_petPhotoUpload3ActionPerformed
+
+    private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notificationButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,6 +410,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameResult;
+    private javax.swing.JButton notificationButton;
     private javax.swing.JTextField petAge1;
     private javax.swing.JTextField petBreed1;
     private javax.swing.JTextField petName2;
@@ -556,4 +571,7 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
    public void addDashboardButtonListener(ActionListener listener) {
     dashboardButton.addActionListener(listener);
 }
+   public void addNotifcationButtonListener(ActionListener listener){
+       notificationButton.addActionListener(listener);
+   }
 }

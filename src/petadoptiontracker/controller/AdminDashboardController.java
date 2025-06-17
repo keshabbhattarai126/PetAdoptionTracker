@@ -18,6 +18,7 @@ import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.AdminDashboardView;
 import petadoptiontracker.view.EntryView;
+import petadoptiontracker.view.NotificationView;
 import petadoptiontracker.view.PetProfileView;
 
 public class AdminDashboardController {
@@ -39,7 +40,7 @@ public class AdminDashboardController {
         adminDashboardView.petPhotoUpload2Listener(new UploadPhotoListener2());
         adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener3());
         adminDashboardView.addDashboardButtonListener(new DashboardButtonListener());
-        
+        adminDashboardView.addNotifcationButtonListener(new NotifcationButtonListener());
         
         // Add admin-specific listeners here as you build features
     }
@@ -298,5 +299,14 @@ public class AdminDashboardController {
 //                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
             }
         }
-    }   
+    }
+    class NotifcationButtonListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            NotificationView notificationView= new NotificationView();
+            notificationView.setVisible(true);
+            close();
+        }    
+    }
 }    
+    
