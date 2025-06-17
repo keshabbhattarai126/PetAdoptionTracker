@@ -208,13 +208,21 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel5.add(jScrollPane1);
         jScrollPane1.setBounds(10, -10, 452, 402);
 
+        deletePetEntryButton.setBackground(new java.awt.Color(204, 0, 0));
+        deletePetEntryButton.setForeground(new java.awt.Color(255, 255, 255));
         deletePetEntryButton.setText("Delete Entry");
+        deletePetEntryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletePetEntryButtonActionPerformed(evt);
+            }
+        });
         jPanel5.add(deletePetEntryButton);
-        deletePetEntryButton.setBounds(540, 230, 110, 20);
+        deletePetEntryButton.setBounds(540, 217, 120, 23);
 
+        viewPetProfileButton.setBackground(new java.awt.Color(204, 255, 255));
         viewPetProfileButton.setText("View Pet Profile");
         jPanel5.add(viewPetProfileButton);
-        viewPetProfileButton.setBounds(540, 180, 130, 20);
+        viewPetProfileButton.setBounds(540, 180, 120, 20);
 
         jTabbedPane4.addTab("View Pet", jPanel5);
 
@@ -303,6 +311,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(320, 100, 690, 330);
 
+        notificationButton.setBackground(new java.awt.Color(221, 179, 176));
+        notificationButton.setForeground(new java.awt.Color(255, 255, 255));
         notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/notification.png"))); // NOI18N
         notificationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -346,6 +356,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_notificationButtonActionPerformed
+
+    private void deletePetEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePetEntryButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deletePetEntryButtonActionPerformed
 
     /**
      * @param args the command line arguments

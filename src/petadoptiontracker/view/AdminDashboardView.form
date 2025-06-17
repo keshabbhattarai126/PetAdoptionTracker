@@ -289,21 +289,33 @@
             </Container>
             <Component class="javax.swing.JButton" name="deletePetEntryButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="cc" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Delete Entry"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletePetEntryButtonActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="540" y="230" width="110" height="20"/>
+                  <AbsoluteConstraints x="540" y="217" width="120" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="viewPetProfileButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="cc" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="View Pet Profile"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="540" y="180" width="130" height="20"/>
+                  <AbsoluteConstraints x="540" y="180" width="120" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -507,6 +519,12 @@
     </Container>
     <Component class="javax.swing.JButton" name="notificationButton">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="b0" green="b3" red="dd" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagepicker/notification.png"/>
         </Property>
