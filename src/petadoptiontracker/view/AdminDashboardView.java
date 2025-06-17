@@ -120,7 +120,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(addPetTab);
-        addPetTab.setBounds(34, 187, 152, 31);
+        addPetTab.setBounds(34, 237, 150, 30);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
@@ -129,18 +129,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewPetTab.setText("View Pet");
-        viewPetTab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewPetTabActionPerformed(evt);
-            }
-        });
+        viewPetTab.setPreferredSize(new java.awt.Dimension(128, 31));
+        viewPetTab.setRequestFocusEnabled(false);
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 243, 150, 31);
+        viewPetTab.setBounds(34, 184, 150, 30);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(34, 303, 152, 31);
+        signOutButton.setBounds(34, 294, 152, 30);
 
         jLabel2.setText("This is Admin Dashboard");
         getContentPane().add(jLabel2);
@@ -168,7 +165,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 270, 510);
+        jPanel1.setBounds(0, -10, 270, 510);
 
         jPanel4.setLayout(null);
 
@@ -188,7 +185,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel4.add(jScrollPane2);
         jScrollPane2.setBounds(40, 10, 520, 190);
 
-        jTabbedPane4.addTab("tab2", jPanel4);
+        jTabbedPane4.addTab("Dashboard", jPanel4);
 
         jPanel5.setLayout(null);
 
@@ -333,12 +330,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private void petSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petSexActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_petSexActionPerformed
-
-    private void viewPetTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPetTabActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane4.setSelectedIndex(1); // This switches the tab
-
-    }//GEN-LAST:event_viewPetTabActionPerformed
 
     private void addPetTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetTabActionPerformed
         // TODO add your handling code here:

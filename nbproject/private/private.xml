@@ -6,8 +6,6 @@
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/DashboardController.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/userDashboardView.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/AdminDashboardController.java</file>
-            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/AdminDashboardView.java</file>
-            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/DashboardView.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/userDao.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/dao/UserDao.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/dao/RequestDao.java</file>
@@ -18,6 +16,7 @@
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/imagepicker/CreateAccount.png</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/imagepicker/notification.png</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/dao/FavoritesDao.java</file>
+            <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/ForgotPasswordView.java</file>
         </group>
     </open-files>
 </project-private>

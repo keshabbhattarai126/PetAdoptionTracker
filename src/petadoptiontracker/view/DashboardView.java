@@ -153,7 +153,7 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel3.add(jLabel9);
         jLabel9.setBounds(120, 70, 59, 16);
 
-        jTabbedPane4.addTab("tab1", jPanel3);
+        jTabbedPane4.addTab("Dashboard", jPanel3);
 
         jPanel4.setLayout(null);
 
@@ -173,7 +173,7 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel4.add(jScrollPane1);
         jScrollPane1.setBounds(-30, 0, 460, 280);
 
-        jTabbedPane4.addTab("tab2", jPanel4);
+        jTabbedPane4.addTab("View Pet", jPanel4);
 
         jPanel5.setLayout(null);
 
@@ -181,11 +181,12 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel5.add(jLabel11);
         jLabel11.setBounds(210, 40, 110, 40);
 
-        jTabbedPane4.addTab("tab3", jPanel5);
+        jTabbedPane4.addTab("Profile Setting", jPanel5);
 
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(290, 90, 450, 290);
 
+        requestButton.setBackground(new java.awt.Color(0, 255, 204));
         requestButton.setText("Request");
         requestButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +196,7 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(requestButton);
         requestButton.setBounds(740, 330, 72, 23);
 
+        favoriteButton.setBackground(new java.awt.Color(255, 51, 255));
         favoriteButton.setText("Favorite");
         getContentPane().add(favoriteButton);
         favoriteButton.setBounds(740, 300, 72, 23);
