@@ -12,18 +12,35 @@ import petadoptiontracker.model.PetModel;
 public class FavoritesDao {
     MySqlConnection mySql = new MySqlConnection();
 
-    public boolean addToFavorites(int userId, int petId) {
-        String sql = "INSERT IGNORE INTO Favorites (user_id, pet_id) VALUES (?, ?)";
-        try (Connection conn = mySql.openConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, userId);
-            stmt.setInt(2, petId);
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return false;
-        }
+    private void createFavorites() {
+    String createTableSQL = "CREATE TABLE IF NOT EXISTS Favorites ("
+        + "id INT AUTO_INCREMENT PRIMARY KEY, "
+        + "user_id INT NOT NULL, "
+        + "pet_id INT NOT NULL, "
+        + "UNIQUE KEY unique_favorite (user_id, pet_id)"
+        + ")";
+    try (Connection conn = mySql.openConnection();
+         PreparedStatement stmt = conn.prepareStatement(createTableSQL)) {
+        stmt.executeUpdate();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
     }
+}
+    public boolean addToFavorites(int userId, int petId) {
+    createFavorites(); // Ensure table exists
+
+    String sql = "INSERT IGNORE INTO Favorites (user_id, pet_id) VALUES (?, ?)";
+    try (Connection conn = mySql.openConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setInt(1, userId);
+        stmt.setInt(2, petId);
+        return stmt.executeUpdate() > 0;
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        return false;
+    }
+}
+
 
     public List<PetModel> getFavoritesByUser(int userId) {
         List<PetModel> favorites = new ArrayList<>();
