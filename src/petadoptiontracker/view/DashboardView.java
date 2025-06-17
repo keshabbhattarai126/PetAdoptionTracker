@@ -100,12 +100,12 @@ public class DashboardView extends javax.swing.JFrame {
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewPetTab.setText("View Pet");
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 187, 160, 29);
+        viewPetTab.setBounds(34, 187, 160, 31);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 160, 29);
+        dashboardButton.setBounds(34, 126, 160, 31);
 
         profileButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         profileButton.setText("Profile Setting");
@@ -115,18 +115,18 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(profileButton);
-        profileButton.setBounds(34, 243, 160, 29);
+        profileButton.setBounds(34, 243, 160, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(34, 303, 160, 29);
+        signOutButton.setBounds(34, 303, 160, 31);
 
         jLabel2.setText("This is Dashboard");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(610, 60, 106, 17);
+        jLabel2.setBounds(610, 60, 94, 16);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 23);
+        searchField.setBounds(320, 60, 195, 22);
 
         searchButton.setText("Search");
         getContentPane().add(searchButton);
@@ -136,15 +136,15 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 450, 34, 17);
+        jLabel4.setBounds(290, 450, 32, 16);
         getContentPane().add(nameResult);
-        nameResult.setBounds(340, 450, 130, 23);
+        nameResult.setBounds(340, 450, 130, 22);
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 32, 17);
+        jLabel5.setBounds(490, 450, 30, 16);
         getContentPane().add(emailResult);
-        emailResult.setBounds(540, 450, 189, 23);
+        emailResult.setBounds(540, 450, 189, 22);
 
         jPanel1.setBackground(new java.awt.Color(38, 78, 201));
         getContentPane().add(jPanel1);
@@ -154,7 +154,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel9.setText("This is tab1");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(120, 70, 68, 17);
+        jLabel9.setBounds(120, 70, 59, 16);
 
         jTabbedPane4.addTab("Dashboard", jPanel3);
 
@@ -176,10 +176,12 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel4.add(jScrollPane1);
         jScrollPane1.setBounds(-30, 0, 460, 280);
 
+        favoriteButton.setBackground(new java.awt.Color(255, 153, 255));
         favoriteButton.setText("Favorite");
         jPanel4.add(favoriteButton);
-        favoriteButton.setBounds(470, 150, 76, 23);
+        favoriteButton.setBounds(470, 150, 72, 23);
 
+        requestButton.setBackground(new java.awt.Color(153, 255, 153));
         requestButton.setText("Request");
         requestButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,11 +189,12 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         jPanel4.add(requestButton);
-        requestButton.setBounds(470, 200, 79, 23);
+        requestButton.setBounds(470, 190, 72, 23);
 
+        viewPetProfileButton.setBackground(new java.awt.Color(51, 255, 255));
         viewPetProfileButton.setText("View Profile");
         jPanel4.add(viewPetProfileButton);
-        viewPetProfileButton.setBounds(470, 100, 100, 20);
+        viewPetProfileButton.setBounds(470, 110, 100, 23);
 
         jTabbedPane4.addTab("View Pet", jPanel4);
 
@@ -214,12 +217,12 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(requestButton1);
-        requestButton1.setBounds(740, 330, 79, 23);
+        requestButton1.setBounds(740, 330, 72, 23);
 
         favoriteButton1.setBackground(new java.awt.Color(255, 51, 255));
         favoriteButton1.setText("Favorite");
         getContentPane().add(favoriteButton1);
-        favoriteButton1.setBounds(740, 300, 76, 23);
+        favoriteButton1.setBounds(740, 300, 72, 23);
 
         heartButton.setBackground(new java.awt.Color(255, 102, 255));
         heartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/heart pic.png"))); // NOI18N
