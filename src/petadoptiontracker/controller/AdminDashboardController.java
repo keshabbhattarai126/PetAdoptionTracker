@@ -304,9 +304,9 @@ public class AdminDashboardController {
     class NotifcationButtonListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            NotificationView notificationView= new NotificationView();
+            NotificationView notificationView = new NotificationView();
             notificationView.setVisible(true);
-            close();
+//            close();
         }    
     }
     
