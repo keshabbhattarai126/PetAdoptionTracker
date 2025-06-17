@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import petadoptiontracker.dao.AdminDao;
 import petadoptiontracker.dao.FavoritesDao;
 import petadoptiontracker.dao.RequestDao;
 import petadoptiontracker.dao.UserDao;
@@ -20,6 +21,7 @@ import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.DashboardView;
 import petadoptiontracker.view.EntryView;
+import petadoptiontracker.view.PetProfileView;
 
 
 //import petadoptiontracker.view.MyRequestView;
@@ -43,6 +45,7 @@ public class DashboardController {
         dashboardView.requestButtonListener(new RequestButtonListener());
         dashboardView.addFavoriteButtonListener(new FavoriteButtonListener());
         dashboardView.addHeartButtonListener(new HeartButtonListener());
+       dashboardView.addViewPetProfileListener(new ViewPetProfileListener());
 
     }
 
@@ -211,6 +214,30 @@ class HeartButtonListener implements ActionListener {
 
         }
         JOptionPane.showMessageDialog(dashboardView, sb.length() > 0 ? sb.toString() : "No favorites yet.");
+    }
+}
+class ViewPetProfileListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JTable table = dashboardView.getPetTable(); // getPetTable() returns your JTable
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(dashboardView, "Please select a pet to view.");
+            return;
+        }
+        // Assuming pet ID is in column 0
+        int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
+
+        // Fetch pet details from DAO
+        AdminDao adminDao = new AdminDao();
+        PetModel pet = adminDao.getPetById(petId);
+
+        if (pet != null) {
+            PetProfileView profileView = new PetProfileView(pet);
+            profileView.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(dashboardView, "Could not load pet details.");
+        }
     }
 }
 

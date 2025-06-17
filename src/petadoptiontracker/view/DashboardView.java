@@ -75,6 +75,7 @@ public class DashboardView extends javax.swing.JFrame {
         petTable = new javax.swing.JTable();
         favoriteButton = new javax.swing.JButton();
         requestButton = new javax.swing.JButton();
+        viewPetProfileButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         heartButton = new javax.swing.JButton();
@@ -186,6 +187,10 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel4.add(requestButton);
         requestButton.setBounds(470, 200, 79, 23);
 
+        viewPetProfileButton.setText("View Profile");
+        jPanel4.add(viewPetProfileButton);
+        viewPetProfileButton.setBounds(470, 100, 100, 20);
+
         jTabbedPane4.addTab("tab2", jPanel4);
 
         jPanel5.setLayout(null);
@@ -277,6 +282,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton signOutButton;
+    private javax.swing.JButton viewPetProfileButton;
     private javax.swing.JButton viewPetTab;
     // End of variables declaration//GEN-END:variables
 
@@ -345,4 +351,7 @@ public void addHeartButtonListener(ActionListener listener) {
     heartButton.addActionListener(listener);
 }
 
+   public void addViewPetProfileListener(ActionListener listener) {
+    viewPetProfileButton.addActionListener(listener);
+}
 }
