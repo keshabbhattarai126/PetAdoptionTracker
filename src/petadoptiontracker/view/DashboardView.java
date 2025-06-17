@@ -77,7 +77,7 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         requestButton = new javax.swing.JButton();
         favoriteButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        heartButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(950, 535));
@@ -199,15 +199,15 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(favoriteButton);
         favoriteButton.setBounds(740, 300, 72, 23);
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/heart pic.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        heartButton.setBackground(new java.awt.Color(255, 102, 255));
+        heartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/heart pic.png"))); // NOI18N
+        heartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                heartButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(734, 10, 46, 40);
+        getContentPane().add(heartButton);
+        heartButton.setBounds(734, 10, 46, 40);
 
         pack();
         setLocationRelativeTo(null);
@@ -222,9 +222,9 @@ public class DashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_requestButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void heartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heartButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_heartButtonActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -255,7 +255,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton dashboardButton;
     private javax.swing.JTextField emailResult;
     private javax.swing.JButton favoriteButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton heartButton;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -338,4 +338,11 @@ public class DashboardView extends javax.swing.JFrame {
     public JTable getPetTable() {
     return petTable;
 }
+    public void addFavoriteButtonListener(ActionListener listener) {
+    favoriteButton.addActionListener(listener);
+}
+public void addHeartButtonListener(ActionListener listener) {
+    heartButton.addActionListener(listener);
+}
+
 }
