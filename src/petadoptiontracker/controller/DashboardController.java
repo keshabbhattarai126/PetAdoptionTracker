@@ -43,6 +43,8 @@ public class DashboardController {
         dashboardView.requestButtonListener(new RequestButtonListener());
         dashboardView.addFavoriteButtonListener(new FavoriteButtonListener());
         dashboardView.addHeartButtonListener(new HeartButtonListener());
+        dashboardView.addDashboardTabButtonListener(new DashboardTabListener());
+        dashboardView.addProfileTabButtonListener(new ProfileTabListener());
 
     }
 
@@ -213,6 +215,19 @@ class HeartButtonListener implements ActionListener {
         JOptionPane.showMessageDialog(dashboardView, sb.length() > 0 ? sb.toString() : "No favorites yet.");
     }
 }
+class DashboardTabListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        dashboardView.getTabbedPane().setSelectedIndex(0); // Dashboard tab
+    }
+}
+class ProfileTabListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        dashboardView.getTabbedPane().setSelectedIndex(2); // Profile Setting tab
+    }
+}
+
 
 }
 //jgnsfjglskgpdoahjpeh

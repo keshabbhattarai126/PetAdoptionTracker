@@ -56,7 +56,7 @@ public class DashboardView extends javax.swing.JFrame {
         photoLabel = new javax.swing.JLabel();
         viewPetTab = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        profileButton = new javax.swing.JButton();
         signOutButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
@@ -104,15 +104,15 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(dashboardButton);
         dashboardButton.setBounds(34, 126, 160, 31);
 
-        jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton4.setText("Profile Setting");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        profileButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        profileButton.setText("Profile Setting");
+        profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                profileButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4);
-        jButton4.setBounds(34, 243, 160, 31);
+        getContentPane().add(profileButton);
+        profileButton.setBounds(34, 243, 160, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
@@ -215,10 +215,10 @@ public class DashboardView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_profileButtonActionPerformed
 
     private void requestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButtonActionPerformed
         // TODO add your handling code here:
@@ -258,7 +258,6 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField emailResult;
     private javax.swing.JButton favoriteButton;
     private javax.swing.JButton heartButton;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -275,6 +274,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField nameResult;
     private javax.swing.JTable petTable;
     private javax.swing.JLabel photoLabel;
+    private javax.swing.JButton profileButton;
     private javax.swing.JButton requestButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
@@ -346,5 +346,15 @@ public class DashboardView extends javax.swing.JFrame {
 public void addHeartButtonListener(ActionListener listener) {
     heartButton.addActionListener(listener);
 }
+public void addDashboardTabButtonListener(ActionListener listener) {
+    dashboardButton.addActionListener(listener);
+}
+
+
+
+public void addProfileTabButtonListener(ActionListener listener) {
+    profileButton.addActionListener(listener);
+}
+
 
 }
