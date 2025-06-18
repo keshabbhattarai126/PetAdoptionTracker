@@ -38,8 +38,7 @@ public class DashboardController {
         this.dashboardView = dashboardView;
 
         // Register button listeners
-//        dashboardView.addMyRequestButtonListener(new MyRequestListener());
-        dashboardView.addSearchButtonListener(new SearchButtonListener());
+
         dashboardView.addSignOutButtonListener(new SignOutListener());
         dashboardView.viewPetTabButtonListener(new ViewPetTabListener());
         dashboardView.requestButtonListener(new RequestButtonListener());
@@ -108,36 +107,7 @@ public class DashboardController {
     }
     
 
-    class SearchButtonListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String nameInput = dashboardView.getSearchInput().trim();
-
-            if (nameInput.isEmpty()) {
-                JOptionPane.showMessageDialog(dashboardView, "Please enter a name to search.");
-                return;
-            }
-
-            UserDao dao = new UserDao();
-            UserData user = dao.getUserByName(nameInput);
-
-            if (user != null) {
-                dashboardView.setSearchResult(user.getName(), user.getEmail());
-            } else {
-                JOptionPane.showMessageDialog(dashboardView, "User not found.");
-                dashboardView.clearSearchResult();
-            }
-        }
-    }
-//    adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
- 
-//class ViewPetTabListener implements ActionListener {
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        dashboardView.getTabbedPane().setSelectedIndex(2); // tab3 index
-//         Load data into the table
-//    }
-//}
+    
     class RequestButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {

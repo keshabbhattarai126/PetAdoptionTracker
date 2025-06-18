@@ -64,10 +64,6 @@ public class DashboardView extends javax.swing.JFrame {
         searchField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        nameResult = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        emailResult = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -112,12 +108,12 @@ public class DashboardView extends javax.swing.JFrame {
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewPetTab.setText("View Pet");
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 187, 160, 31);
+        viewPetTab.setBounds(34, 187, 160, 29);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 160, 31);
+        dashboardButton.setBounds(34, 126, 160, 29);
 
         profileButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         profileButton.setText("Profile Setting");
@@ -127,36 +123,24 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(profileButton);
-        profileButton.setBounds(34, 243, 160, 31);
+        profileButton.setBounds(34, 243, 160, 29);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(34, 303, 160, 31);
+        signOutButton.setBounds(34, 303, 160, 29);
 
         jLabel2.setText("This is Dashboard");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(610, 60, 94, 16);
+        jLabel2.setBounds(610, 60, 106, 17);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 22);
+        searchField.setBounds(320, 60, 195, 23);
 
         searchButton.setText("Search");
         getContentPane().add(searchButton);
         searchButton.setBounds(520, 60, 72, 23);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(371, 303, 0, 0);
-
-        jLabel4.setText("Name");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 450, 32, 16);
-        getContentPane().add(nameResult);
-        nameResult.setBounds(340, 450, 130, 22);
-
-        jLabel5.setText("Email");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 30, 16);
-        getContentPane().add(emailResult);
-        emailResult.setBounds(540, 450, 189, 22);
 
         jPanel1.setBackground(new java.awt.Color(38, 78, 201));
         getContentPane().add(jPanel1);
@@ -166,7 +150,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel9.setText("This is tab1");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(120, 70, 59, 16);
+        jLabel9.setBounds(120, 70, 68, 17);
 
         jTabbedPane4.addTab("Dashboard", jPanel3);
 
@@ -190,7 +174,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         favoriteButton.setText("Favorite");
         jPanel4.add(favoriteButton);
-        favoriteButton.setBounds(470, 150, 72, 23);
+        favoriteButton.setBounds(470, 150, 76, 23);
 
         requestButton.setText("Request");
         requestButton.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +183,7 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         jPanel4.add(requestButton);
-        requestButton.setBounds(470, 200, 72, 23);
+        requestButton.setBounds(470, 200, 79, 23);
 
         viewPetProfileButton.setText("View Profile");
         jPanel4.add(viewPetProfileButton);
@@ -280,12 +264,12 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(requestButton1);
-        requestButton1.setBounds(740, 330, 72, 23);
+        requestButton1.setBounds(740, 330, 79, 23);
 
         favoriteButton1.setBackground(new java.awt.Color(255, 51, 255));
         favoriteButton1.setText("Favorite");
         getContentPane().add(favoriteButton1);
-        favoriteButton1.setBounds(740, 300, 72, 23);
+        favoriteButton1.setBounds(740, 300, 76, 23);
 
         heartButton.setBackground(new java.awt.Color(255, 102, 255));
         heartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/heart pic.png"))); // NOI18N
@@ -345,7 +329,6 @@ public class DashboardView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton dashboardButton;
-    private javax.swing.JTextField emailResult;
     private javax.swing.JButton favoriteButton;
     private javax.swing.JButton favoriteButton1;
     private javax.swing.JButton heartButton;
@@ -358,8 +341,6 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -373,7 +354,6 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField nameResult;
     private javax.swing.JTable petTable;
     private javax.swing.JLabel photoLabel;
     private javax.swing.JButton profileButton;
@@ -396,16 +376,6 @@ public class DashboardView extends javax.swing.JFrame {
 
     public String getSearchInput() {
         return searchField.getText();
-    }
-
-    public void setSearchResult(String name, String email) {
-        nameResult.setText(name);
-        emailResult.setText(email);
-    }
-
-    public void clearSearchResult() {
-        nameResult.setText("");
-        emailResult.setText("");
     }
 
     public void addSignOutButtonListener(ActionListener listener) {
