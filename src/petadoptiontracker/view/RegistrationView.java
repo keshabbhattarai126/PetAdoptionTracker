@@ -57,7 +57,7 @@ public class RegistrationView extends javax.swing.JFrame {
 
         jLabel1.setText("Registration");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(590, 70, 80, 16);
+        jLabel1.setBounds(630, 60, 80, 16);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(38, 78, 201));
@@ -100,6 +100,7 @@ public class RegistrationView extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(0, -170, 420, 780);
 
+        noAccountLabel.setForeground(new java.awt.Color(0, 153, 153));
         noAccountLabel.setText("Already have an account?");
         getContentPane().add(noAccountLabel);
         noAccountLabel.setBounds(580, 400, 160, 20);
