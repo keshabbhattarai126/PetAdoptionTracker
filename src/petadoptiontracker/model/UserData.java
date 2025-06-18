@@ -16,6 +16,9 @@ public class UserData {
     private String password;
     private  byte[] image;
     private String role;
+    private String gender;
+    private String phone;
+    private String preference;
     public UserData(String name,String email, String password, byte[] image, String role){
         this.name= name;
         this.email=email;
@@ -78,5 +81,36 @@ public class UserData {
     public void setRole(String role) {
         this.role = role;
     }
-    
+
+    /**
+     * @return the gender
+     */
+    public String getGender() {
+        return gender;
+    }
+
+    /**
+     * @return the phone
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * @return the preference
+     */
+    public String getPreference() {
+        return preference;
+    }
+    public void setGender(String gender) {
+    this.gender = gender;
+}
+
+public void setPhone(String phone) {
+    this.phone = phone;
+}
+
+public void setPreference(String preference) {
+    this.preference = preference;
+}
 }

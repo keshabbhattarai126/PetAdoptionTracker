@@ -126,7 +126,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 152, 29);
+        dashboardButton.setBounds(34, 126, 152, 31);
 
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewPetTab.setText("View Pet");
@@ -144,7 +144,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(400, 40, 170, 20);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 23);
+        searchField.setBounds(320, 60, 195, 22);
 
         searchButton.setText("Search");
         getContentPane().add(searchButton);
@@ -154,15 +154,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 450, 34, 17);
+        jLabel4.setBounds(290, 450, 32, 16);
         getContentPane().add(nameResult);
-        nameResult.setBounds(340, 450, 130, 23);
+        nameResult.setBounds(340, 450, 130, 22);
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 32, 17);
+        jLabel5.setBounds(490, 450, 30, 16);
         getContentPane().add(emailResult);
-        emailResult.setBounds(540, 450, 189, 23);
+        emailResult.setBounds(540, 450, 189, 22);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         getContentPane().add(jPanel1);
@@ -241,7 +241,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel9.setText("Add Pet");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(130, 20, 68, 17);
+        jLabel9.setBounds(130, 20, 68, 16);
 
         jLabel6.setText("Status");
         jPanel3.add(jLabel6);
@@ -255,13 +255,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(jLabel8);
         jLabel8.setBounds(30, 110, 90, 20);
         jPanel3.add(petBreed1);
-        petBreed1.setBounds(150, 110, 64, 23);
+        petBreed1.setBounds(150, 110, 64, 22);
 
         jLabel12.setText("Age");
         jPanel3.add(jLabel12);
         jLabel12.setBounds(30, 140, 90, 20);
         jPanel3.add(petAge1);
-        petAge1.setBounds(150, 140, 64, 23);
+        petAge1.setBounds(150, 140, 64, 22);
 
         jLabel13.setText("Sex");
         jPanel3.add(jLabel13);
@@ -275,11 +275,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(jLabel14);
         jLabel14.setBounds(30, 210, 90, 20);
         jPanel3.add(petName2);
-        petName2.setBounds(150, 70, 64, 23);
+        petName2.setBounds(150, 70, 64, 22);
 
         addPetButton.setText("Add Pet");
         jPanel3.add(addPetButton);
-        addPetButton.setBounds(280, 160, 77, 23);
+        addPetButton.setBounds(280, 160, 72, 23);
 
         petSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         petSex.addActionListener(new java.awt.event.ActionListener() {
@@ -587,6 +587,9 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
        notificationButton.addActionListener(listener);
    }
    public void addEditEntryButtonListener(ActionListener listener) {
+    editEntryButton.addActionListener(listener);
+}
+   public void add(ActionListener listener) {
     editEntryButton.addActionListener(listener);
 }
 }

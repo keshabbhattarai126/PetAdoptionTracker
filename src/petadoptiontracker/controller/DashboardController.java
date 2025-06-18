@@ -48,7 +48,7 @@ public class DashboardController {
         dashboardView.addDashboardTabButtonListener(new DashboardTabListener());
         dashboardView.addProfileTabButtonListener(new ProfileTabListener());
         dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
-
+        dashboardView.addProfileSubmitListener(new ProfileSubmitListener());
 
     }
 
@@ -256,6 +256,38 @@ class ViewPetProfileListener implements ActionListener {
         }
     }
 }
+    class ProfileSubmitListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Get the current user (from session or controller)
+        UserData currentUser = SessionManager.getCurrentUser();
+        if (currentUser == null) {
+            JOptionPane.showMessageDialog(dashboardView, "User not logged in.");
+            return;
+        }
+
+        // Read values from the view
+        String gender = dashboardView.getProfileGender();
+        String phone = dashboardView.getProfilePhone();
+        String preference = dashboardView.getProfilePreference();
+
+        // Update the UserData object
+        currentUser.setGender(gender);
+        currentUser.setPhone(phone);
+        currentUser.setPreference(preference);
+
+        // Save to database (you need to implement updateUserProfile in UserDao)
+        UserDao userDao = new UserDao();
+        boolean success = userDao.updateUserProfile(currentUser);
+
+        if (success) {
+            JOptionPane.showMessageDialog(dashboardView, "Profile updated successfully!");
+        } else {
+            JOptionPane.showMessageDialog(dashboardView, "Failed to update profile.");
+        }
+    }
+}
+
 
 }
 //jgnsfjglskgpdoahjpeh

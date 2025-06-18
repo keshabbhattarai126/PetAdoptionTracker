@@ -176,6 +176,23 @@ public List<PetModel> getAllPets() {
 
     return petList;
 }
+    public boolean updateUserProfile(UserData userData) {
+    String sql = "UPDATE Users SET gender=?, phone=?, preference=? WHERE id=?";
+    Connection conn = mySql.openConnection();
+    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, userData.getGender());
+        pstmt.setString(2, userData.getPhone());
+        pstmt.setString(3, userData.getPreference());
+        pstmt.setInt(4, userData.getId());
+        int result = pstmt.executeUpdate();
+        return result > 0;
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    } finally {
+        mySql.closeConnection(conn);
+    }
+    return false;
+}
 
 
 }
