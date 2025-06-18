@@ -449,6 +449,23 @@ public void addProfileTabButtonListener(ActionListener listener) {
     viewPetProfileButton.addActionListener(listener);
 }
 
+   public String getProfileGender() {
+    return (String) jComboBox1.getSelectedItem();
+}
+
+public String getProfilePhone() {
+    return jTextField1.getText();
+}
+
+public String getProfilePreference() {
+    return jTextArea2.getText();
+}
+
+public void addProfileSubmitListener(ActionListener listener) {
+    jButton1.addActionListener(listener);
+}
+
+
 public JTable getSearchResultTable() {
     return searchResultTable;
 }
@@ -470,6 +487,7 @@ public void setSearchResultTableData(List<PetModel> petList) {
     }
     searchResultTable.setModel(model);
 }
+
 
 
 
