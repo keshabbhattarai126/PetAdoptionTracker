@@ -194,5 +194,30 @@ public List<PetModel> getAllPets() {
     return false;
 }
 
+public List<PetModel> searchPets(String query) {
+    List<PetModel> pets = new ArrayList<>();
+    String sql = "SELECT * FROM pets WHERE name LIKE ? OR breed LIKE ?";
+    try (Connection conn = mySql.openConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, "%" + query + "%");
+        pstmt.setString(2, "%" + query + "%");
+        ResultSet rs = pstmt.executeQuery();
+        while (rs.next()) {
+            PetModel pet = new PetModel();
+            pet.setId(rs.getInt("id"));
+            pet.setName(rs.getString("name"));
+            pet.setBreed(rs.getString("breed"));
+            pet.setAge(rs.getInt("age"));
+            pet.setSex(rs.getString("sex"));
+            pet.setStatus(rs.getString("status"));
+            pets.add(pet);
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+    return pets;
+}
+
+
 
 }

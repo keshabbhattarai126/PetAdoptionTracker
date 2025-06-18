@@ -24,7 +24,7 @@ import petadoptiontracker.view.EntryView;
 import petadoptiontracker.view.PetProfileView;
 
 
-//import petadoptiontracker.view.MyRequestView;
+
 
 /**
  *
@@ -48,7 +48,12 @@ public class DashboardController {
         dashboardView.addDashboardTabButtonListener(new DashboardTabListener());
         dashboardView.addProfileTabButtonListener(new ProfileTabListener());
         dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
+
         dashboardView.addProfileSubmitListener(new ProfileSubmitListener());
+
+        
+
+
 
     }
 
@@ -64,16 +69,7 @@ public class DashboardController {
     List<PetModel> petList = userDao.getAllPets();
     dashboardView.setTableData(petList);
      }
-//    class MyRequestListener implements ActionListener {
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            MyRequestView myRequestView = new MyRequestView();
-//            MyRequestController myRequestController = new MyRequestController(myRequestView);
-//            myRequestController.open();
-//            close(); 
-//        }
-//    }
-    
+
     class SignOutListener implements ActionListener{
 
         @Override
@@ -108,36 +104,8 @@ public class DashboardController {
     }
     
 
-    class SearchButtonListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String nameInput = dashboardView.getSearchInput().trim();
+    
 
-            if (nameInput.isEmpty()) {
-                JOptionPane.showMessageDialog(dashboardView, "Please enter a name to search.");
-                return;
-            }
-
-            UserDao dao = new UserDao();
-            UserData user = dao.getUserByName(nameInput);
-
-            if (user != null) {
-                dashboardView.setSearchResult(user.getName(), user.getEmail());
-            } else {
-                JOptionPane.showMessageDialog(dashboardView, "User not found.");
-                dashboardView.clearSearchResult();
-            }
-        }
-    }
-//    adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
- 
-//class ViewPetTabListener implements ActionListener {
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        dashboardView.getTabbedPane().setSelectedIndex(2); // tab3 index
-//         Load data into the table
-//    }
-//}
     class RequestButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -256,6 +224,7 @@ class ViewPetProfileListener implements ActionListener {
         }
     }
 }
+
     class ProfileSubmitListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -285,9 +254,25 @@ class ViewPetProfileListener implements ActionListener {
         } else {
             JOptionPane.showMessageDialog(dashboardView, "Failed to update profile.");
         }
+
+class SearchButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // 1. Switch to tab4 (index 3, as tab indices start at 0)
+        dashboardView.getTabbedPane().setSelectedIndex(3);
+
+        // 2. Get the search input
+        String query = dashboardView.getSearchInput();
+
+        // 3. Fetch search results (example: by name or breed)
+        UserDao userDao = new UserDao();
+        List<PetModel> searchResults = userDao.searchPets(query);
+
+        // 4. Populate the searchResultTable
+        dashboardView.setSearchResultTableData(searchResults);
+
     }
 }
 
 
 }
-//jgnsfjglskgpdoahjpeh
