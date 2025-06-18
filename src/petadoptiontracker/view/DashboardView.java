@@ -97,16 +97,19 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(photoLabel);
         photoLabel.setBounds(68, 34, 80, 80);
 
+        viewPetTab.setBackground(java.awt.SystemColor.activeCaption);
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewPetTab.setText("View Pet");
         getContentPane().add(viewPetTab);
         viewPetTab.setBounds(34, 187, 160, 31);
 
+        dashboardButton.setBackground(java.awt.SystemColor.activeCaptionBorder);
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
         dashboardButton.setBounds(34, 126, 160, 31);
 
+        profileButton.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
         profileButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         profileButton.setText("Profile Setting");
         profileButton.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +120,7 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(profileButton);
         profileButton.setBounds(34, 243, 160, 31);
 
+        signOutButton.setBackground(java.awt.SystemColor.activeCaption);
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
@@ -150,6 +154,10 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 270, 510);
 
+        jTabbedPane4.setBackground(new java.awt.Color(204, 255, 255));
+        jTabbedPane4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 0, 102)));
+
+        jPanel3.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
         jPanel3.setLayout(null);
 
         jLabel9.setText("This is tab1");
@@ -160,6 +168,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jPanel4.setLayout(null);
 
+        petTable.setBackground(java.awt.SystemColor.activeCaption);
         petTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -174,7 +183,7 @@ public class DashboardView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(petTable);
 
         jPanel4.add(jScrollPane1);
-        jScrollPane1.setBounds(-30, 0, 460, 280);
+        jScrollPane1.setBounds(0, 0, 460, 280);
 
         favoriteButton.setBackground(new java.awt.Color(255, 153, 255));
         favoriteButton.setText("Favorite");
@@ -198,6 +207,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jTabbedPane4.addTab("View Pet", jPanel4);
 
+        jPanel5.setBackground(new java.awt.Color(176, 154, 154));
         jPanel5.setLayout(null);
 
         jLabel11.setText("This is tab 3");
