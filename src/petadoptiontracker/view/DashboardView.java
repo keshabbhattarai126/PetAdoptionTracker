@@ -90,6 +90,7 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
         requestButton1 = new javax.swing.JButton();
         favoriteButton1 = new javax.swing.JButton();
         heartButton = new javax.swing.JButton();
@@ -216,7 +217,7 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel6.setText("Preference:");
         jPanel5.add(jLabel6);
-        jLabel6.setBounds(100, 180, 120, 30);
+        jLabel6.setBounds(10, 160, 120, 30);
 
         jLabel12.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel12.setText("Email text");
@@ -260,7 +261,11 @@ public class DashboardView extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTextArea2);
 
         jPanel5.add(jScrollPane3);
-        jScrollPane3.setBounds(210, 160, 300, 86);
+        jScrollPane3.setBounds(120, 160, 300, 40);
+
+        jButton1.setText("Submit");
+        jPanel5.add(jButton1);
+        jButton1.setBounds(200, 220, 110, 30);
 
         jTabbedPane4.addTab("Profile Setting", jPanel5);
 
@@ -344,6 +349,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton favoriteButton;
     private javax.swing.JButton favoriteButton1;
     private javax.swing.JButton heartButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
