@@ -60,7 +60,6 @@ public class DashboardView extends javax.swing.JFrame {
         dashboardButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
         signOutButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -87,11 +86,14 @@ public class DashboardView extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        searchResultTable = new javax.swing.JTable();
         requestButton1 = new javax.swing.JButton();
         favoriteButton1 = new javax.swing.JButton();
         heartButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(950, 535));
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
@@ -129,16 +131,12 @@ public class DashboardView extends javax.swing.JFrame {
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
         signOutButton.setBounds(34, 303, 160, 29);
-
-        jLabel2.setText("This is Dashboard");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(610, 60, 106, 17);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 23);
+        searchField.setBounds(300, 40, 195, 23);
 
-        searchButton.setText("Search");
+        searchButton.setText("Search Pet");
         getContentPane().add(searchButton);
-        searchButton.setBounds(520, 60, 72, 23);
+        searchButton.setBounds(510, 40, 100, 23);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(371, 303, 0, 0);
 
@@ -253,6 +251,21 @@ public class DashboardView extends javax.swing.JFrame {
 
         jTabbedPane4.addTab("Profile Setting", jPanel5);
 
+        searchResultTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(searchResultTable);
+
+        jTabbedPane4.addTab("tab4", jScrollPane2);
+
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(290, 90, 610, 300);
 
@@ -279,7 +292,7 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(heartButton);
-        heartButton.setBounds(734, 10, 46, 40);
+        heartButton.setBounds(820, 20, 46, 40);
 
         pack();
         setLocationRelativeTo(null);
@@ -339,7 +352,6 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -350,6 +362,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTextArea jTextArea2;
@@ -361,6 +374,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton requestButton1;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
+    private javax.swing.JTable searchResultTable;
     private javax.swing.JButton signOutButton;
     private javax.swing.JButton viewPetProfileButton;
     private javax.swing.JButton viewPetTab;
@@ -434,4 +448,30 @@ public void addProfileTabButtonListener(ActionListener listener) {
    public void addViewPetProfileListener(ActionListener listener) {
     viewPetProfileButton.addActionListener(listener);
 }
+
+public JTable getSearchResultTable() {
+    return searchResultTable;
+}
+
+public void setSearchResultTableData(List<PetModel> petList) {
+    String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+    for (PetModel pet : petList) {
+        Object[] row = {
+            pet.getId(),
+            pet.getName(),
+            pet.getBreed(),
+            pet.getAge(),
+            pet.getSex(),
+            pet.getStatus()
+        };
+        model.addRow(row);
+    }
+    searchResultTable.setModel(model);
+}
+
+
+
+
 }
