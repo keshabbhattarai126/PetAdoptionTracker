@@ -224,6 +224,24 @@ class ViewPetProfileListener implements ActionListener {
         }
     }
 }
+class SearchButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // 1. Switch to tab4 (index 3, as tab indices start at 0)
+        dashboardView.getTabbedPane().setSelectedIndex(3);
+
+        // 2. Get the search input
+        String query = dashboardView.getSearchInput();
+
+        // 3. Fetch search results (example: by name or breed)
+        UserDao userDao = new UserDao();
+        List<PetModel> searchResults = userDao.searchPets(query);
+
+        // 4. Populate the searchResultTable
+        dashboardView.setSearchResultTableData(searchResults);
+    }
+}
+
 
     class ProfileSubmitListener implements ActionListener {
     @Override
@@ -254,25 +272,7 @@ class ViewPetProfileListener implements ActionListener {
         } else {
             JOptionPane.showMessageDialog(dashboardView, "Failed to update profile.");
         }
-
-class SearchButtonListener implements ActionListener {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // 1. Switch to tab4 (index 3, as tab indices start at 0)
-        dashboardView.getTabbedPane().setSelectedIndex(3);
-
-        // 2. Get the search input
-        String query = dashboardView.getSearchInput();
-
-        // 3. Fetch search results (example: by name or breed)
-        UserDao userDao = new UserDao();
-        List<PetModel> searchResults = userDao.searchPets(query);
-
-        // 4. Populate the searchResultTable
-        dashboardView.setSearchResultTableData(searchResults);
-
+    }
     }
 }
 
-
-}
