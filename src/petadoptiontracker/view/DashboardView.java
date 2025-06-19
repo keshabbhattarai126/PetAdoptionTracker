@@ -264,7 +264,7 @@ public class DashboardView extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(searchResultTable);
 
-        jTabbedPane4.addTab("tab4", jScrollPane2);
+        jTabbedPane4.addTab("Search", jScrollPane2);
 
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(290, 90, 610, 300);
