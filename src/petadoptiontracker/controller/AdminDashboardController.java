@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -307,8 +308,8 @@ public class AdminDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             NotificationView notificationView = new NotificationView();
-            notificationView.setVisible(true);
-//            close();
+            notificationView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            notificationView.setVisible(true);            
         }    
     }
     
