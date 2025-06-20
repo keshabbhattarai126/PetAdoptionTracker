@@ -8,12 +8,17 @@ import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JFileChooser;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.AdminDao;
+import petadoptiontracker.dao.ChatDao;
 import petadoptiontracker.dao.RequestDao;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.ChatMessage;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.AdminDashboardView;
@@ -26,9 +31,12 @@ public class AdminDashboardController {
     private File selectedPetImage = null;
     private File selectedPetImage2 = null;
     private File selectedPetImage3 = null;
+    private ChatDao chatDao;
+    private int selectedUserId = -1;
 
     public AdminDashboardController(AdminDashboardView view) {
         this.adminDashboardView = view;
+        this.chatDao = new ChatDao();
         adminDashboardView.addSearchButtonListener(new SearchButtonListener());
         adminDashboardView.addSignOutButtonListener(new SignOutListener());
         adminDashboardView.addPetButtonListener(new AddPetListener());
@@ -42,7 +50,9 @@ public class AdminDashboardController {
         adminDashboardView.addDashboardButtonListener(new DashboardButtonListener());
         adminDashboardView.addNotifcationButtonListener(new NotifcationButtonListener());
         adminDashboardView.addEditEntryButtonListener(new EditEntryButtonListener());
-        
+        adminDashboardView.addSendMessageButtonListener(new SendMessageListener());
+    adminDashboardView.addUserListSelectionListener(new UserListSelectionListener());
+    loadUsersWithChatHistory();
         // Add admin-specific listeners here as you build features
     }
 
@@ -53,6 +63,76 @@ public class AdminDashboardController {
     public void close() {
         adminDashboardView.dispose();
     }
+    
+    public void loadUsersWithChatHistory() {
+        List<Map<String, Object>> usersWithChat = chatDao.getUsersWithChatHistory();
+        adminDashboardView.setUserChatListData(usersWithChat);
+    }
+
+    public void loadChatHistory(int userId) {
+        List<ChatMessage> messages = chatDao.getChatHistory(userId);
+        adminDashboardView.displayChatHistory(messages);
+
+        // Mark messages as read
+        int adminId = SessionManager.getCurrentUserId();
+        chatDao.markMessagesAsRead(userId, adminId);
+
+        // Refresh user list to update unread counts
+        loadUsersWithChatHistory();
+    }
+
+    // Listener classes
+    class SendMessageListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (selectedUserId == -1) {
+                JOptionPane.showMessageDialog(adminDashboardView, 
+                    "Please select a user to send message to.");
+                return;
+            }
+
+            String message = adminDashboardView.getMessageInput().trim();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(adminDashboardView, 
+                    "Please enter a message.");
+                return;
+            }
+
+            int adminId = SessionManager.getCurrentUserId();
+            boolean success = chatDao.sendMessage(adminId, selectedUserId, message, true);
+
+            if (success) {
+                adminDashboardView.clearMessageInput();
+                loadChatHistory(selectedUserId); // Refresh chat history
+                JOptionPane.showMessageDialog(adminDashboardView, 
+                    "Message sent successfully!");
+            } else {
+                JOptionPane.showMessageDialog(adminDashboardView, 
+                    "Failed to send message.");
+            }
+        }
+    }
+
+    class UserListSelectionListener implements ListSelectionListener {
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            if (!e.getValueIsAdjusting()) {
+                JList<?> list = (JList<?>) e.getSource();
+                int selectedIndex = list.getSelectedIndex();
+
+                if (selectedIndex != -1) {
+                    // Get user ID from the selected list item
+                    Map<String, Object> selectedUser = 
+                        (Map<String, Object>) list.getModel().getElementAt(selectedIndex);
+                    selectedUserId = (Integer) selectedUser.get("id");
+
+                    // Load chat history for selected user
+                    loadChatHistory(selectedUserId);
+                }
+            }
+        }
+    }
+    
      public void loadPetTable() {
     AdminDao adminDao = new AdminDao();
     List<PetModel> petList = adminDao.getAllPets();

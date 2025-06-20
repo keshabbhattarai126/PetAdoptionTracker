@@ -8,11 +8,14 @@ import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Map;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.ChatMessage;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 //import javax.swing.table.DefaultTabåleModel;
@@ -98,13 +101,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
         petPhotoUpload2 = new javax.swing.JButton();
         petPhotoUpload3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        addPetButton1 = new javax.swing.JButton();
+        sendButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        chatHistoryTextArea = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        messageInputTextField = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        userChatList = new javax.swing.JList<>();
         jLabel10 = new javax.swing.JLabel();
         notificationButton = new javax.swing.JButton();
 
@@ -346,15 +349,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102)));
         jPanel6.setLayout(null);
 
-        addPetButton1.setBackground(new java.awt.Color(184, 214, 184));
-        addPetButton1.setText("send");
-        jPanel6.add(addPetButton1);
-        addPetButton1.setBounds(550, 240, 90, 23);
+        sendButton.setBackground(new java.awt.Color(184, 214, 184));
+        sendButton.setText("send");
+        jPanel6.add(sendButton);
+        sendButton.setBounds(550, 240, 90, 23);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setEnabled(false);
-        jScrollPane3.setViewportView(jTextArea1);
+        chatHistoryTextArea.setColumns(20);
+        chatHistoryTextArea.setRows(5);
+        chatHistoryTextArea.setEnabled(false);
+        jScrollPane3.setViewportView(chatHistoryTextArea);
 
         jPanel6.add(jScrollPane3);
         jScrollPane3.setBounds(190, 40, 450, 190);
@@ -362,15 +365,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jLabel9.setText("User list");
         jPanel6.add(jLabel9);
         jLabel9.setBounds(20, 10, 70, 30);
-        jPanel6.add(jTextField1);
-        jTextField1.setBounds(190, 240, 340, 22);
+        jPanel6.add(messageInputTextField);
+        messageInputTextField.setBounds(190, 240, 340, 22);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        userChatList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane4.setViewportView(jList1);
+        jScrollPane4.setViewportView(userChatList);
 
         jPanel6.add(jScrollPane4);
         jScrollPane4.setBounds(20, 40, 140, 230);
@@ -468,8 +471,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPetButton;
-    private javax.swing.JButton addPetButton1;
     private javax.swing.JButton addPetTab1;
+    private javax.swing.JTextArea chatHistoryTextArea;
     private javax.swing.JButton dashboardButton;
     private javax.swing.JButton deletePetEntryButton;
     private javax.swing.JButton editEntryButton;
@@ -487,7 +490,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -500,9 +502,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton messageButton;
+    private javax.swing.JTextField messageInputTextField;
     private javax.swing.JTextField nameResult;
     private javax.swing.JButton notificationButton;
     private javax.swing.JTextField petAge1;
@@ -517,7 +518,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTable requestsTable;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
+    private javax.swing.JButton sendButton;
     private javax.swing.JButton signOutButton;
+    private javax.swing.JList<String> userChatList;
     private javax.swing.JButton viewPetProfileButton;
     private javax.swing.JButton viewPetTab;
     // End of variables declaration//GEN-END:variables
@@ -674,4 +677,62 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
    public void add(ActionListener listener) {
     editEntryButton.addActionListener(listener);
 }
+   
+   // Add these methods to AdminDashboardView class
+
+public void setUserChatListData(List<Map<String, Object>> usersWithChat) {
+    DefaultListModel<String> listModel = new DefaultListModel<>();
+    
+    for (Map<String, Object> user : usersWithChat) {
+        String userName = (String) user.get("name");
+        int unreadCount = (Integer) user.get("unreadCount");
+        
+        String displayText = userName;
+        if (unreadCount > 0) {
+            displayText += " (" + unreadCount + " new)";
+        }
+        
+        listModel.addElement(displayText);
+    }
+    
+    // Assuming you have a JList component named userChatList
+    userChatList.setModel(listModel);
+}
+
+public void displayChatHistory(List<ChatMessage> messages) {
+    StringBuilder chatHistory = new StringBuilder();
+    
+    for (ChatMessage message : messages) {
+        String sender = message.isFromAdmin() ? "Admin" : message.getSenderName();
+        String timestamp = message.getTimestamp().toString();
+        
+        chatHistory.append("[").append(timestamp).append("] ")
+                  .append(sender).append(": ")
+                  .append(message.getMessage())
+                  .append("\n");
+    }
+    
+    // Set the chat history in the disabled text area
+    chatHistoryTextArea.setText(chatHistory.toString());
+    
+    // Auto-scroll to bottom
+    chatHistoryTextArea.setCaretPosition(chatHistoryTextArea.getDocument().getLength());
+}
+
+public String getMessageInput() {
+    return messageInputTextField.getText();
+}
+
+public void clearMessageInput() {
+    messageInputTextField.setText("");
+}
+
+public void addSendMessageButtonListener(ActionListener listener) {
+    sendButton.addActionListener(listener);
+}
+
+public void addUserListSelectionListener(ListSelectionListener listener) {
+    userChatList.addListSelectionListener(listener);
+}
+
 }

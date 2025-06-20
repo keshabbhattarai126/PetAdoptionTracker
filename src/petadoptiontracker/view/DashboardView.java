@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.controller.DashboardController;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.ChatMessage;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
 
@@ -89,10 +90,10 @@ public class DashboardView extends javax.swing.JFrame {
         searchResultTable = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        messageInputTextField = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        chatHistoryTextArea = new javax.swing.JTextArea();
+        sendButton = new javax.swing.JButton();
         requestButton1 = new javax.swing.JButton();
         favoriteButton1 = new javax.swing.JButton();
         heartButton = new javax.swing.JButton();
@@ -100,7 +101,6 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 535));
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
@@ -289,20 +289,20 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel18.setText("Message");
         jPanel6.add(jLabel18);
         jLabel18.setBounds(50, 80, 80, 30);
-        jPanel6.add(jTextField2);
-        jTextField2.setBounds(170, 180, 420, 40);
+        jPanel6.add(messageInputTextField);
+        messageInputTextField.setBounds(170, 180, 420, 40);
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jTextArea3.setEnabled(false);
-        jScrollPane4.setViewportView(jTextArea3);
+        chatHistoryTextArea.setColumns(20);
+        chatHistoryTextArea.setRows(5);
+        chatHistoryTextArea.setEnabled(false);
+        jScrollPane4.setViewportView(chatHistoryTextArea);
 
         jPanel6.add(jScrollPane4);
         jScrollPane4.setBounds(130, 30, 460, 130);
 
-        jButton2.setText("Send");
-        jPanel6.add(jButton2);
-        jButton2.setBounds(500, 230, 110, 30);
+        sendButton.setText("Send");
+        jPanel6.add(sendButton);
+        sendButton.setBounds(500, 230, 110, 30);
 
         jTabbedPane4.addTab("Message", jPanel6);
 
@@ -400,12 +400,12 @@ public class DashboardView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea chatHistoryTextArea;
     private javax.swing.JButton dashboardButton;
     private javax.swing.JButton favoriteButton;
     private javax.swing.JButton favoriteButton1;
     private javax.swing.JButton heartButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -429,10 +429,9 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton messageButton;
+    private javax.swing.JTextField messageInputTextField;
     private javax.swing.JTable petTable;
     private javax.swing.JLabel photoLabel;
     private javax.swing.JButton profileButton1;
@@ -441,6 +440,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JTable searchResultTable;
+    private javax.swing.JButton sendButton;
     private javax.swing.JButton signOutButton;
     private javax.swing.JButton viewPetProfileButton;
     private javax.swing.JButton viewPetTab;
@@ -554,6 +554,43 @@ public void setSearchResultTableData(List<PetModel> petList) {
     searchResultTable.setModel(model);
 }
 
+// Add these methods to DashboardView class
+
+public void displayChatHistory(List<ChatMessage> messages) {
+    StringBuilder chatHistory = new StringBuilder();
+    
+    for (ChatMessage message : messages) {
+        String sender = message.isFromAdmin() ? "Admin" : "You";
+        String timestamp = message.getTimestamp().toString();
+        
+        chatHistory.append("[").append(timestamp).append("] ")
+                  .append(sender).append(": ")
+                  .append(message.getMessage())
+                  .append("\n");
+    }
+    
+    // Set the chat history in the disabled text area
+    chatHistoryTextArea.setText(chatHistory.toString());
+    
+    // Auto-scroll to bottom
+    chatHistoryTextArea.setCaretPosition(chatHistoryTextArea.getDocument().getLength());
+}
+
+public String getMessageInput() {
+    return messageInputTextField.getText();
+}
+
+public void clearMessageInput() {
+    messageInputTextField.setText("");
+}
+
+public void addSendMessageButtonListener(ActionListener listener) {
+    sendButton.addActionListener(listener);
+}
+
+public void addMessageTabListener(ActionListener listener) {
+    messageButton.addActionListener(listener); // The Message button in sidebar
+}
 
 
 
