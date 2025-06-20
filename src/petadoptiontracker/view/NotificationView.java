@@ -75,7 +75,8 @@ public final class NotificationView extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        requestContentPanel.setLayout(new javax.swing.BoxLayout(requestContentPanel, javax.swing.BoxLayout.PAGE_AXIS));
+        requestContentPanel.setBackground(new java.awt.Color(225, 236, 236));
+        requestContentPanel.setLayout(new javax.swing.BoxLayout(requestContentPanel, javax.swing.BoxLayout.LINE_AXIS));
         jPanelRequestContainer.setViewportView(requestContentPanel);
 
         getContentPane().add(jPanelRequestContainer);
