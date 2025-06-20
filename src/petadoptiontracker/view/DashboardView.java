@@ -58,12 +58,11 @@ public class DashboardView extends javax.swing.JFrame {
         photoLabel = new javax.swing.JLabel();
         viewPetTab = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
-        profileButton = new javax.swing.JButton();
+        messageButton = new javax.swing.JButton();
         signOutButton = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -88,9 +87,17 @@ public class DashboardView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         searchResultTable = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
         requestButton1 = new javax.swing.JButton();
         favoriteButton1 = new javax.swing.JButton();
         heartButton = new javax.swing.JButton();
+        profileButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(950, 535));
@@ -119,58 +126,30 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(dashboardButton);
         dashboardButton.setBounds(34, 126, 160, 31);
 
-        profileButton.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
-        profileButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        profileButton.setText("Profile Setting");
-        profileButton.addActionListener(new java.awt.event.ActionListener() {
+        messageButton.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
+        messageButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        messageButton.setText("Message");
+        messageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileButtonActionPerformed(evt);
+                messageButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(profileButton);
-        profileButton.setBounds(34, 243, 160, 31);
+        getContentPane().add(messageButton);
+        messageButton.setBounds(40, 290, 160, 31);
 
         signOutButton.setBackground(java.awt.SystemColor.activeCaption);
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-
-        signOutButton.setBounds(34, 303, 160, 31);
-
-        jLabel2.setText("This is Dashboard");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(610, 60, 94, 16);
+        signOutButton.setBounds(40, 340, 160, 31);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 22);
-
-        signOutButton.setBounds(34, 303, 160, 29);
-        getContentPane().add(searchField);
-        searchField.setBounds(300, 40, 195, 23);
-
+        searchField.setBounds(300, 40, 195, 22);
 
         searchButton.setText("Search Pet");
         getContentPane().add(searchButton);
         searchButton.setBounds(510, 40, 100, 23);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(371, 303, 0, 0);
-
-
-        jLabel4.setText("Name");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 450, 32, 16);
-        getContentPane().add(nameResult);
-        nameResult.setBounds(340, 450, 130, 22);
-
-        jLabel5.setText("Email");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 30, 16);
-        getContentPane().add(emailResult);
-        emailResult.setBounds(540, 450, 189, 22);
-
-b
-        jPanel1.setBackground(new java.awt.Color(38, 78, 201));
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 270, 510);
 
         jTabbedPane4.setBackground(new java.awt.Color(204, 255, 255));
         jTabbedPane4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 0, 102)));
@@ -303,6 +282,30 @@ b
 
         jTabbedPane4.addTab("Search", jScrollPane2);
 
+        jPanel6.setBackground(new java.awt.Color(176, 154, 154));
+        jPanel6.setLayout(null);
+
+        jLabel18.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel18.setText("Message");
+        jPanel6.add(jLabel18);
+        jLabel18.setBounds(50, 80, 80, 30);
+        jPanel6.add(jTextField2);
+        jTextField2.setBounds(170, 180, 420, 40);
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jTextArea3.setEnabled(false);
+        jScrollPane4.setViewportView(jTextArea3);
+
+        jPanel6.add(jScrollPane4);
+        jScrollPane4.setBounds(130, 30, 460, 130);
+
+        jButton2.setText("Send");
+        jPanel6.add(jButton2);
+        jButton2.setBounds(500, 230, 110, 30);
+
+        jTabbedPane4.addTab("Message", jPanel6);
+
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(290, 90, 610, 300);
 
@@ -331,14 +334,29 @@ b
         getContentPane().add(heartButton);
         heartButton.setBounds(820, 20, 46, 40);
 
+        profileButton1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
+        profileButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        profileButton1.setText("Profile Setting");
+        profileButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(profileButton1);
+        profileButton1.setBounds(40, 240, 160, 31);
+
+        jPanel1.setBackground(new java.awt.Color(38, 78, 201));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 270, 510);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
+    private void messageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageButtonActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_profileButtonActionPerformed
+    }//GEN-LAST:event_messageButtonActionPerformed
 
     private void requestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButtonActionPerformed
         // TODO add your handling code here:
@@ -351,6 +369,10 @@ b
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void profileButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_profileButton1ActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -383,12 +405,14 @@ b
     private javax.swing.JButton favoriteButton1;
     private javax.swing.JButton heartButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -398,15 +422,20 @@ b
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton messageButton;
     private javax.swing.JTable petTable;
     private javax.swing.JLabel photoLabel;
-    private javax.swing.JButton profileButton;
+    private javax.swing.JButton profileButton1;
     private javax.swing.JButton requestButton;
     private javax.swing.JButton requestButton1;
     private javax.swing.JButton searchButton;
@@ -478,7 +507,7 @@ public void addDashboardTabButtonListener(ActionListener listener) {
 
 
 public void addProfileTabButtonListener(ActionListener listener) {
-    profileButton.addActionListener(listener);
+    messageButton.addActionListener(listener);
 }
 
 
