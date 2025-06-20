@@ -98,6 +98,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         petPhotoUpload2 = new javax.swing.JButton();
         petPhotoUpload3 = new javax.swing.JButton();
         notificationButton = new javax.swing.JButton();
+        shareButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(950, 535));
@@ -324,6 +325,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(notificationButton);
         notificationButton.setBounds(820, 10, 50, 40);
 
+        shareButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/share.png"))); // NOI18N
+        shareButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shareButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(shareButton);
+        shareButton.setBounds(820, 440, 50, 39);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -356,6 +366,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private void deletePetEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePetEntryButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deletePetEntryButtonActionPerformed
+
+    private void shareButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shareButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shareButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -435,6 +449,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTable requestsTable;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
+    private javax.swing.JButton shareButton;
     private javax.swing.JButton signOutButton;
     private javax.swing.JButton viewPetProfileButton;
     private javax.swing.JButton viewPetTab;
@@ -591,5 +606,8 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
 }
    public void add(ActionListener listener) {
     editEntryButton.addActionListener(listener);
+}   
+   public void addShareButtonListener(ActionListener listener) {
+    shareButton.addActionListener(listener);
 }
 }
