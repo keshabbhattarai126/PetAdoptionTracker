@@ -132,4 +132,15 @@ public class ReviewView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+public String getReviewText() {
+    return jTextArea1.getText();
+}
+
+public int getRating() {
+    return jComboBox1.getSelectedIndex() + 1; // 1-5 stars
+}
+
+public void addSubmitButtonListener(java.awt.event.ActionListener listener) {
+    jButton1.addActionListener(listener);
+}
 }
