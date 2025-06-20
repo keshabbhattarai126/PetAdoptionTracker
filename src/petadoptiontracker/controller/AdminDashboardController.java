@@ -114,24 +114,25 @@ public class AdminDashboardController {
     }
 
     class UserListSelectionListener implements ListSelectionListener {
-        @Override
-        public void valueChanged(ListSelectionEvent e) {
-            if (!e.getValueIsAdjusting()) {
-                JList<?> list = (JList<?>) e.getSource();
-                int selectedIndex = list.getSelectedIndex();
-
-                if (selectedIndex != -1) {
-                    // Get user ID from the selected list item
-                    Map<String, Object> selectedUser = 
-                        (Map<String, Object>) list.getModel().getElementAt(selectedIndex);
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        if (!e.getValueIsAdjusting()) {
+            JList<?> list = (JList<?>) e.getSource();
+            int selectedIndex = list.getSelectedIndex();
+            if (selectedIndex != -1) {
+                // Get user data from the stored list using index
+                Map<String, Object> selectedUser = adminDashboardView.getUserDataByIndex(selectedIndex);
+                if (selectedUser != null) {
                     selectedUserId = (Integer) selectedUser.get("id");
-
                     // Load chat history for selected user
                     loadChatHistory(selectedUserId);
+                    System.out.println("Selected user ID: " + selectedUserId); // Debug log
                 }
             }
         }
     }
+}
+
     
      public void loadPetTable() {
     AdminDao adminDao = new AdminDao();
@@ -455,6 +456,13 @@ public class AdminDashboardController {
         }
     }
 }
+    class MessageTabListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        adminDashboardView.getTabbedPane().setSelectedIndex(3); // 3 if Message tab is the 4th tab (index starts at 0)
+    }
+}
+
 
 }    
     

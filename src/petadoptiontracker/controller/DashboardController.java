@@ -101,15 +101,14 @@ class SendMessageListener implements ActionListener {
         // Send message to admin (assuming admin ID is 1)
         boolean success = chatDao.sendMessage(currentUser.getId(), 1, message, false);
         
-        if (success) {
-            dashboardView.clearMessageInput();
-            loadUserChatHistory(); // Refresh chat history
-            JOptionPane.showMessageDialog(dashboardView, 
-                "Message sent to admin successfully!");
-        } else {
-            JOptionPane.showMessageDialog(dashboardView, 
-                "Failed to send message.");
-        }
+       if (success) {
+      dashboardView.clearMessageInput();
+    loadUserChatHistory(); // Refresh chat history
+    JOptionPane.showMessageDialog(  dashboardView, "Message sent successfully!");
+} else {
+    JOptionPane.showMessageDialog(  dashboardView, "Failed to send message.");
+}
+
     }
 }
 

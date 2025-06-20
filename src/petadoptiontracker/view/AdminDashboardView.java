@@ -6,6 +6,7 @@ package petadoptiontracker.view;
 
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.swing.DefaultListModel;
@@ -366,7 +367,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel6.add(jLabel9);
         jLabel9.setBounds(20, 10, 70, 30);
         jPanel6.add(messageInputTextField);
-        messageInputTextField.setBounds(190, 240, 340, 22);
+        messageInputTextField.setBounds(190, 240, 340, 30);
 
         userChatList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -412,7 +413,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
     private void messageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageButtonActionPerformed
         // TODO add your handling code here:
-        jTabbedPane4.setSelectedIndex(2);
+        jTabbedPane4.setSelectedIndex(3);
     }//GEN-LAST:event_messageButtonActionPerformed
 
     private void petPhotoUpload2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petPhotoUpload2ActionPerformed
@@ -433,6 +434,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
     private void addPetTab1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetTab1ActionPerformed
         // TODO add your handling code here:
+         jTabbedPane4.setSelectedIndex(2);
     }//GEN-LAST:event_addPetTab1ActionPerformed
 
     /**
@@ -676,28 +678,44 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
 }
    public void add(ActionListener listener) {
     editEntryButton.addActionListener(listener);
+    
 }
+   public void addMessageTabButtonListener(ActionListener listener) {
+    messageButton.addActionListener(listener);
+}
+
+   
    
    // Add these methods to AdminDashboardView class
 
+// Add this instance variable to store user data
+private List<Map<String, Object>> userData = new ArrayList<>();
+
 public void setUserChatListData(List<Map<String, Object>> usersWithChat) {
-    DefaultListModel<String> listModel = new DefaultListModel<>();
+    // Store the user data for later reference
+    this.userData = usersWithChat;
     
+    DefaultListModel<String> listModel = new DefaultListModel<>();
     for (Map<String, Object> user : usersWithChat) {
         String userName = (String) user.get("name");
         int unreadCount = (Integer) user.get("unreadCount");
-        
         String displayText = userName;
         if (unreadCount > 0) {
             displayText += " (" + unreadCount + " new)";
         }
-        
         listModel.addElement(displayText);
     }
-    
-    // Assuming you have a JList component named userChatList
     userChatList.setModel(listModel);
 }
+
+// Add this method to get user data by index
+public Map<String, Object> getUserDataByIndex(int index) {
+    if (index >= 0 && index < userData.size()) {
+        return userData.get(index);
+    }
+    return null;
+}
+
 
 public void displayChatHistory(List<ChatMessage> messages) {
     StringBuilder chatHistory = new StringBuilder();
@@ -734,5 +752,10 @@ public void addSendMessageButtonListener(ActionListener listener) {
 public void addUserListSelectionListener(ListSelectionListener listener) {
     userChatList.addListSelectionListener(listener);
 }
+
+//    public Map<String, Object> getUserDataByIndex(int selectedIndex) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+
 
 }

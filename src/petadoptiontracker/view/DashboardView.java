@@ -355,6 +355,7 @@ public class DashboardView extends javax.swing.JFrame {
 
     private void messageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageButtonActionPerformed
         // TODO add your handling code here:
+         jTabbedPane4.setSelectedIndex(4);
         
     }//GEN-LAST:event_messageButtonActionPerformed
 
@@ -372,6 +373,7 @@ public class DashboardView extends javax.swing.JFrame {
 
     private void profileButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButton1ActionPerformed
         // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(2);
     }//GEN-LAST:event_profileButton1ActionPerformed
 
     public static void main(String args[]) {

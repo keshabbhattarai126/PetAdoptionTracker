@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import petadoptiontracker.controller.SessionManager;
+
 import petadoptiontracker.database.MySqlConnection;
 import petadoptiontracker.model.ChatMessage;
 
@@ -70,39 +72,41 @@ public class ChatDao {
         return messages;
     }
     
-    public List<Map<String, Object>> getUsersWithChatHistory() {
-        createChatTable();
-        String sql = "SELECT DISTINCT u.id, u.name, u.email, " +
-                    "MAX(cm.timestamp) as last_message_time, " +
-                    "COUNT(CASE WHEN cm.is_read = false AND cm.receiver_id = 1 THEN 1 END) as unread_count " +
-                    "FROM users u " +
-                    "JOIN chat_messages cm ON (u.id = cm.sender_id OR u.id = cm.receiver_id) " +
-                    "WHERE u.role = \"User\" " +
-                    "GROUP BY u.id, u.name, u.email " +
-                    "ORDER BY last_message_time DESC";
+  public List<Map<String, Object>> getUsersWithChatHistory() {
+    createChatTable();
+    String sql = "SELECT DISTINCT u.id, u.name, u.email, " +
+                "MAX(cm.timestamp) as last_message_time, " +
+                "COUNT(CASE WHEN cm.is_read = false AND cm.receiver_id = ? THEN 1 END) as unread_count " +
+                "FROM users u " +
+                "JOIN chat_messages cm ON (u.id = cm.sender_id OR u.id = cm.receiver_id) " +
+                "WHERE u.role = 'User' AND (cm.sender_id = u.id OR cm.receiver_id = u.id) " +
+                "GROUP BY u.id, u.name, u.email " +
+                "ORDER BY last_message_time DESC";
+    
+    List<Map<String, Object>> usersWithChat = new ArrayList<>();
+    try (Connection conn = mySql.openConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
         
-        List<Map<String, Object>> usersWithChat = new ArrayList<>();
+        // Get current admin ID
+        int adminId = SessionManager.getCurrentUserId();
+        pstmt.setInt(1, adminId);
         
-        try (Connection conn = mySql.openConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()) {
-                Map<String, Object> userInfo = new HashMap<>();
-                userInfo.put("id", rs.getInt("id"));
-                userInfo.put("name", rs.getString("name"));
-                userInfo.put("email", rs.getString("email"));
-                userInfo.put("lastMessageTime", rs.getTimestamp("last_message_time"));
-                userInfo.put("unreadCount", rs.getInt("unread_count"));
-                usersWithChat.add(userInfo);
-            }
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
+        ResultSet rs = pstmt.executeQuery();
+        while (rs.next()) {
+            Map<String, Object> userInfo = new HashMap<>();
+            userInfo.put("id", rs.getInt("id"));
+            userInfo.put("name", rs.getString("name"));
+            userInfo.put("email", rs.getString("email"));
+            userInfo.put("lastMessageTime", rs.getTimestamp("last_message_time"));
+            userInfo.put("unreadCount", rs.getInt("unread_count"));
+            usersWithChat.add(userInfo);
         }
-        
-        return usersWithChat;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+    return usersWithChat;
+}
+
     
     public boolean markMessagesAsRead(int userId, int adminId) {
         String sql = "UPDATE chat_messages SET is_read = true " +
