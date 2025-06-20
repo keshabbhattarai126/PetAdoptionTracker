@@ -1,9 +1,11 @@
 package petadoptiontracker.controller;
 
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
@@ -42,7 +44,7 @@ public class AdminDashboardController {
         adminDashboardView.addDashboardButtonListener(new DashboardButtonListener());
         adminDashboardView.addNotifcationButtonListener(new NotifcationButtonListener());
         adminDashboardView.addEditEntryButtonListener(new EditEntryButtonListener());
-        
+        adminDashboardView.addShareButtonListener(new ShareButtonListener());
         // Add admin-specific listeners here as you build features
     }
 
@@ -375,6 +377,23 @@ public class AdminDashboardController {
         }
     }
 }
+    class ShareButtonListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String url = "https://www.instagram.com";
 
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            try {
+                Desktop.getDesktop().browse(new URI(url));
+            } catch (Exception ex) {
+                // Show error dialog if opening the link fails
+                JOptionPane.showMessageDialog(null, "Error opening link.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            // Show error dialog if Desktop browsing is not supported
+            JOptionPane.showMessageDialog(null, "Opening links is not supported on your system.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        }    
+    }
 }    
     
