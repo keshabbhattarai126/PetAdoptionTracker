@@ -91,9 +91,9 @@ public class DashboardView extends javax.swing.JFrame {
         requestButton1 = new javax.swing.JButton();
         favoriteButton1 = new javax.swing.JButton();
         heartButton = new javax.swing.JButton();
+        reviewButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 535));
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
@@ -110,12 +110,12 @@ public class DashboardView extends javax.swing.JFrame {
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewPetTab.setText("View Pet");
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 187, 160, 29);
+        viewPetTab.setBounds(34, 187, 160, 31);
 
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 160, 29);
+        dashboardButton.setBounds(34, 126, 160, 31);
 
         profileButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         profileButton.setText("Profile Setting");
@@ -125,14 +125,14 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(profileButton);
-        profileButton.setBounds(34, 243, 160, 29);
+        profileButton.setBounds(34, 243, 160, 31);
 
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(34, 303, 160, 29);
+        signOutButton.setBounds(34, 303, 160, 31);
         getContentPane().add(searchField);
-        searchField.setBounds(300, 40, 195, 23);
+        searchField.setBounds(300, 40, 195, 22);
 
         searchButton.setText("Search Pet");
         getContentPane().add(searchButton);
@@ -148,7 +148,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jLabel9.setText("This is tab1");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(120, 70, 68, 17);
+        jLabel9.setBounds(120, 70, 59, 16);
 
         jTabbedPane4.addTab("Dashboard", jPanel3);
 
@@ -172,7 +172,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         favoriteButton.setText("Favorite");
         jPanel4.add(favoriteButton);
-        favoriteButton.setBounds(470, 150, 76, 23);
+        favoriteButton.setBounds(470, 150, 72, 23);
 
         requestButton.setText("Request");
         requestButton.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +181,7 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         jPanel4.add(requestButton);
-        requestButton.setBounds(470, 200, 79, 23);
+        requestButton.setBounds(470, 200, 72, 23);
 
         viewPetProfileButton.setText("View Profile");
         jPanel4.add(viewPetProfileButton);
@@ -277,12 +277,12 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(requestButton1);
-        requestButton1.setBounds(740, 330, 79, 23);
+        requestButton1.setBounds(740, 330, 72, 23);
 
         favoriteButton1.setBackground(new java.awt.Color(255, 51, 255));
         favoriteButton1.setText("Favorite");
         getContentPane().add(favoriteButton1);
-        favoriteButton1.setBounds(740, 300, 76, 23);
+        favoriteButton1.setBounds(740, 300, 72, 23);
 
         heartButton.setBackground(new java.awt.Color(255, 102, 255));
         heartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/heart pic.png"))); // NOI18N
@@ -293,6 +293,10 @@ public class DashboardView extends javax.swing.JFrame {
         });
         getContentPane().add(heartButton);
         heartButton.setBounds(820, 20, 46, 40);
+
+        reviewButton.setText("Review");
+        getContentPane().add(reviewButton);
+        reviewButton.setBounds(810, 440, 75, 23);
 
         pack();
         setLocationRelativeTo(null);
@@ -372,6 +376,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton profileButton;
     private javax.swing.JButton requestButton;
     private javax.swing.JButton requestButton1;
+    private javax.swing.JButton reviewButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JTable searchResultTable;
@@ -488,7 +493,9 @@ public void setSearchResultTableData(List<PetModel> petList) {
     searchResultTable.setModel(model);
 }
 
-
+    public void addReviewButtonListener(ActionListener listener) {
+    reviewButton.addActionListener(listener);
+    }
 
 
 

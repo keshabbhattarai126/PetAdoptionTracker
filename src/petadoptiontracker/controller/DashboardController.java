@@ -11,17 +11,21 @@ package petadoptiontracker.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import petadoptiontracker.dao.AdminDao;
 import petadoptiontracker.dao.FavoritesDao;
 import petadoptiontracker.dao.RequestDao;
+import petadoptiontracker.dao.ReviewDao;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.PetModel;
+import petadoptiontracker.model.Review;
 import petadoptiontracker.model.UserData;
 import petadoptiontracker.view.DashboardView;
 import petadoptiontracker.view.EntryView;
 import petadoptiontracker.view.PetProfileView;
+import petadoptiontracker.view.ReviewView;
 
 
 
@@ -50,7 +54,7 @@ public class DashboardController {
         dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
 
         dashboardView.addProfileSubmitListener(new ProfileSubmitListener());
-
+        dashboardView.addReviewButtonListener(new ReviewListener());
         
 
 
@@ -274,5 +278,45 @@ class SearchButtonListener implements ActionListener {
         }
     }
     }
+    class ReviewListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ReviewView reviewView = new ReviewView();
+        reviewView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        reviewView.setVisible(true);
+
+        // Register the submit button listener for this instance
+        reviewView.addSubmitButtonListener(new ReviewSubmitButtonListener(reviewView));
+    }
+}
+
+    class ReviewSubmitButtonListener implements ActionListener {
+    private final ReviewView reviewView;
+
+    public ReviewSubmitButtonListener(ReviewView reviewView) {
+        this.reviewView = reviewView;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String reviewText = reviewView.getReviewText();
+        int rating = reviewView.getRating();
+        if (reviewText.trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(reviewView, "Please enter a review.");
+            return;
+        }
+
+        Review review = new Review(reviewText, rating);
+        ReviewDao reviewDao = new ReviewDao();
+        boolean success = reviewDao.addReview(review);
+
+        if (success) {
+            javax.swing.JOptionPane.showMessageDialog(reviewView, "Review submitted!");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(reviewView, "Error saving review.");
+        }
+    }
+}
+
 }
 
