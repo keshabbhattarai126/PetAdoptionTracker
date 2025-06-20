@@ -24,7 +24,7 @@ import petadoptiontracker.view.EntryView;
 import petadoptiontracker.view.PetProfileView;
 
 
-//import petadoptiontracker.view.MyRequestView;
+
 
 /**
  *
@@ -49,6 +49,11 @@ public class DashboardController {
         dashboardView.addProfileTabButtonListener(new ProfileTabListener());
         dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
 
+        dashboardView.addProfileSubmitListener(new ProfileSubmitListener());
+
+        
+
+
 
     }
 
@@ -64,16 +69,7 @@ public class DashboardController {
     List<PetModel> petList = userDao.getAllPets();
     dashboardView.setTableData(petList);
      }
-//    class MyRequestListener implements ActionListener {
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            MyRequestView myRequestView = new MyRequestView();
-//            MyRequestController myRequestController = new MyRequestController(myRequestView);
-//            myRequestController.open();
-//            close(); 
-//        }
-//    }
-    
+
     class SignOutListener implements ActionListener{
 
         @Override
@@ -108,36 +104,8 @@ public class DashboardController {
     }
     
 
-    class SearchButtonListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String nameInput = dashboardView.getSearchInput().trim();
+    
 
-            if (nameInput.isEmpty()) {
-                JOptionPane.showMessageDialog(dashboardView, "Please enter a name to search.");
-                return;
-            }
-
-            UserDao dao = new UserDao();
-            UserData user = dao.getUserByName(nameInput);
-
-            if (user != null) {
-                dashboardView.setSearchResult(user.getName(), user.getEmail());
-            } else {
-                JOptionPane.showMessageDialog(dashboardView, "User not found.");
-                dashboardView.clearSearchResult();
-            }
-        }
-    }
-//    adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
- 
-//class ViewPetTabListener implements ActionListener {
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        dashboardView.getTabbedPane().setSelectedIndex(2); // tab3 index
-//         Load data into the table
-//    }
-//}
     class RequestButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -256,6 +224,55 @@ class ViewPetProfileListener implements ActionListener {
         }
     }
 }
+class SearchButtonListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // 1. Switch to tab4 (index 3, as tab indices start at 0)
+        dashboardView.getTabbedPane().setSelectedIndex(3);
 
+        // 2. Get the search input
+        String query = dashboardView.getSearchInput();
+
+        // 3. Fetch search results (example: by name or breed)
+        UserDao userDao = new UserDao();
+        List<PetModel> searchResults = userDao.searchPets(query);
+
+        // 4. Populate the searchResultTable
+        dashboardView.setSearchResultTableData(searchResults);
+    }
 }
-//jgnsfjglskgpdoahjpeh
+
+
+    class ProfileSubmitListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Get the current user (from session or controller)
+        UserData currentUser = SessionManager.getCurrentUser();
+        if (currentUser == null) {
+            JOptionPane.showMessageDialog(dashboardView, "User not logged in.");
+            return;
+        }
+
+        // Read values from the view
+        String gender = dashboardView.getProfileGender();
+        String phone = dashboardView.getProfilePhone();
+        String preference = dashboardView.getProfilePreference();
+
+        // Update the UserData object
+        currentUser.setGender(gender);
+        currentUser.setPhone(phone);
+        currentUser.setPreference(preference);
+
+        // Save to database (you need to implement updateUserProfile in UserDao)
+        UserDao userDao = new UserDao();
+        boolean success = userDao.updateUserProfile(currentUser);
+
+        if (success) {
+            JOptionPane.showMessageDialog(dashboardView, "Profile updated successfully!");
+        } else {
+            JOptionPane.showMessageDialog(dashboardView, "Failed to update profile.");
+        }
+    }
+    }
+}
+

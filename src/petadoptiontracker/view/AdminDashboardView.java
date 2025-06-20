@@ -253,6 +253,12 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(petStatus);
         petStatus.setBounds(260, 90, 120, 20);
 
+
+        jLabel9.setText("Add Pet");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(130, 20, 68, 16);
+
+
         jLabel6.setText("Status");
         jPanel3.add(jLabel6);
         jLabel6.setBounds(260, 60, 90, 20);
@@ -265,13 +271,21 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(jLabel8);
         jLabel8.setBounds(30, 80, 90, 20);
         jPanel3.add(petBreed1);
+
         petBreed1.setBounds(140, 80, 64, 30);
+
+        petBreed1.setBounds(150, 110, 64, 22);
+
 
         jLabel12.setText("Age");
         jPanel3.add(jLabel12);
         jLabel12.setBounds(30, 120, 90, 20);
         jPanel3.add(petAge1);
+
         petAge1.setBounds(140, 120, 64, 30);
+
+        petAge1.setBounds(150, 140, 64, 22);
+
 
         jLabel13.setText("Sex");
         jPanel3.add(jLabel13);
@@ -285,7 +299,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.add(jLabel14);
         jLabel14.setBounds(30, 210, 90, 20);
         jPanel3.add(petName2);
+
         petName2.setBounds(140, 40, 64, 30);
+
+        petName2.setBounds(150, 70, 64, 22);
+
 
         addPetButton.setBackground(new java.awt.Color(184, 214, 184));
         addPetButton.setText("Add Pet");
@@ -597,6 +615,9 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
        notificationButton.addActionListener(listener);
    }
    public void addEditEntryButtonListener(ActionListener listener) {
+    editEntryButton.addActionListener(listener);
+}
+   public void add(ActionListener listener) {
     editEntryButton.addActionListener(listener);
 }
 }

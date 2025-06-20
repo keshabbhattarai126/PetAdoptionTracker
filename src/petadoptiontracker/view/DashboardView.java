@@ -34,6 +34,8 @@ public class DashboardView extends javax.swing.JFrame {
     public DashboardView(UserData user) {
         initComponents();
         jLabel1.setText("Welcome, " + user.getName() +" "+ user.getRole() + "!");
+        jLabel11.setText(user.getName());
+        jLabel12.setText(user.getEmail());
         byte[] imageData = user.getImage();
         if (imageData != null) {
             ImageIcon imageIcon = new ImageIcon(imageData);
@@ -58,14 +60,9 @@ public class DashboardView extends javax.swing.JFrame {
         dashboardButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
         signOutButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        nameResult = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        emailResult = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -78,6 +75,19 @@ public class DashboardView extends javax.swing.JFrame {
         viewPetProfileButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        searchResultTable = new javax.swing.JTable();
         requestButton1 = new javax.swing.JButton();
         favoriteButton1 = new javax.swing.JButton();
         heartButton = new javax.swing.JButton();
@@ -124,6 +134,7 @@ public class DashboardView extends javax.swing.JFrame {
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
+
         signOutButton.setBounds(34, 303, 160, 31);
 
         jLabel2.setText("This is Dashboard");
@@ -132,11 +143,17 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(searchField);
         searchField.setBounds(320, 60, 195, 22);
 
-        searchButton.setText("Search");
+        signOutButton.setBounds(34, 303, 160, 29);
+        getContentPane().add(searchField);
+        searchField.setBounds(300, 40, 195, 23);
+
+
+        searchButton.setText("Search Pet");
         getContentPane().add(searchButton);
-        searchButton.setBounds(520, 60, 72, 23);
+        searchButton.setBounds(510, 40, 100, 23);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(371, 303, 0, 0);
+
 
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
@@ -150,6 +167,7 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(emailResult);
         emailResult.setBounds(540, 450, 189, 22);
 
+b
         jPanel1.setBackground(new java.awt.Color(38, 78, 201));
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 270, 510);
@@ -210,11 +228,80 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(176, 154, 154));
         jPanel5.setLayout(null);
 
-        jLabel11.setText("This is tab 3");
+        jLabel11.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel11.setText("Name text");
         jPanel5.add(jLabel11);
-        jLabel11.setBounds(210, 40, 110, 40);
+        jLabel11.setBounds(70, 20, 110, 30);
+
+        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel6.setText("Preference:");
+        jPanel5.add(jLabel6);
+        jLabel6.setBounds(10, 160, 120, 30);
+
+        jLabel12.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel12.setText("Email text");
+        jPanel5.add(jLabel12);
+        jLabel12.setBounds(340, 20, 200, 30);
+
+        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel7.setText("Email:");
+        jPanel5.add(jLabel7);
+        jLabel7.setBounds(280, 20, 80, 30);
+
+        jLabel8.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel8.setText("Name:");
+        jPanel5.add(jLabel8);
+        jLabel8.setBounds(10, 20, 80, 30);
+
+        jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jComboBox1);
+        jComboBox1.setBounds(80, 90, 103, 32);
+
+        jLabel10.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel10.setText("Gender:");
+        jPanel5.add(jLabel10);
+        jLabel10.setBounds(10, 90, 70, 30);
+        jPanel5.add(jTextField1);
+        jTextField1.setBounds(340, 90, 120, 30);
+
+        jLabel13.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel13.setText("Phone:");
+        jPanel5.add(jLabel13);
+        jLabel13.setBounds(280, 90, 70, 30);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane3.setViewportView(jTextArea2);
+
+        jPanel5.add(jScrollPane3);
+        jScrollPane3.setBounds(120, 160, 300, 40);
+
+        jButton1.setText("Submit");
+        jPanel5.add(jButton1);
+        jButton1.setBounds(200, 220, 110, 30);
 
         jTabbedPane4.addTab("Profile Setting", jPanel5);
+
+        searchResultTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(searchResultTable);
+
+        jTabbedPane4.addTab("Search", jScrollPane2);
 
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(290, 90, 610, 300);
@@ -242,7 +329,7 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(heartButton);
-        heartButton.setBounds(734, 10, 46, 40);
+        heartButton.setBounds(820, 20, 46, 40);
 
         pack();
         setLocationRelativeTo(null);
@@ -260,6 +347,10 @@ public class DashboardView extends javax.swing.JFrame {
     private void heartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heartButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_heartButtonActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -288,24 +379,31 @@ public class DashboardView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton dashboardButton;
-    private javax.swing.JTextField emailResult;
     private javax.swing.JButton favoriteButton;
     private javax.swing.JButton favoriteButton1;
     private javax.swing.JButton heartButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTextField nameResult;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable petTable;
     private javax.swing.JLabel photoLabel;
     private javax.swing.JButton profileButton;
@@ -313,6 +411,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton requestButton1;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
+    private javax.swing.JTable searchResultTable;
     private javax.swing.JButton signOutButton;
     private javax.swing.JButton viewPetProfileButton;
     private javax.swing.JButton viewPetTab;
@@ -328,16 +427,6 @@ public class DashboardView extends javax.swing.JFrame {
 
     public String getSearchInput() {
         return searchField.getText();
-    }
-
-    public void setSearchResult(String name, String email) {
-        nameResult.setText(name);
-        emailResult.setText(email);
-    }
-
-    public void clearSearchResult() {
-        nameResult.setText("");
-        emailResult.setText("");
     }
 
     public void addSignOutButtonListener(ActionListener listener) {
@@ -396,4 +485,48 @@ public void addProfileTabButtonListener(ActionListener listener) {
    public void addViewPetProfileListener(ActionListener listener) {
     viewPetProfileButton.addActionListener(listener);
 }
+
+   public String getProfileGender() {
+    return (String) jComboBox1.getSelectedItem();
+}
+
+public String getProfilePhone() {
+    return jTextField1.getText();
+}
+
+public String getProfilePreference() {
+    return jTextArea2.getText();
+}
+
+public void addProfileSubmitListener(ActionListener listener) {
+    jButton1.addActionListener(listener);
+}
+
+
+public JTable getSearchResultTable() {
+    return searchResultTable;
+}
+
+public void setSearchResultTableData(List<PetModel> petList) {
+    String[] columns = {"ID", "Name", "Breed", "Age", "Sex", "Status"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+    for (PetModel pet : petList) {
+        Object[] row = {
+            pet.getId(),
+            pet.getName(),
+            pet.getBreed(),
+            pet.getAge(),
+            pet.getSex(),
+            pet.getStatus()
+        };
+        model.addRow(row);
+    }
+    searchResultTable.setModel(model);
+}
+
+
+
+
+
 }

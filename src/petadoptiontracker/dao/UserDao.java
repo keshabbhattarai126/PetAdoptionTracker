@@ -176,6 +176,48 @@ public List<PetModel> getAllPets() {
 
     return petList;
 }
+    public boolean updateUserProfile(UserData userData) {
+    String sql = "UPDATE Users SET gender=?, phone=?, preference=? WHERE id=?";
+    Connection conn = mySql.openConnection();
+    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, userData.getGender());
+        pstmt.setString(2, userData.getPhone());
+        pstmt.setString(3, userData.getPreference());
+        pstmt.setInt(4, userData.getId());
+        int result = pstmt.executeUpdate();
+        return result > 0;
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    } finally {
+        mySql.closeConnection(conn);
+    }
+    return false;
+}
+
+public List<PetModel> searchPets(String query) {
+    List<PetModel> pets = new ArrayList<>();
+    String sql = "SELECT * FROM pets WHERE name LIKE ? OR breed LIKE ?";
+    try (Connection conn = mySql.openConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, "%" + query + "%");
+        pstmt.setString(2, "%" + query + "%");
+        ResultSet rs = pstmt.executeQuery();
+        while (rs.next()) {
+            PetModel pet = new PetModel();
+            pet.setId(rs.getInt("id"));
+            pet.setName(rs.getString("name"));
+            pet.setBreed(rs.getString("breed"));
+            pet.setAge(rs.getInt("age"));
+            pet.setSex(rs.getString("sex"));
+            pet.setStatus(rs.getString("status"));
+            pets.add(pet);
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+    return pets;
+}
+
 
 
 }

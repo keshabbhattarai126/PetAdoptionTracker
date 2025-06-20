@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/DashboardController.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/AdminDashboardController.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/dao/UserDao.java</file>
@@ -17,6 +18,13 @@
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/ForgotPasswordView.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/AdminDashboardView.java</file>
             <file>file:/C:/Users/Kamal/Music/Documents/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/DashboardView.java</file>
+=======
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/DashboardView.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/DashboardController.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/dao/UserDao.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/view/AdminDashboardView.java</file>
+            <file>file:/Users/keshab/NetBeansProjects/PetAdoptionTracker/src/petadoptiontracker/controller/AdminDashboardController.java</file>
+>>>>>>> 70c93a8d3394d984ba13c27548fbd57c3359d2db
         </group>
     </open-files>
 </project-private>
