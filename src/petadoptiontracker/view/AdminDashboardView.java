@@ -19,6 +19,8 @@ import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.ChatMessage;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
+import java.awt.Font; // Import Font class for table header customization
+import java.awt.Color; // Import Color class for table header customization
 //import javax.swing.table.DefaultTabåleModel;
 //import java.util.List;
 //import petadoptiontracker.model.PetModel;
@@ -176,10 +178,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jTabbedPane4.setBackground(new java.awt.Color(204, 255, 255));
         jTabbedPane4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 102)));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 51, 102)));
         jPanel4.setLayout(null);
 
-        requestsTable.setBackground(new java.awt.Color(188, 178, 178));
         requestsTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 51)));
         requestsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,15 +195,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jScrollPane2.setViewportView(requestsTable);
 
         jPanel4.add(jScrollPane2);
-        jScrollPane2.setBounds(40, 10, 570, 190);
+        jScrollPane2.setBounds(40, 10, 580, 270);
 
         jTabbedPane4.addTab("Dashboard", jPanel4);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 102)));
         jPanel5.setLayout(null);
 
-        jTable1.setBackground(new java.awt.Color(228, 214, 214));
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102)));
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -243,7 +241,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jTabbedPane4.addTab("View Pet", jPanel5);
 
         jPanel3.setBackground(java.awt.SystemColor.activeCaption);
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102)));
         jPanel3.setLayout(null);
 
         petStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Availabe", "Not Available" }));
@@ -306,7 +303,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jTabbedPane4.addTab("Add Pet", jPanel3);
 
         jPanel6.setBackground(java.awt.SystemColor.activeCaption);
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102)));
         jPanel6.setLayout(null);
 
         sendButton.setBackground(new java.awt.Color(184, 214, 184));

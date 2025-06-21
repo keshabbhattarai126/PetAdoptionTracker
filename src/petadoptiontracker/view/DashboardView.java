@@ -8,15 +8,20 @@ import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import petadoptiontracker.controller.DashboardController;
 import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.ChatMessage;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
+import java.awt.Font; // Import Font class for table header customization
+import java.awt.Color; // Import Color class for table header customization
+import java.awt.Dimension;
 
 /**
  *
@@ -193,9 +198,18 @@ public class DashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(petTable);
+        // ---------------------------CUSTOMIZATION----------------------------------
+        petTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+petTable.getTableHeader().setPreferredSize(new Dimension(
+    petTable.getTableHeader().getPreferredSize().width, 25));
+
+petTable.setSelectionBackground(new Color(225, 81, 177));
+petTable.setSelectionForeground(Color.WHITE);
+petTable.setRowHeight(25);
+
 
         jPanel4.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 0, 550, 280);
+        jScrollPane1.setBounds(0, 0, 560, 370);
 
         favoriteButton.setBackground(new java.awt.Color(255, 153, 255));
         favoriteButton.setText("Favorite");
@@ -319,7 +333,18 @@ public class DashboardView extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(searchResultTable);
 
+        
+
         jTabbedPane4.addTab("Search", jScrollPane2);
+        // ---------------------------CUSTOMIZATION----------------------------------
+searchResultTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+searchResultTable.getTableHeader().setPreferredSize(new Dimension(
+    searchResultTable.getTableHeader().getPreferredSize().width, 25));
+
+searchResultTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink
+searchResultTable.setSelectionForeground(Color.WHITE);             // White text for selection
+searchResultTable.setRowHeight(25);                                // Set row height to 25
+
 
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(290, 90, 740, 420);
@@ -363,7 +388,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(38, 78, 201));
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, -10, 270, 550);
+        jPanel1.setBounds(0, -10, 270, 570);
 
         pack();
         setLocationRelativeTo(null);
