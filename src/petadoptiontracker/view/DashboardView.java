@@ -34,7 +34,7 @@ public class DashboardView extends javax.swing.JFrame {
     
     public DashboardView(UserData user) {
         initComponents();
-        jLabel1.setText("Welcome, " + user.getName() +" "+ user.getRole() + "!");
+        jLabel1.setText("Welcome, " + user.getName() + "!");
         jLabel11.setText(user.getName());
         jLabel12.setText(user.getEmail());
         byte[] imageData = user.getImage();
@@ -108,45 +108,47 @@ public class DashboardView extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Playwrite IN", 0, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(185, 112, 43));
         jLabel1.setText("Dashboard");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(360, 10, 260, 20);
+        jLabel1.setBounds(290, 10, 260, 20);
 
         photoLabel.setText("jLabel2");
         photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
         photoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
         getContentPane().add(photoLabel);
-        photoLabel.setBounds(68, 34, 80, 80);
+        photoLabel.setBounds(90, 40, 80, 80);
 
         viewPetTab.setBackground(new java.awt.Color(255, 233, 211));
         viewPetTab.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
-        viewPetTab.setText("View Pet");
+        viewPetTab.setText("View Pets");
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(40, 210, 160, 34);
+        viewPetTab.setBounds(50, 210, 160, 40);
 
         dashboardButton.setBackground(new java.awt.Color(255, 233, 211));
         dashboardButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(40, 150, 160, 34);
+        dashboardButton.setBounds(50, 150, 160, 40);
 
         messageButton.setBackground(new java.awt.Color(255, 233, 211));
         messageButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         messageButton.setText("Message");
         getContentPane().add(messageButton);
-        messageButton.setBounds(40, 320, 160, 34);
+        messageButton.setBounds(50, 330, 160, 40);
 
         signOutButton.setBackground(new java.awt.Color(255, 233, 211));
         signOutButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(40, 430, 160, 34);
+        signOutButton.setBounds(50, 450, 160, 40);
         getContentPane().add(searchField);
-        searchField.setBounds(300, 40, 195, 23);
+        searchField.setBounds(290, 40, 340, 30);
 
         searchButton.setText("Search Pet");
         getContentPane().add(searchButton);
-        searchButton.setBounds(510, 40, 100, 23);
+        searchButton.setBounds(660, 40, 100, 30);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(371, 303, 0, 0);
 
@@ -215,7 +217,7 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel4.add(viewPetProfileButton);
         viewPetProfileButton.setBounds(580, 110, 100, 23);
 
-        jTabbedPane4.addTab("View Pet", jPanel4);
+        jTabbedPane4.addTab("View Pets", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(176, 154, 154));
         jPanel5.setLayout(null);
@@ -345,23 +347,23 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(heartButton);
-        heartButton.setBounds(820, 20, 46, 40);
+        heartButton.setBounds(970, 30, 46, 40);
 
         profileButton.setBackground(new java.awt.Color(255, 233, 211));
         profileButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         profileButton.setText("Profile Setting");
         getContentPane().add(profileButton);
-        profileButton.setBounds(40, 270, 160, 29);
+        profileButton.setBounds(50, 270, 160, 40);
 
         reviewButton.setBackground(new java.awt.Color(255, 233, 211));
         reviewButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         reviewButton.setText("Review");
         getContentPane().add(reviewButton);
-        reviewButton.setBounds(40, 380, 160, 30);
+        reviewButton.setBounds(50, 390, 160, 40);
 
         jPanel1.setBackground(new java.awt.Color(38, 78, 201));
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 270, 550);
+        jPanel1.setBounds(0, -10, 270, 550);
 
         pack();
         setLocationRelativeTo(null);
