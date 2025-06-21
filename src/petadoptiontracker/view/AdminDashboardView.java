@@ -60,7 +60,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        photoLabel = new javax.swing.JLabel();
         messageButton = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
         viewPetTab = new javax.swing.JButton();
@@ -108,6 +107,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         notificationButton = new javax.swing.JButton();
         shareButton = new javax.swing.JButton();
+        photoLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,24 +115,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Playwrite IN", 0, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(185, 112, 43));
         jLabel1.setText("Admin Dashboard");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(590, 20, 170, 20);
-
-        photoLabel.setText("jLabel2");
-        photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
-        photoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
-        getContentPane().add(photoLabel);
-        photoLabel.setBounds(68, 34, 80, 80);
+        jLabel1.setBounds(330, 10, 170, 30);
 
         messageButton.setBackground(new java.awt.Color(255, 233, 211));
         messageButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         messageButton.setText("Message");
-        messageButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                messageButtonActionPerformed(evt);
-            }
-        });
         getContentPane().add(messageButton);
         messageButton.setBounds(40, 330, 150, 30);
 
@@ -153,11 +144,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         addPetTab1.setBackground(new java.awt.Color(255, 233, 211));
         addPetTab1.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         addPetTab1.setText("Add Pet");
-        addPetTab1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPetTab1ActionPerformed(evt);
-            }
-        });
         getContentPane().add(addPetTab1);
         addPetTab1.setBounds(40, 270, 150, 30);
 
@@ -167,11 +153,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(signOutButton);
         signOutButton.setBounds(40, 390, 152, 30);
         getContentPane().add(searchField);
-        searchField.setBounds(460, 60, 195, 23);
+        searchField.setBounds(330, 50, 280, 30);
 
         searchButton.setText("Search User");
         getContentPane().add(searchButton);
-        searchButton.setBounds(690, 60, 110, 23);
+        searchButton.setBounds(640, 50, 110, 30);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(371, 303, 0, 0);
 
@@ -381,9 +367,17 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(shareButton);
         shareButton.setBounds(900, 20, 50, 38);
 
+        photoLabel.setFont(new java.awt.Font("Playwrite IN", 0, 24)); // NOI18N
+        photoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        photoLabel.setText("Admin Panel");
+        photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
+        photoLabel.setMinimumSize(new java.awt.Dimension(150, 150));
+        getContentPane().add(photoLabel);
+        photoLabel.setBounds(40, 40, 200, 50);
+
         jPanel1.setBackground(new java.awt.Color(24, 114, 125));
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 270, 510);
+        jPanel1.setBounds(0, 0, 290, 550);
 
         pack();
         setLocationRelativeTo(null);
@@ -397,11 +391,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_petSexActionPerformed
 
-    private void messageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageButtonActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane4.setSelectedIndex(3);
-    }//GEN-LAST:event_messageButtonActionPerformed
-
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_notificationButtonActionPerformed
@@ -410,11 +399,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deletePetEntryButtonActionPerformed
 
-
-    private void addPetTab1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPetTab1ActionPerformed
-        // TODO add your handling code here:
-         jTabbedPane4.setSelectedIndex(2);
-    }//GEN-LAST:event_addPetTab1ActionPerformed
 
     private void shareButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shareButtonActionPerformed
         // TODO add your handling code here:
@@ -585,9 +569,8 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
         return (String) petStatus.getSelectedItem(); 
     }
     
-    public void addPetTabButtonListener(ActionListener listener) {
-    messageButton.addActionListener(listener);
-    }
+ 
+    
     
     public void viewPetTabButtonListener(ActionListener listener) {
     viewPetTab.addActionListener(listener);
@@ -745,5 +728,11 @@ public void addUserListSelectionListener(ListSelectionListener listener) {
 //        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
 //    }
 
+ public void addPetTabButtonListener(ActionListener listener) {
+    addPetTab1.addActionListener(listener);
+
+}
+// public void addMessageButtonListener(ActionListener listener) {
+//    messageButton.addActionListener(listener);
 
 }
