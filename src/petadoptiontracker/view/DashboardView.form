@@ -603,8 +603,7 @@
         </Constraint>
       </Constraints>
     </Component>
-
-    <Component class="javax.swing.JButton" name="profileButton1">
+    <Component class="javax.swing.JButton" name="profileButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c2" green="c2" id="Button.borderColor" palette="3" red="c2" type="palette"/>
@@ -615,7 +614,7 @@
         <Property name="text" type="java.lang.String" value="Profile Setting"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profileButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profileButtonActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -637,7 +636,6 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
-
     <Component class="javax.swing.JButton" name="reviewButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Review"/>
@@ -648,6 +646,5 @@
         </Constraint>
       </Constraints>
     </Component>
-
   </SubComponents>
 </Form>
