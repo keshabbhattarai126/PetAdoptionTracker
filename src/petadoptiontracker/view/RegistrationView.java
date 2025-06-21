@@ -55,9 +55,11 @@ public class RegistrationView extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Satisfy", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 102, 255));
         jLabel1.setText("Registration");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(630, 60, 80, 16);
+        jLabel1.setBounds(630, 10, 240, 70);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(38, 78, 201));
@@ -65,62 +67,65 @@ public class RegistrationView extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(590, 110, 260, 20);
         getContentPane().add(nameTextField);
-        nameTextField.setBounds(580, 160, 240, 22);
+        nameTextField.setBounds(580, 150, 240, 30);
 
         jLabel3.setText("Name");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(520, 160, 32, 16);
+        jLabel3.setBounds(520, 160, 40, 20);
         getContentPane().add(emailTextField);
-        emailTextField.setBounds(580, 200, 240, 22);
+        emailTextField.setBounds(580, 190, 240, 30);
 
         jLabel4.setText("Email");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(520, 200, 30, 16);
+        jLabel4.setBounds(520, 200, 40, 20);
 
         jLabel5.setText("Password");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(500, 240, 50, 16);
+        jLabel5.setBounds(500, 240, 70, 20);
         getContentPane().add(passwordField);
-        passwordField.setBounds(580, 240, 240, 22);
+        passwordField.setBounds(580, 230, 240, 30);
 
         jLabel6.setText("Confirm Password");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(450, 280, 110, 20);
+        jLabel6.setBounds(450, 280, 120, 20);
         getContentPane().add(confirmPasswordField);
-        confirmPasswordField.setBounds(580, 280, 240, 22);
+        confirmPasswordField.setBounds(580, 270, 240, 30);
 
         registerButton.setBackground(new java.awt.Color(38, 78, 201));
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Create Account");
         getContentPane().add(registerButton);
-        registerButton.setBounds(580, 340, 240, 40);
+        registerButton.setBounds(620, 370, 160, 40);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/CreateAccount.png"))); // NOI18N
         jLabel7.setText("jLabel7");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(0, -170, 420, 780);
 
-        noAccountLabel.setForeground(new java.awt.Color(0, 153, 153));
+        noAccountLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
         noAccountLabel.setText("Already have an account?");
         getContentPane().add(noAccountLabel);
-        noAccountLabel.setBounds(580, 400, 160, 20);
+        noAccountLabel.setBounds(580, 430, 200, 20);
 
+        loginLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
         loginLabel.setForeground(new java.awt.Color(38, 78, 201));
         loginLabel.setText("Login");
         getContentPane().add(loginLabel);
-        loginLabel.setBounds(740, 400, 42, 20);
+        loginLabel.setBounds(770, 430, 60, 20);
 
         showPasswordButton.setText("Show");
         getContentPane().add(showPasswordButton);
-        showPasswordButton.setBounds(830, 240, 72, 23);
+        showPasswordButton.setBounds(830, 233, 70, 30);
 
         showPasswordButton1.setText("Show");
         getContentPane().add(showPasswordButton1);
-        showPasswordButton1.setBounds(830, 280, 72, 23);
+        showPasswordButton1.setBounds(830, 270, 70, 30);
 
+        uploadImageButton.setBackground(new java.awt.Color(153, 102, 255));
+        uploadImageButton.setForeground(new java.awt.Color(255, 255, 255));
         uploadImageButton.setText("Upload Image");
         getContentPane().add(uploadImageButton);
-        uploadImageButton.setBounds(630, 310, 150, 30);
+        uploadImageButton.setBounds(580, 310, 240, 40);
 
         pack();
         setLocationRelativeTo(null);

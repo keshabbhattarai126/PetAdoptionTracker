@@ -55,14 +55,15 @@ public class DashboardController {
         dashboardView.addFavoriteButtonListener(new FavoriteButtonListener());
         dashboardView.addHeartButtonListener(new HeartButtonListener());
         dashboardView.addDashboardTabButtonListener(new DashboardTabListener());
-        dashboardView.addProfileTabButtonListener(new ProfileTabListener());
+//        dashboardView.addProfileTabButtonListener(new ProfileTabListener());
         dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
 
         dashboardView.addProfileSubmitListener(new ProfileSubmitListener());
         dashboardView.addSendMessageButtonListener(new SendMessageListener());
         dashboardView.addMessageTabListener(new MessageTabListener());
         dashboardView.addReviewButtonListener(new ReviewListener());
-        
+        dashboardView.addBrowsePetButtonListener(new BrowsePetListener());
+        dashboardView.addProfileButtonListener(new ProfileButtonListener());
 
 
 
@@ -122,7 +123,7 @@ class SendMessageListener implements ActionListener {
 class MessageTabListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
-        dashboardView.getTabbedPane().setSelectedIndex(4); // Assuming Message is tab index 4
+        dashboardView.getTabbedPane().setSelectedIndex(3); 
         loadUserChatHistory(); // Load chat history when message tab is opened
     }
 }
@@ -259,7 +260,7 @@ class DashboardTabListener implements ActionListener {
 class ProfileTabListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
-        dashboardView.getTabbedPane().setSelectedIndex(2); // Profile Setting tab
+        dashboardView.getTabbedPane().setSelectedIndex(1); // Profile Setting tab
     }
 }
 
@@ -291,7 +292,7 @@ class SearchButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // 1. Switch to tab4 (index 3, as tab indices start at 0)
-        dashboardView.getTabbedPane().setSelectedIndex(3);
+        dashboardView.getTabbedPane().setSelectedIndex(4);
 
         // 2. Get the search input
         String query = dashboardView.getSearchInput();
@@ -376,6 +377,27 @@ class SearchButtonListener implements ActionListener {
         }
     }
 }
+    class BrowsePetListener implements ActionListener{
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          dashboardView.getTabbedPane().setSelectedIndex(1);
+
+          loadPetTable();
+          
+        }
+    
+    }
+    
+    class ProfileButtonListener implements ActionListener{
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          dashboardView.getTabbedPane().setSelectedIndex(2);
+          
+        }
+    
+    }
 
 }
 

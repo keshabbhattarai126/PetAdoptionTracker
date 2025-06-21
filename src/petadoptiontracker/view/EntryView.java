@@ -15,7 +15,7 @@ public class EntryView extends javax.swing.JFrame {
      */
     public EntryView() {
         initComponents();
-        setSize(1200,800);
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,30 +26,28 @@ public class EntryView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         loginButton = new javax.swing.JButton();
         registerButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 51));
-        setPreferredSize(new java.awt.Dimension(950, 535));
-        setSize(new java.awt.Dimension(950, 535));
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setPreferredSize(new java.awt.Dimension(950, 538));
+        setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(38, 78, 201));
-        jLabel1.setText("Welcome to Pet Adoption Tracker");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(530, 110, 300, 30);
-
         loginButton.setBackground(new java.awt.Color(38, 78, 201));
+        loginButton.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
         loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("Login");
         getContentPane().add(loginButton);
-        loginButton.setBounds(600, 270, 170, 30);
+        loginButton.setBounds(600, 270, 240, 40);
 
         registerButton.setBackground(new java.awt.Color(0, 153, 153));
+        registerButton.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Register");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -58,12 +56,18 @@ public class EntryView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registerButton);
-        registerButton.setBounds(600, 320, 170, 30);
+        registerButton.setBounds(600, 330, 240, 40);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/HomePhoto.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(-60, -60, 540, 600);
+
+        jLabel3.setFont(new java.awt.Font("Satisfy", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel3.setText("Pet Adoption Tracker");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(560, 70, 310, 100);
 
         pack();
         setLocationRelativeTo(null);
@@ -111,8 +115,8 @@ public class EntryView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton loginButton;
     private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
