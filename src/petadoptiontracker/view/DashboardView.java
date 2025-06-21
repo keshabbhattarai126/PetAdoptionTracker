@@ -200,6 +200,14 @@ public class DashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(petTable);
+        // ---------------------------CUSTOMIZATION----------------------------------
+        petTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+petTable.getTableHeader().setPreferredSize(new Dimension(
+    petTable.getTableHeader().getPreferredSize().width, 25));
+
+petTable.setSelectionBackground(new Color(225, 81, 177));
+petTable.setSelectionForeground(Color.WHITE);
+petTable.setRowHeight(25);
 
         jPanel4.add(jScrollPane1);
         jScrollPane1.setBounds(0, 0, 560, 370);
@@ -245,7 +253,7 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel12.setText("Email text");
         jPanel5.add(jLabel12);
-        jLabel12.setBounds(340, 20, 200, 30);
+        jLabel12.setBounds(340, 20, 380, 30);
 
         jLabel7.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel7.setText("Email:");
@@ -332,6 +340,15 @@ public class DashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(searchResultTable);
+        // ---------------------------CUSTOMIZATION----------------------------------
+searchResultTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+searchResultTable.getTableHeader().setPreferredSize(new Dimension(
+    searchResultTable.getTableHeader().getPreferredSize().width, 25));
+
+searchResultTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink
+searchResultTable.setSelectionForeground(Color.WHITE);             // White text for selection
+searchResultTable.setRowHeight(25);                                // Set row height to 25
+
 
         jTabbedPane4.addTab("Search", jScrollPane2);
 

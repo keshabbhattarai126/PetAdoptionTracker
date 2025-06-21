@@ -153,7 +153,7 @@ public class PetProfileView extends javax.swing.JFrame {
 
     
     private void displayPet(PetModel pet) {
-        nameLabel.setText("Name: " + pet.getName());
+        nameLabel.setText("Type: " + pet.getName());
         breedLabel.setText("Breed: " + pet.getBreed());
         ageLabel.setText("Age: " + pet.getAge());
         sexLabel.setText("Sex: " + pet.getSex());
