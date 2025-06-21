@@ -15,7 +15,7 @@ public class EntryView extends javax.swing.JFrame {
      */
     public EntryView() {
         initComponents();
-        setSize(1200,800);
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,8 +33,10 @@ public class EntryView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 51));
-        setPreferredSize(new java.awt.Dimension(950, 535));
-        setSize(new java.awt.Dimension(950, 535));
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setPreferredSize(new java.awt.Dimension(879, 538));
+        setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
