@@ -99,8 +99,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         petName2 = new javax.swing.JTextField();
         addPetButton = new javax.swing.JButton();
         petSex = new javax.swing.JComboBox<>();
-        petPhotoUpload2 = new javax.swing.JButton();
-        petPhotoUpload3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         sendButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -142,7 +140,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 152, 31);
+        dashboardButton.setBounds(34, 126, 152, 29);
 
         viewPetTab.setBackground(new java.awt.Color(149, 133, 133));
         viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -173,7 +171,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(400, 40, 170, 20);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 22);
+        searchField.setBounds(320, 60, 195, 23);
 
         searchButton.setText("Search");
         getContentPane().add(searchButton);
@@ -183,19 +181,19 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 450, 32, 16);
+        jLabel4.setBounds(290, 450, 34, 17);
         getContentPane().add(nameResult);
-        nameResult.setBounds(340, 450, 130, 22);
+        nameResult.setBounds(340, 450, 130, 23);
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 30, 16);
+        jLabel5.setBounds(490, 450, 32, 17);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 270, 510);
         getContentPane().add(emailResult);
-        emailResult.setBounds(540, 450, 189, 22);
+        emailResult.setBounds(540, 450, 189, 23);
 
         jTabbedPane4.setBackground(new java.awt.Color(204, 255, 255));
         jTabbedPane4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 102)));
@@ -316,7 +314,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         addPetButton.setBackground(new java.awt.Color(184, 214, 184));
         addPetButton.setText("Add Pet");
         jPanel3.add(addPetButton);
-        addPetButton.setBounds(280, 160, 72, 23);
+        addPetButton.setBounds(280, 160, 77, 23);
 
         petSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         petSex.addActionListener(new java.awt.event.ActionListener() {
@@ -326,24 +324,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         });
         jPanel3.add(petSex);
         petSex.setBounds(140, 160, 90, 20);
-
-        petPhotoUpload2.setText("Upload");
-        petPhotoUpload2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                petPhotoUpload2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(petPhotoUpload2);
-        petPhotoUpload2.setBounds(230, 210, 75, 23);
-
-        petPhotoUpload3.setText("Upload");
-        petPhotoUpload3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                petPhotoUpload3ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(petPhotoUpload3);
-        petPhotoUpload3.setBounds(190, 240, 72, 23);
 
         jTabbedPane4.addTab("Add Pet", jPanel3);
 
@@ -407,7 +387,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(shareButton);
-        shareButton.setBounds(820, 440, 50, 39);
+        shareButton.setBounds(820, 440, 50, 38);
 
         pack();
         setLocationRelativeTo(null);
@@ -425,14 +405,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTabbedPane4.setSelectedIndex(3);
     }//GEN-LAST:event_messageButtonActionPerformed
-
-    private void petPhotoUpload2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petPhotoUpload2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_petPhotoUpload2ActionPerformed
-
-    private void petPhotoUpload3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petPhotoUpload3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_petPhotoUpload3ActionPerformed
 
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
         // TODO add your handling code here:
@@ -527,8 +499,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField petAge1;
     private javax.swing.JTextField petBreed1;
     private javax.swing.JTextField petName2;
-    private javax.swing.JButton petPhotoUpload2;
-    private javax.swing.JButton petPhotoUpload3;
     private javax.swing.JButton petPhotoUploadButton;
     private javax.swing.JComboBox<String> petSex;
     private javax.swing.JComboBox<String> petStatus;
@@ -536,11 +506,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTable requestsTable;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
-
     private javax.swing.JButton sendButton;
-
     private javax.swing.JButton shareButton;
-
     private javax.swing.JButton signOutButton;
     private javax.swing.JList<String> userChatList;
     private javax.swing.JButton viewPetProfileButton;
@@ -681,12 +648,12 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
    public void addViewPetProfileListener(ActionListener listener) {
     viewPetProfileButton.addActionListener(listener);
 }
-   public void petPhotoUpload2Listener(ActionListener listener) {
-    petPhotoUpload2.addActionListener(listener);
-}
-   public void petPhotoUpload3Listener(ActionListener listener) {
-    petPhotoUpload3.addActionListener(listener);
-}
+//   public void petPhotoUpload2Listener(ActionListener listener) {
+//    petPhotoUpload2.addActionListener(listener);
+//}
+//   public void petPhotoUpload3Listener(ActionListener listener) {
+//    petPhotoUpload3.addActionListener(listener);
+//}
    public void addDashboardButtonListener(ActionListener listener) {
     dashboardButton.addActionListener(listener);
 }

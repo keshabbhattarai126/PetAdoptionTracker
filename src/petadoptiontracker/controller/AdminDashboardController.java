@@ -48,8 +48,8 @@ public class AdminDashboardController {
         adminDashboardView.viewPetTabButtonListener(new ViewPetTabListener());
         adminDashboardView.addDeletePetEntryListener(new DeletePetEntryListener()); //Delete Operation
         adminDashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
-        adminDashboardView.petPhotoUpload2Listener(new UploadPhotoListener2());
-        adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener3());
+//        adminDashboardView.petPhotoUpload2Listener(new UploadPhotoListener2());
+//        adminDashboardView.petPhotoUpload3Listener(new UploadPhotoListener3());
         adminDashboardView.addDashboardButtonListener(new DashboardButtonListener());
         adminDashboardView.addNotifcationButtonListener(new NotifcationButtonListener());
         adminDashboardView.addEditEntryButtonListener(new EditEntryButtonListener());
@@ -149,19 +149,50 @@ public class AdminDashboardController {
     List<Map<String, Object>> requests = requestDao.getAllRequestsWithUserAndPet();
     adminDashboardView.setRequestsTableData(requests); // Implement this in your view
      }
-    
-    class UploadPhotoListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            JFileChooser fileChooser = new JFileChooser();
-            int result = fileChooser.showOpenDialog(adminDashboardView);
-            if (result == JFileChooser.APPROVE_OPTION) {
-                selectedPetImage = fileChooser.getSelectedFile();
-//                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
+     class UploadPhotoListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setMultiSelectionEnabled(true);
+        fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter(
+            "Image files", "jpg", "jpeg", "png", "gif", "bmp"
+        ));
+        int result = fileChooser.showOpenDialog(adminDashboardView);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File[] files = fileChooser.getSelectedFiles();
+            if (files.length > 3) {
+                JOptionPane.showMessageDialog(
+                    adminDashboardView,
+                    "You can select up to 3 photos only.",
+                    "Photo Limit",
+                    JOptionPane.ERROR_MESSAGE
+                );
+                // Optionally, clear selection or let user try again
+                return;
             }
+            selectedPetImage = files.length > 0 ? files[0] : null;
+            selectedPetImage2 = files.length > 1 ? files[1] : null;
+            selectedPetImage3 = files.length > 2 ? files[2] : null;
+            JOptionPane.showMessageDialog(
+                adminDashboardView,
+                "Selected " + files.length + " photo(s) for upload."
+            );
         }
     }
+}
     
+//    class UploadPhotoListener implements ActionListener {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            JFileChooser fileChooser = new JFileChooser();
+//            int result = fileChooser.showOpenDialog(adminDashboardView);
+//            if (result == JFileChooser.APPROVE_OPTION) {
+//                selectedPetImage = fileChooser.getSelectedFile();
+////                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
+//            }
+//        }
+//    }
+//    
     class AddPetListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -364,28 +395,28 @@ public class AdminDashboardController {
         }
     }
 }
-    class UploadPhotoListener2 implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            JFileChooser fileChooser = new JFileChooser();
-            int result = fileChooser.showOpenDialog(adminDashboardView);
-            if (result == JFileChooser.APPROVE_OPTION) {
-                selectedPetImage2 = fileChooser.getSelectedFile();
-//                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
-            }
-        }
-    }
-    class UploadPhotoListener3 implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            JFileChooser fileChooser = new JFileChooser();
-            int result = fileChooser.showOpenDialog(adminDashboardView);
-            if (result == JFileChooser.APPROVE_OPTION) {
-                selectedPetImage3 = fileChooser.getSelectedFile();
-//                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
-            }
-        }
-    }
+//    class UploadPhotoListener2 implements ActionListener {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            JFileChooser fileChooser = new JFileChooser();
+//            int result = fileChooser.showOpenDialog(adminDashboardView);
+//            if (result == JFileChooser.APPROVE_OPTION) {
+//                selectedPetImage2 = fileChooser.getSelectedFile();
+////                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
+//            }
+//        }
+//    }
+//    class UploadPhotoListener3 implements ActionListener {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            JFileChooser fileChooser = new JFileChooser();
+//            int result = fileChooser.showOpenDialog(adminDashboardView);
+//            if (result == JFileChooser.APPROVE_OPTION) {
+//                selectedPetImage3 = fileChooser.getSelectedFile();
+////                adminDashboardView.setPhotoPreview(selectedPetImage.getAbsolutePath());
+//            }
+//        }
+//    }
     class NotifcationButtonListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
