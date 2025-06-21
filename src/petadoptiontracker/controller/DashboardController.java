@@ -15,10 +15,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import petadoptiontracker.dao.AdminDao;
+import petadoptiontracker.dao.ChatDao;
 import petadoptiontracker.dao.FavoritesDao;
 import petadoptiontracker.dao.RequestDao;
 import petadoptiontracker.dao.ReviewDao;
 import petadoptiontracker.dao.UserDao;
+import petadoptiontracker.model.ChatMessage;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.Review;
 import petadoptiontracker.model.UserData;
@@ -37,9 +39,12 @@ import petadoptiontracker.view.ReviewView;
 
 public class DashboardController {
     private final DashboardView dashboardView;
+    private ChatDao chatDao;
+
 
     public DashboardController(DashboardView dashboardView) {
         this.dashboardView = dashboardView;
+        this.chatDao = new ChatDao();
 
         // Register button listeners
 //        dashboardView.addMyRequestButtonListener(new MyRequestListener());
@@ -54,6 +59,8 @@ public class DashboardController {
         dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
 
         dashboardView.addProfileSubmitListener(new ProfileSubmitListener());
+        dashboardView.addSendMessageButtonListener(new SendMessageListener());
+        dashboardView.addMessageTabListener(new MessageTabListener());
         dashboardView.addReviewButtonListener(new ReviewListener());
         
 
@@ -68,6 +75,58 @@ public class DashboardController {
     public void close() {
         dashboardView.dispose();
     }
+    
+    public void loadUserChatHistory() {
+    UserData currentUser = SessionManager.getCurrentUser();
+    if (currentUser != null) {
+        List<ChatMessage> messages = chatDao.getChatHistory(currentUser.getId());
+        dashboardView.displayChatHistory(messages);
+        
+        // Mark admin messages as read
+        chatDao.markMessagesAsRead(1, currentUser.getId()); // Assuming admin ID is 1
+    }
+}
+    
+    // Listener classes for user dashboard
+class SendMessageListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        UserData currentUser = SessionManager.getCurrentUser();
+        if (currentUser == null) {
+            JOptionPane.showMessageDialog(dashboardView, 
+                "Please log in to send messages.");
+            return;
+        }
+        
+        String message = dashboardView.getMessageInput().trim();
+        if (message.isEmpty()) {
+            JOptionPane.showMessageDialog(dashboardView, 
+                "Please enter a message.");
+            return;
+        }
+        
+        // Send message to admin (assuming admin ID is 1)
+        boolean success = chatDao.sendMessage(currentUser.getId(), 1, message, false);
+        
+       if (success) {
+      dashboardView.clearMessageInput();
+    loadUserChatHistory(); // Refresh chat history
+    JOptionPane.showMessageDialog(  dashboardView, "Message sent successfully!");
+} else {
+    JOptionPane.showMessageDialog(  dashboardView, "Failed to send message.");
+}
+
+    }
+}
+
+class MessageTabListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        dashboardView.getTabbedPane().setSelectedIndex(4); // Assuming Message is tab index 4
+        loadUserChatHistory(); // Load chat history when message tab is opened
+    }
+}
+    
      public void loadPetTable() {
     UserDao userDao = new UserDao();
     List<PetModel> petList = userDao.getAllPets();
