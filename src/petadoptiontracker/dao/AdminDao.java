@@ -160,6 +160,8 @@ public class AdminDao {
                     pet.setAge(rs.getInt("age"));
                     pet.setSex(rs.getString("sex"));
                     pet.setPhoto(rs.getBytes("photo"));
+                    pet.setPhoto2(rs.getBytes("photo2"));
+                    pet.setPhoto3(rs.getBytes("photo3"));
                     pet.setStatus(rs.getString("status"));
                     return pet;
                 }

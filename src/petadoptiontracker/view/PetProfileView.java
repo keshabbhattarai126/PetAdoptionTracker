@@ -36,6 +36,8 @@ public class PetProfileView extends javax.swing.JFrame {
         sexLabel = new javax.swing.JLabel();
         statusLabel = new javax.swing.JLabel();
         photoLabel = new javax.swing.JLabel();
+        photoLabel2 = new javax.swing.JLabel();
+        photoLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(950, 535));
@@ -63,7 +65,15 @@ public class PetProfileView extends javax.swing.JFrame {
 
         photoLabel.setText("Photo");
         getContentPane().add(photoLabel);
-        photoLabel.setBounds(360, 60, 100, 120);
+        photoLabel.setBounds(300, 70, 100, 120);
+
+        photoLabel2.setText("Photo");
+        getContentPane().add(photoLabel2);
+        photoLabel2.setBounds(430, 70, 100, 120);
+
+        photoLabel3.setText("Photo");
+        getContentPane().add(photoLabel3);
+        photoLabel3.setBounds(560, 70, 100, 120);
 
         pack();
         setLocationRelativeTo(null);
@@ -109,6 +119,8 @@ public class PetProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel breedLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel photoLabel;
+    private javax.swing.JLabel photoLabel2;
+    private javax.swing.JLabel photoLabel3;
     private javax.swing.JLabel sexLabel;
     private javax.swing.JLabel statusLabel;
     // End of variables declaration//GEN-END:variables
@@ -126,15 +138,19 @@ public class PetProfileView extends javax.swing.JFrame {
         ageLabel.setText("Age: " + pet.getAge());
         sexLabel.setText("Sex: " + pet.getSex());
         statusLabel.setText("Status: " + pet.getStatus());
-
-        if (pet.getPhoto() != null) {
-            ImageIcon icon = new ImageIcon(pet.getPhoto());
-            Image img = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-            photoLabel.setIcon(new ImageIcon(img));
-            photoLabel.setText("");
-        } else {
-            photoLabel.setIcon(null);
-            photoLabel.setText("No Photo");
-        }
+        setPhoto(photoLabel, pet.getPhoto());
+        setPhoto(photoLabel2, pet.getPhoto2());
+        setPhoto(photoLabel3, pet.getPhoto3());
     }
+    private void setPhoto(javax.swing.JLabel label, byte[] imageBytes) {
+    if (imageBytes != null) {
+        ImageIcon icon = new ImageIcon(imageBytes);
+        Image img = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+        label.setIcon(new ImageIcon(img));
+        label.setText("");
+    } else {
+        label.setIcon(null);
+        label.setText("No Photo");
+    }
+}
 }

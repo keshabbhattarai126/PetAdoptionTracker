@@ -110,8 +110,8 @@ public class PetModel {
     /**
      * @param photo the photo to set
      */
-    public void setPhoto2(byte[] photo) {
-        this.photo = photo2;
+    public void setPhoto2(byte[] photo2) {
+        this.photo2 = photo2;
     }
     
     public byte[] getPhoto3() {
@@ -121,8 +121,8 @@ public class PetModel {
     /**
      * @param photo the photo to set
      */
-    public void setPhoto3(byte[] photo) {
-        this.photo3= photo;
+    public void setPhoto3(byte[] photo3) {
+        this.photo3= photo3;
     }
 
     /**
