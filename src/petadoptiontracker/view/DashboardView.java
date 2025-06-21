@@ -66,13 +66,9 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        petTable = new javax.swing.JTable();
-        favoriteButton = new javax.swing.JButton();
-        requestButton = new javax.swing.JButton();
-        viewPetProfileButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -94,6 +90,12 @@ public class DashboardView extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         chatHistoryTextArea = new javax.swing.JTextArea();
         sendButton = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        petTable = new javax.swing.JTable();
+        favoriteButton = new javax.swing.JButton();
+        requestButton = new javax.swing.JButton();
+        viewPetProfileButton = new javax.swing.JButton();
         requestButton1 = new javax.swing.JButton();
         favoriteButton1 = new javax.swing.JButton();
         heartButton = new javax.swing.JButton();
@@ -102,6 +104,7 @@ public class DashboardView extends javax.swing.JFrame {
         reviewButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1100, 575));
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
@@ -155,55 +158,28 @@ public class DashboardView extends javax.swing.JFrame {
         jTabbedPane4.setBackground(new java.awt.Color(204, 255, 255));
         jTabbedPane4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 0, 102)));
 
-        jPanel3.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
 
-        jLabel9.setText("This is tab1");
+        jLabel2.setFont(new java.awt.Font("Playwrite IN", 0, 25)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 151, 199));
+        jLabel2.setText("Find your perfect furry friend ");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(80, 310, 430, 50);
+
+        jButton2.setBackground(new java.awt.Color(0, 153, 153));
+        jButton2.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Browse");
+        jPanel3.add(jButton2);
+        jButton2.setBounds(580, 300, 100, 40);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/dashboardPet copy.png"))); // NOI18N
+        jLabel9.setOpaque(true);
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(120, 70, 68, 17);
+        jLabel9.setBounds(-20, -40, 820, 435);
 
         jTabbedPane4.addTab("Dashboard", jPanel3);
-
-        jPanel4.setLayout(null);
-
-        petTable.setBackground(java.awt.SystemColor.activeCaption);
-        petTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(petTable);
-
-        jPanel4.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 0, 460, 280);
-
-        favoriteButton.setBackground(new java.awt.Color(255, 153, 255));
-        favoriteButton.setText("Favorite");
-        jPanel4.add(favoriteButton);
-        favoriteButton.setBounds(470, 150, 76, 23);
-
-        requestButton.setBackground(new java.awt.Color(153, 255, 153));
-        requestButton.setText("Request");
-        requestButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestButtonActionPerformed(evt);
-            }
-        });
-        jPanel4.add(requestButton);
-        requestButton.setBounds(470, 190, 79, 23);
-
-        viewPetProfileButton.setBackground(new java.awt.Color(51, 255, 255));
-        viewPetProfileButton.setText("View Profile");
-        jPanel4.add(viewPetProfileButton);
-        viewPetProfileButton.setBounds(470, 110, 100, 23);
-
-        jTabbedPane4.addTab("View Pet", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(176, 154, 154));
         jPanel5.setLayout(null);
@@ -307,8 +283,49 @@ public class DashboardView extends javax.swing.JFrame {
 
         jTabbedPane4.addTab("Message", jPanel6);
 
+        jPanel4.setLayout(null);
+
+        petTable.setBackground(java.awt.SystemColor.activeCaption);
+        petTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(petTable);
+
+        jPanel4.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 0, 550, 280);
+
+        favoriteButton.setBackground(new java.awt.Color(255, 153, 255));
+        favoriteButton.setText("Favorite");
+        jPanel4.add(favoriteButton);
+        favoriteButton.setBounds(580, 160, 100, 23);
+
+        requestButton.setBackground(new java.awt.Color(153, 255, 153));
+        requestButton.setText("Request");
+        requestButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(requestButton);
+        requestButton.setBounds(580, 210, 100, 23);
+
+        viewPetProfileButton.setBackground(new java.awt.Color(51, 255, 255));
+        viewPetProfileButton.setText("View Profile");
+        jPanel4.add(viewPetProfileButton);
+        viewPetProfileButton.setBounds(580, 110, 100, 23);
+
+        jTabbedPane4.addTab("View Pet", jPanel4);
+
         getContentPane().add(jTabbedPane4);
-        jTabbedPane4.setBounds(290, 90, 610, 300);
+        jTabbedPane4.setBounds(290, 90, 740, 420);
 
         requestButton1.setBackground(new java.awt.Color(0, 255, 204));
         requestButton1.setText("Request");
@@ -348,11 +365,11 @@ public class DashboardView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(38, 78, 201));
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 270, 510);
+        jPanel1.setBounds(0, 0, 270, 550);
 
         reviewButton.setText("Review");
         getContentPane().add(reviewButton);
-        reviewButton.setBounds(810, 440, 75, 23);
+        reviewButton.setBounds(840, 520, 75, 23);
 
         pack();
         setLocationRelativeTo(null);
@@ -413,6 +430,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton favoriteButton1;
     private javax.swing.JButton heartButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -420,6 +438,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

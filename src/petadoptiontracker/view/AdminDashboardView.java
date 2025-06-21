@@ -31,7 +31,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
      public AdminDashboardView(UserData user) {
         initComponents();
         
-        jLabel1.setText("Welcome, " + user.getName() +" "+user.getRole()+ "!");
+        jLabel1.setText("Welcome, " +user.getRole()+ "!");
         
         byte[] imageData = user.getImage();
         if (imageData != null) {
@@ -66,14 +66,12 @@ public class AdminDashboardView extends javax.swing.JFrame {
         viewPetTab = new javax.swing.JButton();
         addPetTab1 = new javax.swing.JButton();
         signOutButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         nameResult = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         emailResult = new javax.swing.JTextField();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
@@ -110,14 +108,16 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         notificationButton = new javax.swing.JButton();
         shareButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1100, 535));
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
 
-        jLabel1.setText("Dashboard");
+        jLabel1.setText("Admin Dashboard");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(430, 10, 170, 20);
+        jLabel1.setBounds(590, 20, 170, 20);
 
         photoLabel.setText("jLabel2");
         photoLabel.setMaximumSize(new java.awt.Dimension(150, 150));
@@ -125,8 +125,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(photoLabel);
         photoLabel.setBounds(68, 34, 80, 80);
 
-        messageButton.setBackground(new java.awt.Color(204, 204, 255));
-        messageButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        messageButton.setBackground(new java.awt.Color(255, 233, 211));
+        messageButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         messageButton.setText("Message");
         messageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,24 +134,24 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(messageButton);
-        messageButton.setBounds(30, 280, 150, 30);
+        messageButton.setBounds(40, 280, 150, 30);
 
-        dashboardButton.setBackground(new java.awt.Color(188, 140, 140));
-        dashboardButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        dashboardButton.setBackground(new java.awt.Color(255, 233, 211));
+        dashboardButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(34, 126, 152, 29);
+        dashboardButton.setBounds(40, 130, 152, 34);
 
-        viewPetTab.setBackground(new java.awt.Color(149, 133, 133));
-        viewPetTab.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        viewPetTab.setBackground(new java.awt.Color(255, 233, 211));
+        viewPetTab.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         viewPetTab.setText("View Pet");
         viewPetTab.setPreferredSize(new java.awt.Dimension(128, 31));
         viewPetTab.setRequestFocusEnabled(false);
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(34, 184, 150, 30);
+        viewPetTab.setBounds(40, 180, 150, 30);
 
-        addPetTab1.setBackground(new java.awt.Color(204, 204, 255));
-        addPetTab1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        addPetTab1.setBackground(new java.awt.Color(255, 233, 211));
+        addPetTab1.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         addPetTab1.setText("Add Pet");
         addPetTab1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,41 +159,33 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(addPetTab1);
-        addPetTab1.setBounds(30, 240, 150, 30);
+        addPetTab1.setBounds(40, 230, 150, 30);
 
-        signOutButton.setBackground(new java.awt.Color(153, 204, 255));
-        signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        signOutButton.setBackground(new java.awt.Color(255, 233, 211));
+        signOutButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(30, 320, 152, 30);
-
-        jLabel2.setText("This is Admin Dashboard");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(400, 40, 170, 20);
+        signOutButton.setBounds(40, 330, 152, 30);
         getContentPane().add(searchField);
-        searchField.setBounds(320, 60, 195, 23);
+        searchField.setBounds(460, 60, 195, 23);
 
-        searchButton.setText("Search");
+        searchButton.setText("Search User");
         getContentPane().add(searchButton);
-        searchButton.setBounds(520, 60, 72, 23);
+        searchButton.setBounds(690, 60, 110, 23);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(371, 303, 0, 0);
 
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 450, 34, 17);
+        jLabel4.setBounds(330, 460, 34, 17);
         getContentPane().add(nameResult);
-        nameResult.setBounds(340, 450, 130, 23);
+        nameResult.setBounds(380, 460, 130, 23);
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(490, 450, 32, 17);
-
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 270, 510);
+        jLabel5.setBounds(530, 460, 32, 17);
         getContentPane().add(emailResult);
-        emailResult.setBounds(540, 450, 189, 23);
+        emailResult.setBounds(580, 460, 189, 23);
 
         jTabbedPane4.setBackground(new java.awt.Color(204, 255, 255));
         jTabbedPane4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 102)));
@@ -378,7 +370,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(notificationButton);
-        notificationButton.setBounds(820, 10, 50, 40);
+        notificationButton.setBounds(960, 20, 50, 40);
 
         shareButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/share.png"))); // NOI18N
         shareButton.addActionListener(new java.awt.event.ActionListener() {
@@ -387,7 +379,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(shareButton);
-        shareButton.setBounds(820, 440, 50, 38);
+        shareButton.setBounds(900, 20, 50, 38);
+
+        jPanel1.setBackground(new java.awt.Color(24, 114, 125));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(-10, -10, 270, 510);
 
         pack();
         setLocationRelativeTo(null);
@@ -472,7 +468,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
