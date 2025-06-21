@@ -57,6 +57,8 @@ public class AdminDashboardController {
         adminDashboardView.addMessageTabButtonListener(new MessageTabListener());
     adminDashboardView.addUserListSelectionListener(new UserListSelectionListener());
     loadUsersWithChatHistory();
+    loadRequestsTable();
+    loadPetTable();
         adminDashboardView.addShareButtonListener(new ShareButtonListener());
         // Add admin-specific listeners here as you build features
     }

@@ -158,6 +158,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(searchField);
         searchField.setBounds(330, 50, 280, 30);
 
+        searchButton.setBackground(new java.awt.Color(153, 0, 153));
+        searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setText("Search User");
         getContentPane().add(searchButton);
         searchButton.setBounds(640, 50, 110, 30);
@@ -168,13 +170,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(330, 460, 34, 17);
         getContentPane().add(nameResult);
-        nameResult.setBounds(380, 460, 230, 23);
+        nameResult.setBounds(380, 453, 230, 30);
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(630, 460, 32, 17);
         getContentPane().add(emailResult);
-        emailResult.setBounds(680, 460, 330, 23);
+        emailResult.setBounds(680, 453, 330, 30);
 
         jTabbedPane4.setBackground(new java.awt.Color(204, 255, 255));
         jTabbedPane4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 102)));
@@ -194,6 +196,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(requestsTable);
+        // ---------------------------CUSTOMIZATION----------------------------------
+        requestsTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+        requestsTable.getTableHeader().setPreferredSize(new Dimension(
+            requestsTable.getTableHeader().getPreferredSize().width, 25));
+        requestsTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink (same as searchResultTable)
+        requestsTable.setSelectionForeground(Color.WHITE);             // White text for selection
+        requestsTable.setRowHeight(25);                                // Set row height to 25
 
         jPanel4.add(jScrollPane2);
         jScrollPane2.setBounds(40, 10, 620, 220);
@@ -215,6 +224,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+        // ---------------------------CUSTOMIZATION----------------------------------
+        jTable1.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+        jTable1.getTableHeader().setPreferredSize(new Dimension(
+            jTable1.getTableHeader().getPreferredSize().width, 25));
+            jTable1.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink
+            jTable1.setSelectionForeground(Color.WHITE);             // White text for selection
+            jTable1.setRowHeight(25);                                // Set row height to 25
 
         jPanel5.add(jScrollPane1);
         jScrollPane1.setBounds(10, 0, 500, 300);

@@ -3,15 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/keshab/NetBeansProjects/secondsem/PetAdoptionTracker/src/petadoptiontracker/model/PetModel.java</file>
-            <file>file:/Users/keshab/NetBeansProjects/secondsem/PetAdoptionTracker/src/petadoptiontracker/view/PetProfileView.java</file>
-            <file>file:/Users/keshab/NetBeansProjects/secondsem/PetAdoptionTracker/src/petadoptiontracker/dao/AdminDao.java</file>
             <file>file:/Users/keshab/NetBeansProjects/secondsem/PetAdoptionTracker/src/petadoptiontracker/view/AdminDashboardView.java</file>
-            <file>file:/Users/keshab/NetBeansProjects/secondsem/PetAdoptionTracker/src/petadoptiontracker/controller/AdminDashboardController.java</file>
-            <file>file:/Users/keshab/NetBeansProjects/secondsem/PetAdoptionTracker/src/petadoptiontracker/view/DashboardView.java</file>
-            <file>file:/Users/keshab/NetBeansProjects/secondsem/PetAdoptionTracker/src/petadoptiontracker/view/EntryView.java</file>
-            <file>file:/Users/keshab/NetBeansProjects/secondsem/PetAdoptionTracker/src/petadoptiontracker/view/LoginView.java</file>
-            <file>file:/Users/keshab/NetBeansProjects/secondsem/PetAdoptionTracker/src/petadoptiontracker/view/RegistrationView.java</file>
         </group>
     </open-files>
 </project-private>

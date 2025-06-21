@@ -151,6 +151,8 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(searchField);
         searchField.setBounds(290, 40, 340, 30);
 
+        searchButton.setBackground(new java.awt.Color(170, 91, 8));
+        searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setText("Search Pet");
         getContentPane().add(searchButton);
         searchButton.setBounds(660, 40, 100, 30);
