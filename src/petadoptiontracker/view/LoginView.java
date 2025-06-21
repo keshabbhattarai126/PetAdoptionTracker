@@ -56,19 +56,19 @@ public class LoginView extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("________________________");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(240, 330, 170, 20);
+        jLabel1.setBounds(210, 330, 180, 30);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("OR");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(430, 330, 37, 25);
+        jLabel3.setBounds(400, 340, 30, 25);
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("_________________________");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(470, 330, 210, 30);
+        jLabel4.setBounds(440, 330, 210, 30);
 
         forgotPasswordlabel.setForeground(new java.awt.Color(255, 255, 255));
         forgotPasswordlabel.setText("Forgot password?");
@@ -84,7 +84,7 @@ public class LoginView extends javax.swing.JFrame {
 
         showPasswordButton.setText("show");
         getContentPane().add(showPasswordButton);
-        showPasswordButton.setBounds(580, 170, 72, 23);
+        showPasswordButton.setBounds(580, 170, 72, 30);
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email");
