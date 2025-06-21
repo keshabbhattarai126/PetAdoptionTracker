@@ -603,6 +603,7 @@
         </Constraint>
       </Constraints>
     </Component>
+
     <Component class="javax.swing.JButton" name="profileButton1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -636,5 +637,17 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
+
+    <Component class="javax.swing.JButton" name="reviewButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Review"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="810" y="440" width="75" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+
   </SubComponents>
 </Form>

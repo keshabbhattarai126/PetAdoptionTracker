@@ -99,7 +99,7 @@ public class DashboardView extends javax.swing.JFrame {
         heartButton = new javax.swing.JButton();
         profileButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-
+        reviewButton = new javax.swing.JButton();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(950, 535));
         getContentPane().setLayout(null);
@@ -134,14 +134,21 @@ public class DashboardView extends javax.swing.JFrame {
                 messageButtonActionPerformed(evt);
             }
         });
+
         getContentPane().add(messageButton);
         messageButton.setBounds(40, 290, 160, 31);
+
+        getContentPane().add(profileButton);
+        profileButton.setBounds(34, 243, 160, 31);
+
 
         signOutButton.setBackground(java.awt.SystemColor.activeCaption);
         signOutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
+
         signOutButton.setBounds(40, 340, 160, 31);
+
         getContentPane().add(searchField);
         searchField.setBounds(300, 40, 195, 22);
 
@@ -195,7 +202,10 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
         jPanel4.add(requestButton);
+
         requestButton.setBounds(470, 190, 72, 23);
+
+
 
         viewPetProfileButton.setBackground(new java.awt.Color(51, 255, 255));
         viewPetProfileButton.setText("View Profile");
@@ -334,6 +344,7 @@ public class DashboardView extends javax.swing.JFrame {
         getContentPane().add(heartButton);
         heartButton.setBounds(820, 20, 46, 40);
 
+
         profileButton1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
         profileButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         profileButton1.setText("Profile Setting");
@@ -348,6 +359,11 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(38, 78, 201));
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 270, 510);
+
+        reviewButton.setText("Review");
+        getContentPane().add(reviewButton);
+        reviewButton.setBounds(810, 440, 75, 23);
+
 
         pack();
         setLocationRelativeTo(null);
@@ -439,6 +455,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton profileButton1;
     private javax.swing.JButton requestButton;
     private javax.swing.JButton requestButton1;
+    private javax.swing.JButton reviewButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
     private javax.swing.JTable searchResultTable;
@@ -556,6 +573,7 @@ public void setSearchResultTableData(List<PetModel> petList) {
     searchResultTable.setModel(model);
 }
 
+
 // Add these methods to DashboardView class
 
 public void displayChatHistory(List<ChatMessage> messages) {
@@ -593,6 +611,11 @@ public void addSendMessageButtonListener(ActionListener listener) {
 public void addMessageTabListener(ActionListener listener) {
     messageButton.addActionListener(listener); // The Message button in sidebar
 }
+
+
+    public void addReviewButtonListener(ActionListener listener) {
+    reviewButton.addActionListener(listener);
+    }
 
 
 
