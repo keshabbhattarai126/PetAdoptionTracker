@@ -133,11 +133,6 @@ public class DashboardView extends javax.swing.JFrame {
         messageButton.setBackground(new java.awt.Color(255, 233, 211));
         messageButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         messageButton.setText("Message");
-        messageButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                messageButtonActionPerformed(evt);
-            }
-        });
         getContentPane().add(messageButton);
         messageButton.setBounds(40, 320, 160, 34);
 
@@ -355,11 +350,6 @@ public class DashboardView extends javax.swing.JFrame {
         profileButton.setBackground(new java.awt.Color(255, 233, 211));
         profileButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         profileButton.setText("Profile Setting");
-        profileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileButtonActionPerformed(evt);
-            }
-        });
         getContentPane().add(profileButton);
         profileButton.setBounds(40, 270, 160, 29);
 
@@ -377,12 +367,6 @@ public class DashboardView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void messageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageButtonActionPerformed
-        // TODO add your handling code here:
-         jTabbedPane4.setSelectedIndex(4);
-        
-    }//GEN-LAST:event_messageButtonActionPerformed
-
     private void requestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_requestButtonActionPerformed
@@ -394,11 +378,6 @@ public class DashboardView extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane4.setSelectedIndex(2);
-    }//GEN-LAST:event_profileButtonActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -534,10 +513,10 @@ public void addDashboardTabButtonListener(ActionListener listener) {
 }
 
 
-
-public void addProfileTabButtonListener(ActionListener listener) {
-    messageButton.addActionListener(listener);
-}
+//
+//public void addProfileTabButtonListener(ActionListener listener) {
+//    profileButton.addActionListener(listener);
+//}
 
 
    public void addViewPetProfileListener(ActionListener listener) {
@@ -625,6 +604,14 @@ public void addMessageTabListener(ActionListener listener) {
 
     public void addReviewButtonListener(ActionListener listener) {
     reviewButton.addActionListener(listener);
+    }
+    
+     public void addBrowsePetButtonListener(ActionListener listener) {
+    browsePetButton.addActionListener(listener);
+    }
+     
+     public void addProfileButtonListener(ActionListener listener) {
+    profileButton.addActionListener(listener);
     }
 
 

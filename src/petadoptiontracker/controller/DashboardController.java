@@ -55,14 +55,15 @@ public class DashboardController {
         dashboardView.addFavoriteButtonListener(new FavoriteButtonListener());
         dashboardView.addHeartButtonListener(new HeartButtonListener());
         dashboardView.addDashboardTabButtonListener(new DashboardTabListener());
-        dashboardView.addProfileTabButtonListener(new ProfileTabListener());
+//        dashboardView.addProfileTabButtonListener(new ProfileTabListener());
         dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
 
         dashboardView.addProfileSubmitListener(new ProfileSubmitListener());
         dashboardView.addSendMessageButtonListener(new SendMessageListener());
         dashboardView.addMessageTabListener(new MessageTabListener());
         dashboardView.addReviewButtonListener(new ReviewListener());
-        
+        dashboardView.addBrowsePetButtonListener(new BrowsePetListener());
+        dashboardView.addProfileButtonListener(new ProfileButtonListener());
 
 
 
@@ -376,6 +377,27 @@ class SearchButtonListener implements ActionListener {
         }
     }
 }
+    class BrowsePetListener implements ActionListener{
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          dashboardView.getTabbedPane().setSelectedIndex(1);
+
+          loadPetTable();
+          
+        }
+    
+    }
+    
+    class ProfileButtonListener implements ActionListener{
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          dashboardView.getTabbedPane().setSelectedIndex(2);
+          
+        }
+    
+    }
 
 }
 
