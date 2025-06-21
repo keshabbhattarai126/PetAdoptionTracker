@@ -198,25 +198,18 @@ public class DashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(petTable);
-        // ---------------------------CUSTOMIZATION----------------------------------
-        petTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
-petTable.getTableHeader().setPreferredSize(new Dimension(
-    petTable.getTableHeader().getPreferredSize().width, 25));
-
-petTable.setSelectionBackground(new Color(225, 81, 177));
-petTable.setSelectionForeground(Color.WHITE);
-petTable.setRowHeight(25);
-
 
         jPanel4.add(jScrollPane1);
         jScrollPane1.setBounds(0, 0, 560, 370);
 
-        favoriteButton.setBackground(new java.awt.Color(255, 153, 255));
+        favoriteButton.setBackground(new java.awt.Color(195, 12, 158));
+        favoriteButton.setForeground(new java.awt.Color(255, 255, 255));
         favoriteButton.setText("Favorite");
         jPanel4.add(favoriteButton);
-        favoriteButton.setBounds(580, 160, 100, 23);
+        favoriteButton.setBounds(580, 160, 120, 30);
 
-        requestButton.setBackground(new java.awt.Color(153, 255, 153));
+        requestButton.setBackground(new java.awt.Color(0, 153, 153));
+        requestButton.setForeground(new java.awt.Color(255, 255, 255));
         requestButton.setText("Request");
         requestButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,22 +217,23 @@ petTable.setRowHeight(25);
             }
         });
         jPanel4.add(requestButton);
-        requestButton.setBounds(580, 210, 100, 23);
+        requestButton.setBounds(580, 210, 120, 30);
 
-        viewPetProfileButton.setBackground(new java.awt.Color(51, 255, 255));
+        viewPetProfileButton.setBackground(new java.awt.Color(42, 28, 226));
+        viewPetProfileButton.setForeground(new java.awt.Color(255, 255, 255));
         viewPetProfileButton.setText("View Profile");
         jPanel4.add(viewPetProfileButton);
-        viewPetProfileButton.setBounds(580, 110, 100, 23);
+        viewPetProfileButton.setBounds(580, 110, 120, 30);
 
         jTabbedPane4.addTab("View Pets", jPanel4);
 
-        jPanel5.setBackground(new java.awt.Color(176, 154, 154));
+        jPanel5.setBackground(new java.awt.Color(212, 233, 234));
         jPanel5.setLayout(null);
 
         jLabel11.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel11.setText("Name text");
         jPanel5.add(jLabel11);
-        jLabel11.setBounds(70, 20, 110, 30);
+        jLabel11.setBounds(120, 20, 110, 30);
 
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel6.setText("Preference:");
@@ -259,7 +253,7 @@ petTable.setRowHeight(25);
         jLabel8.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel8.setText("Name:");
         jPanel5.add(jLabel8);
-        jLabel8.setBounds(10, 20, 80, 30);
+        jLabel8.setBounds(50, 20, 80, 30);
 
         jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
@@ -269,14 +263,14 @@ petTable.setRowHeight(25);
             }
         });
         jPanel5.add(jComboBox1);
-        jComboBox1.setBounds(80, 90, 103, 32);
+        jComboBox1.setBounds(120, 90, 103, 32);
 
         jLabel10.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel10.setText("Gender:");
         jPanel5.add(jLabel10);
-        jLabel10.setBounds(10, 90, 70, 30);
+        jLabel10.setBounds(30, 90, 70, 30);
         jPanel5.add(jTextField1);
-        jTextField1.setBounds(340, 90, 120, 30);
+        jTextField1.setBounds(340, 90, 150, 30);
 
         jLabel13.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel13.setText("Phone:");
@@ -288,23 +282,25 @@ petTable.setRowHeight(25);
         jScrollPane3.setViewportView(jTextArea2);
 
         jPanel5.add(jScrollPane3);
-        jScrollPane3.setBounds(120, 160, 300, 40);
+        jScrollPane3.setBounds(120, 170, 340, 60);
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 204));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Submit");
         jPanel5.add(jButton1);
-        jButton1.setBounds(200, 220, 110, 30);
+        jButton1.setBounds(120, 250, 110, 30);
 
         jTabbedPane4.addTab("Profile Setting", jPanel5);
 
-        jPanel6.setBackground(new java.awt.Color(176, 154, 154));
+        jPanel6.setBackground(new java.awt.Color(181, 198, 213));
         jPanel6.setLayout(null);
 
         jLabel18.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel18.setText("Message");
         jPanel6.add(jLabel18);
-        jLabel18.setBounds(50, 80, 80, 30);
+        jLabel18.setBounds(80, 240, 80, 30);
         jPanel6.add(messageInputTextField);
-        messageInputTextField.setBounds(170, 180, 420, 40);
+        messageInputTextField.setBounds(170, 230, 430, 40);
 
         chatHistoryTextArea.setColumns(20);
         chatHistoryTextArea.setRows(5);
@@ -312,11 +308,13 @@ petTable.setRowHeight(25);
         jScrollPane4.setViewportView(chatHistoryTextArea);
 
         jPanel6.add(jScrollPane4);
-        jScrollPane4.setBounds(130, 30, 460, 130);
+        jScrollPane4.setBounds(170, 20, 430, 190);
 
+        sendButton.setBackground(new java.awt.Color(0, 153, 153));
+        sendButton.setForeground(new java.awt.Color(255, 255, 255));
         sendButton.setText("Send");
         jPanel6.add(sendButton);
-        sendButton.setBounds(500, 230, 110, 30);
+        sendButton.setBounds(490, 300, 110, 30);
 
         jTabbedPane4.addTab("Message", jPanel6);
 
@@ -333,18 +331,7 @@ petTable.setRowHeight(25);
         ));
         jScrollPane2.setViewportView(searchResultTable);
 
-        
-
         jTabbedPane4.addTab("Search", jScrollPane2);
-        // ---------------------------CUSTOMIZATION----------------------------------
-searchResultTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
-searchResultTable.getTableHeader().setPreferredSize(new Dimension(
-    searchResultTable.getTableHeader().getPreferredSize().width, 25));
-
-searchResultTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink
-searchResultTable.setSelectionForeground(Color.WHITE);             // White text for selection
-searchResultTable.setRowHeight(25);                                // Set row height to 25
-
 
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(290, 90, 740, 420);
