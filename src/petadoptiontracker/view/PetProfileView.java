@@ -38,42 +38,60 @@ public class PetProfileView extends javax.swing.JFrame {
         photoLabel = new javax.swing.JLabel();
         photoLabel2 = new javax.swing.JLabel();
         photoLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 535));
+        setPreferredSize(new java.awt.Dimension(730, 480));
         getContentPane().setLayout(null);
 
-        nameLabel.setText("Name");
+        nameLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        nameLabel.setText("Type");
         getContentPane().add(nameLabel);
-        nameLabel.setBounds(53, 77, 160, 20);
+        nameLabel.setBounds(40, 140, 160, 20);
 
+        breedLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         breedLabel.setText("Breed");
         getContentPane().add(breedLabel);
-        breedLabel.setBounds(52, 120, 170, 20);
+        breedLabel.setBounds(40, 190, 170, 20);
 
+        ageLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         ageLabel.setText("Age");
         getContentPane().add(ageLabel);
-        ageLabel.setBounds(52, 155, 180, 20);
+        ageLabel.setBounds(40, 240, 180, 20);
 
+        sexLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         sexLabel.setText("Sex");
         getContentPane().add(sexLabel);
-        sexLabel.setBounds(52, 203, 180, 30);
+        sexLabel.setBounds(40, 280, 180, 30);
 
+        statusLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         statusLabel.setText("Status");
         getContentPane().add(statusLabel);
-        statusLabel.setBounds(52, 238, 200, 30);
+        statusLabel.setBounds(40, 330, 200, 30);
 
         photoLabel.setText("Photo");
         getContentPane().add(photoLabel);
-        photoLabel.setBounds(300, 70, 100, 120);
+        photoLabel.setBounds(290, 110, 100, 120);
 
         photoLabel2.setText("Photo");
         getContentPane().add(photoLabel2);
-        photoLabel2.setBounds(430, 70, 100, 120);
+        photoLabel2.setBounds(420, 110, 100, 120);
 
         photoLabel3.setText("Photo");
         getContentPane().add(photoLabel3);
-        photoLabel3.setBounds(560, 70, 100, 120);
+        photoLabel3.setBounds(550, 110, 100, 120);
+
+        jLabel1.setFont(new java.awt.Font("Satisfy", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 255));
+        jLabel1.setText("Pet Profile");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(290, 30, 220, 50);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/paw.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 740, 460);
 
         pack();
         setLocationRelativeTo(null);
@@ -117,6 +135,8 @@ public class PetProfileView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ageLabel;
     private javax.swing.JLabel breedLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel photoLabel;
     private javax.swing.JLabel photoLabel2;
@@ -133,7 +153,7 @@ public class PetProfileView extends javax.swing.JFrame {
 
     
     private void displayPet(PetModel pet) {
-        nameLabel.setText("Name: " + pet.getName());
+        nameLabel.setText("Type: " + pet.getName());
         breedLabel.setText("Breed: " + pet.getBreed());
         ageLabel.setText("Age: " + pet.getAge());
         sexLabel.setText("Sex: " + pet.getSex());

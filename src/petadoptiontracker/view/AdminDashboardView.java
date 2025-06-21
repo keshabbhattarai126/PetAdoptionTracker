@@ -19,6 +19,9 @@ import petadoptiontracker.dao.UserDao;
 import petadoptiontracker.model.ChatMessage;
 import petadoptiontracker.model.PetModel;
 import petadoptiontracker.model.UserData;
+import java.awt.Font; // Import Font class for table header customization
+import java.awt.Color; // Import Color class for table header customization
+import java.awt.Dimension;
 //import javax.swing.table.DefaultTabåleModel;
 //import java.util.List;
 //import petadoptiontracker.model.PetModel;
@@ -155,6 +158,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(searchField);
         searchField.setBounds(330, 50, 280, 30);
 
+        searchButton.setBackground(new java.awt.Color(153, 0, 153));
+        searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setText("Search User");
         getContentPane().add(searchButton);
         searchButton.setBounds(640, 50, 110, 30);
@@ -165,21 +170,19 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(330, 460, 34, 17);
         getContentPane().add(nameResult);
-        nameResult.setBounds(380, 460, 130, 23);
+        nameResult.setBounds(380, 453, 230, 30);
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(530, 460, 32, 17);
+        jLabel5.setBounds(630, 460, 32, 17);
         getContentPane().add(emailResult);
-        emailResult.setBounds(580, 460, 189, 23);
+        emailResult.setBounds(680, 453, 330, 30);
 
         jTabbedPane4.setBackground(new java.awt.Color(204, 255, 255));
         jTabbedPane4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 102)));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 51, 102)));
         jPanel4.setLayout(null);
 
-        requestsTable.setBackground(new java.awt.Color(188, 178, 178));
         requestsTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 51)));
         requestsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -193,17 +196,22 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(requestsTable);
+        // ---------------------------CUSTOMIZATION----------------------------------
+        requestsTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+        requestsTable.getTableHeader().setPreferredSize(new Dimension(
+            requestsTable.getTableHeader().getPreferredSize().width, 25));
+        requestsTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink (same as searchResultTable)
+        requestsTable.setSelectionForeground(Color.WHITE);             // White text for selection
+        requestsTable.setRowHeight(25);                                // Set row height to 25
 
         jPanel4.add(jScrollPane2);
-        jScrollPane2.setBounds(40, 10, 570, 190);
+        jScrollPane2.setBounds(40, 10, 620, 220);
 
         jTabbedPane4.addTab("Dashboard", jPanel4);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 102)));
         jPanel5.setLayout(null);
 
-        jTable1.setBackground(new java.awt.Color(228, 214, 214));
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102)));
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -216,11 +224,18 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+        // ---------------------------CUSTOMIZATION----------------------------------
+        jTable1.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+        jTable1.getTableHeader().setPreferredSize(new Dimension(
+            jTable1.getTableHeader().getPreferredSize().width, 25));
+            jTable1.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink
+            jTable1.setSelectionForeground(Color.WHITE);             // White text for selection
+            jTable1.setRowHeight(25);                                // Set row height to 25
 
         jPanel5.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 0, 452, 300);
+        jScrollPane1.setBounds(10, 0, 500, 300);
 
-        deletePetEntryButton.setBackground(new java.awt.Color(204, 0, 0));
+        deletePetEntryButton.setBackground(new java.awt.Color(178, 0, 0));
         deletePetEntryButton.setForeground(new java.awt.Color(255, 255, 255));
         deletePetEntryButton.setText("Delete Entry");
         deletePetEntryButton.addActionListener(new java.awt.event.ActionListener() {
@@ -229,70 +244,70 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         jPanel5.add(deletePetEntryButton);
-        deletePetEntryButton.setBounds(540, 217, 120, 23);
+        deletePetEntryButton.setBounds(540, 210, 120, 30);
 
-        viewPetProfileButton.setBackground(new java.awt.Color(204, 255, 255));
+        viewPetProfileButton.setBackground(new java.awt.Color(0, 107, 107));
+        viewPetProfileButton.setForeground(new java.awt.Color(255, 255, 255));
         viewPetProfileButton.setText("View Pet Profile");
         jPanel5.add(viewPetProfileButton);
-        viewPetProfileButton.setBounds(540, 180, 120, 20);
+        viewPetProfileButton.setBounds(540, 160, 120, 30);
 
+        editEntryButton.setBackground(new java.awt.Color(117, 70, 14));
+        editEntryButton.setForeground(new java.awt.Color(255, 255, 255));
         editEntryButton.setText("Edit Entry");
         jPanel5.add(editEntryButton);
-        editEntryButton.setBounds(540, 140, 120, 20);
+        editEntryButton.setBounds(540, 110, 120, 30);
 
         jTabbedPane4.addTab("View Pet", jPanel5);
 
-        jPanel3.setBackground(java.awt.SystemColor.activeCaption);
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102)));
+        jPanel3.setBackground(new java.awt.Color(199, 209, 220));
         jPanel3.setLayout(null);
 
-        petStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Availabe", "Not Available" }));
-        petStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                petStatusActionPerformed(evt);
-            }
-        });
+        petStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
         jPanel3.add(petStatus);
-        petStatus.setBounds(260, 90, 120, 20);
+        petStatus.setBounds(350, 43, 130, 30);
 
         jLabel6.setText("Status");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(260, 60, 90, 20);
+        jLabel6.setBounds(300, 50, 90, 20);
 
         jLabel7.setText("Category (cat/dog)");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(20, 40, 120, 20);
+        jLabel7.setBounds(10, 40, 120, 20);
 
         jLabel8.setText("Breed");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(30, 80, 90, 20);
+        jLabel8.setBounds(60, 90, 60, 20);
         jPanel3.add(petBreed1);
-        petBreed1.setBounds(140, 80, 64, 30);
+        petBreed1.setBounds(140, 80, 110, 30);
 
         jLabel12.setText("Age");
         jPanel3.add(jLabel12);
-        jLabel12.setBounds(30, 120, 90, 20);
+        jLabel12.setBounds(60, 130, 60, 20);
         jPanel3.add(petAge1);
-        petAge1.setBounds(140, 120, 64, 30);
+        petAge1.setBounds(140, 120, 110, 30);
 
         jLabel13.setText("Sex");
         jPanel3.add(jLabel13);
-        jLabel13.setBounds(30, 160, 90, 20);
+        jLabel13.setBounds(60, 170, 60, 30);
 
+        petPhotoUploadButton.setBackground(new java.awt.Color(118, 20, 163));
+        petPhotoUploadButton.setForeground(new java.awt.Color(255, 255, 255));
         petPhotoUploadButton.setText("Upload");
         jPanel3.add(petPhotoUploadButton);
-        petPhotoUploadButton.setBounds(150, 210, 72, 23);
+        petPhotoUploadButton.setBounds(140, 203, 110, 30);
 
         jLabel14.setText("Pet Photo");
         jPanel3.add(jLabel14);
-        jLabel14.setBounds(30, 210, 90, 20);
+        jLabel14.setBounds(60, 210, 90, 20);
         jPanel3.add(petName2);
-        petName2.setBounds(140, 40, 64, 30);
+        petName2.setBounds(140, 40, 110, 30);
 
-        addPetButton.setBackground(new java.awt.Color(184, 214, 184));
+        addPetButton.setBackground(new java.awt.Color(0, 102, 102));
+        addPetButton.setForeground(new java.awt.Color(255, 255, 255));
         addPetButton.setText("Add Pet");
         jPanel3.add(addPetButton);
-        addPetButton.setBounds(280, 160, 77, 23);
+        addPetButton.setBounds(140, 250, 110, 30);
 
         petSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         petSex.addActionListener(new java.awt.event.ActionListener() {
@@ -301,18 +316,18 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         jPanel3.add(petSex);
-        petSex.setBounds(140, 160, 90, 20);
+        petSex.setBounds(140, 160, 110, 30);
 
         jTabbedPane4.addTab("Add Pet", jPanel3);
 
-        jPanel6.setBackground(java.awt.SystemColor.activeCaption);
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102)));
+        jPanel6.setBackground(new java.awt.Color(223, 227, 232));
         jPanel6.setLayout(null);
 
-        sendButton.setBackground(new java.awt.Color(184, 214, 184));
-        sendButton.setText("send");
+        sendButton.setBackground(new java.awt.Color(0, 102, 102));
+        sendButton.setForeground(new java.awt.Color(255, 255, 255));
+        sendButton.setText("Send");
         jPanel6.add(sendButton);
-        sendButton.setBounds(550, 240, 90, 23);
+        sendButton.setBounds(550, 240, 90, 30);
 
         chatHistoryTextArea.setColumns(20);
         chatHistoryTextArea.setRows(5);
@@ -347,7 +362,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         getContentPane().add(jTabbedPane4);
         jTabbedPane4.setBounds(320, 100, 690, 330);
 
-        notificationButton.setBackground(new java.awt.Color(221, 179, 176));
+        notificationButton.setBackground(new java.awt.Color(255, 204, 153));
         notificationButton.setForeground(new java.awt.Color(255, 255, 255));
         notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/notification.png"))); // NOI18N
         notificationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -382,10 +397,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void petStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_petStatusActionPerformed
 
     private void petSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petSexActionPerformed
         // TODO add your handling code here:

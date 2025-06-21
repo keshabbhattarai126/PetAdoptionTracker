@@ -64,6 +64,7 @@ public class DashboardController {
         dashboardView.addReviewButtonListener(new ReviewListener());
         dashboardView.addBrowsePetButtonListener(new BrowsePetListener());
         dashboardView.addProfileButtonListener(new ProfileButtonListener());
+         loadPetTable();
 
 
 
