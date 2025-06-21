@@ -134,13 +134,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(messageButton);
-        messageButton.setBounds(40, 280, 150, 30);
+        messageButton.setBounds(40, 330, 150, 30);
 
         dashboardButton.setBackground(new java.awt.Color(255, 233, 211));
         dashboardButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         dashboardButton.setText("Dashboard");
         getContentPane().add(dashboardButton);
-        dashboardButton.setBounds(40, 130, 152, 34);
+        dashboardButton.setBounds(40, 140, 152, 34);
 
         viewPetTab.setBackground(new java.awt.Color(255, 233, 211));
         viewPetTab.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
@@ -148,7 +148,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         viewPetTab.setPreferredSize(new java.awt.Dimension(128, 31));
         viewPetTab.setRequestFocusEnabled(false);
         getContentPane().add(viewPetTab);
-        viewPetTab.setBounds(40, 180, 150, 30);
+        viewPetTab.setBounds(40, 210, 150, 30);
 
         addPetTab1.setBackground(new java.awt.Color(255, 233, 211));
         addPetTab1.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
@@ -159,13 +159,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(addPetTab1);
-        addPetTab1.setBounds(40, 230, 150, 30);
+        addPetTab1.setBounds(40, 270, 150, 30);
 
         signOutButton.setBackground(new java.awt.Color(255, 233, 211));
         signOutButton.setFont(new java.awt.Font("Lobster Two", 0, 22)); // NOI18N
         signOutButton.setText("Sign Out");
         getContentPane().add(signOutButton);
-        signOutButton.setBounds(40, 330, 152, 30);
+        signOutButton.setBounds(40, 390, 152, 30);
         getContentPane().add(searchField);
         searchField.setBounds(460, 60, 195, 23);
 
@@ -383,7 +383,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(24, 114, 125));
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(-10, -10, 270, 510);
+        jPanel1.setBounds(0, 0, 270, 510);
 
         pack();
         setLocationRelativeTo(null);
