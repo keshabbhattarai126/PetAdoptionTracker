@@ -11,6 +11,7 @@ package petadoptiontracker.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -78,6 +79,7 @@ public class DashboardController {
 
     public void open() {
         dashboardView.setVisible(true);
+        loadRequestStatusTable();
     }
 
     public void close() {
@@ -102,10 +104,21 @@ private void handlePetRequest(JTable table) {
     boolean success = requestDao.createRequest(userId, petId);
     if (success) {
         JOptionPane.showMessageDialog(dashboardView, "Request submitted!");
+        refreshRequestStatusTable();
     } else {
         JOptionPane.showMessageDialog(dashboardView, "Failed to submit request.");
     }
 }
+
+//METHOD: Refresh table data
+    public void refreshRequestStatusTable() {
+        UserData currentUser = SessionManager.getCurrentUser();
+        if (currentUser != null) {
+            RequestDao requestDao = new RequestDao();
+            List<Map<String, Object>> requests = requestDao.getRequestsByUser(currentUser.getId());
+            dashboardView.setRequestStatusTableData(requests);
+        }
+    }
 
 // Generalized view profile logic
 private void handleViewPetProfile(JTable table) {
@@ -134,6 +147,15 @@ private void handleViewPetProfile(JTable table) {
         
         // Mark admin messages as read
         chatDao.markMessagesAsRead(1, currentUser.getId()); // Assuming admin ID is 1
+    }
+}
+    
+    private void loadRequestStatusTable() {
+    UserData currentUser = SessionManager.getCurrentUser();
+    if (currentUser != null) {
+        RequestDao requestDao = new RequestDao();
+        List<Map<String, Object>> requests = requestDao.getRequestsByUser(currentUser.getId());
+        dashboardView.setRequestStatusTableData(requests);
     }
 }
     
