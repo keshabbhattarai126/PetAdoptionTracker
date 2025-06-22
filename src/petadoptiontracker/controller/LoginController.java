@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.security.SecureRandom;
 import javax.swing.JOptionPane;
 import petadoptiontracker.controller.mail.SMTPSMailSender;
 import petadoptiontracker.dao.UserDao;
@@ -42,6 +43,11 @@ public class LoginController {
     public void close(){
         this.loginView.dispose();
     }
+    private String generateOTP() {
+    SecureRandom random = new SecureRandom();
+    int num = 100000 + random.nextInt(900000); // 6-digit number (100000-999999)
+    return String.valueOf(num);
+}
     class RegistrationListener implements MouseListener{
  
         @Override
@@ -124,7 +130,7 @@ public class LoginController {
                 if (!emailExists){
                     JOptionPane.showMessageDialog(loginView, "Email does not exists");
                 }else{
-                    String otp = "987586";
+                    String otp = generateOTP();
 //                    SMTPSMailSender smtpSender = new SMTPSMailSender();
                     String title = "Reset Password Verification";
                     String body = " The otp to resetb your password is"+otp;
