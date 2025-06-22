@@ -278,7 +278,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(199, 209, 220));
         jPanel3.setLayout(null);
 
-        petStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Availabe", "Not Available" }));
+        petStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
         jPanel3.add(petStatus);
         petStatus.setBounds(350, 43, 130, 30);
 
