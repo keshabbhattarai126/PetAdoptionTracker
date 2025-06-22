@@ -22,6 +22,7 @@ import petadoptiontracker.model.UserData;
 import java.awt.Font; // Import Font class for table header customization
 import java.awt.Color; // Import Color class for table header customization
 import java.awt.Dimension;
+import javax.swing.JTable;
 //import javax.swing.table.DefaultTabåleModel;
 //import java.util.List;
 //import petadoptiontracker.model.PetModel;
@@ -79,6 +80,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         requestsTable = new javax.swing.JTable();
+        deleteRequest = new javax.swing.JButton();
+        acceptRequest1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -196,7 +199,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(requestsTable);
-        // ---------------------------CUSTOMIZATION----------------------------------
+            // ---------------------------CUSTOMIZATION----------------------------------
         requestsTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
         requestsTable.getTableHeader().setPreferredSize(new Dimension(
             requestsTable.getTableHeader().getPreferredSize().width, 25));
@@ -204,9 +207,20 @@ public class AdminDashboardView extends javax.swing.JFrame {
         requestsTable.setSelectionForeground(Color.WHITE);             // White text for selection
         requestsTable.setRowHeight(25);                                // Set row height to 25
 
-
         jPanel4.add(jScrollPane2);
-        jScrollPane2.setBounds(40, 10, 620, 220);
+        jScrollPane2.setBounds(10, 10, 660, 220);
+
+        deleteRequest.setBackground(new java.awt.Color(185, 49, 49));
+        deleteRequest.setForeground(new java.awt.Color(255, 255, 255));
+        deleteRequest.setText("Delete Request");
+        jPanel4.add(deleteRequest);
+        deleteRequest.setBounds(530, 250, 140, 30);
+
+        acceptRequest1.setBackground(new java.awt.Color(0, 51, 153));
+        acceptRequest1.setForeground(new java.awt.Color(255, 255, 255));
+        acceptRequest1.setText("Accept Request");
+        jPanel4.add(acceptRequest1);
+        acceptRequest1.setBounds(370, 250, 140, 30);
 
         jTabbedPane4.addTab("Dashboard", jPanel4);
 
@@ -452,11 +466,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton acceptRequest1;
     private javax.swing.JButton addPetButton;
     private javax.swing.JButton addPetTab1;
     private javax.swing.JTextArea chatHistoryTextArea;
     private javax.swing.JButton dashboardButton;
     private javax.swing.JButton deletePetEntryButton;
+    private javax.swing.JButton deleteRequest;
     private javax.swing.JButton editEntryButton;
     private javax.swing.JTextField emailResult;
     private javax.swing.JLabel jLabel1;
@@ -612,11 +628,12 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
 }
     public void setRequestsTableData(List<Map<String, Object>> requestList) {
     // Define the columns you want to display
-    String[] columns = {"User Name", "Email", "Pet Name", "Pet Breed", "Status", "Request Date"};
+    String[] columns = {"ID","User Name", "Email", "Pet Name", "Pet Breed", "Status", "Request Date"};
     DefaultTableModel model = new DefaultTableModel(columns, 0);
 
     for (Map<String, Object> request : requestList) {
         Object[] row = {
+            request.getOrDefault("request_id", ""),
             request.getOrDefault("user_name", ""),
             request.getOrDefault("email", ""),
             request.getOrDefault("pet_name", ""),
@@ -744,7 +761,14 @@ public void addUserListSelectionListener(ListSelectionListener listener) {
     addPetTab1.addActionListener(listener);
 
 }
-// public void addMessageButtonListener(ActionListener listener) {
-//    messageButton.addActionListener(listener);
+public void addAcceptRequestListener(ActionListener listener) {
+    acceptRequest1.addActionListener(listener);
+}
+public void addDeleteRequestListener(ActionListener listener) {
+    deleteRequest.addActionListener(listener);
+}
+   public JTable getRequestsTable() {
+    return requestsTable;
+}
 
 }

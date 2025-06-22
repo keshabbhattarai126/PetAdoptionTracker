@@ -22,6 +22,7 @@ import petadoptiontracker.model.UserData;
 import java.awt.Font; // Import Font class for table header customization
 import java.awt.Color; // Import Color class for table header customization
 import java.awt.Dimension;
+import java.util.Map;
 
 /**
  *
@@ -73,6 +74,8 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         browsePetButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        requestStatusTable = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -99,10 +102,11 @@ public class DashboardView extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         chatHistoryTextArea = new javax.swing.JTextArea();
         sendButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
         searchResultTable = new javax.swing.JTable();
         requestButton1 = new javax.swing.JButton();
-        favoriteButton1 = new javax.swing.JButton();
+        viewPetProfileButton1 = new javax.swing.JButton();
         heartButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
         reviewButton = new javax.swing.JButton();
@@ -177,6 +181,30 @@ public class DashboardView extends javax.swing.JFrame {
         browsePetButton.setText("Browse");
         jPanel3.add(browsePetButton);
         browsePetButton.setBounds(580, 300, 100, 40);
+
+        requestStatusTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(requestStatusTable);
+        // ---------------------------CUSTOMIZATION----------------------------------
+requestStatusTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+requestStatusTable.getTableHeader().setPreferredSize(new Dimension(
+    requestStatusTable.getTableHeader().getPreferredSize().width, 25));
+
+requestStatusTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink
+requestStatusTable.setSelectionForeground(Color.WHITE);             // White text for selection
+requestStatusTable.setRowHeight(25);                                // Set row height to 25
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(460, 170, 220, 120);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/dashboardPet copy.png"))); // NOI18N
         jLabel9.setOpaque(true);
@@ -328,6 +356,9 @@ petTable.setRowHeight(25);
 
         jTabbedPane4.addTab("Message", jPanel6);
 
+        jPanel7.setLayout(null);
+
+        searchResultTable.setBackground(java.awt.SystemColor.activeCaption);
         searchResultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -339,7 +370,7 @@ petTable.setRowHeight(25);
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(searchResultTable);
+        jScrollPane5.setViewportView(searchResultTable);
         // ---------------------------CUSTOMIZATION----------------------------------
 searchResultTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
 searchResultTable.getTableHeader().setPreferredSize(new Dimension(
@@ -349,26 +380,30 @@ searchResultTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pi
 searchResultTable.setSelectionForeground(Color.WHITE);             // White text for selection
 searchResultTable.setRowHeight(25);                                // Set row height to 25
 
+        jPanel7.add(jScrollPane5);
+        jScrollPane5.setBounds(0, 0, 560, 370);
 
-        jTabbedPane4.addTab("Search", jScrollPane2);
-
-        getContentPane().add(jTabbedPane4);
-        jTabbedPane4.setBounds(290, 90, 740, 420);
-
-        requestButton1.setBackground(new java.awt.Color(0, 255, 204));
+        requestButton1.setBackground(new java.awt.Color(0, 153, 153));
+        requestButton1.setForeground(new java.awt.Color(255, 255, 255));
         requestButton1.setText("Request");
         requestButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestButtonActionPerformed(evt);
+                requestButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(requestButton1);
-        requestButton1.setBounds(740, 330, 79, 23);
+        jPanel7.add(requestButton1);
+        requestButton1.setBounds(580, 160, 120, 30);
 
-        favoriteButton1.setBackground(new java.awt.Color(255, 51, 255));
-        favoriteButton1.setText("Favorite");
-        getContentPane().add(favoriteButton1);
-        favoriteButton1.setBounds(740, 300, 76, 23);
+        viewPetProfileButton1.setBackground(new java.awt.Color(42, 28, 226));
+        viewPetProfileButton1.setForeground(new java.awt.Color(255, 255, 255));
+        viewPetProfileButton1.setText("View Profile");
+        jPanel7.add(viewPetProfileButton1);
+        viewPetProfileButton1.setBounds(580, 110, 120, 30);
+
+        jTabbedPane4.addTab("Search", jPanel7);
+
+        getContentPane().add(jTabbedPane4);
+        jTabbedPane4.setBounds(290, 100, 740, 420);
 
         heartButton.setBackground(new java.awt.Color(255, 102, 255));
         heartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepicker/heart pic.png"))); // NOI18N
@@ -408,6 +443,10 @@ searchResultTable.setRowHeight(25);                                // Set row he
         // TODO add your handling code here:
     }//GEN-LAST:event_heartButtonActionPerformed
 
+    private void requestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_requestButton1ActionPerformed
+
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -442,7 +481,6 @@ searchResultTable.setRowHeight(25);                                // Set row he
     private javax.swing.JTextArea chatHistoryTextArea;
     private javax.swing.JButton dashboardButton;
     private javax.swing.JButton favoriteButton;
-    private javax.swing.JButton favoriteButton1;
     private javax.swing.JButton heartButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -463,10 +501,12 @@ searchResultTable.setRowHeight(25);                                // Set row he
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
@@ -477,6 +517,7 @@ searchResultTable.setRowHeight(25);                                // Set row he
     private javax.swing.JButton profileButton;
     private javax.swing.JButton requestButton;
     private javax.swing.JButton requestButton1;
+    private javax.swing.JTable requestStatusTable;
     private javax.swing.JButton reviewButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
@@ -484,6 +525,7 @@ searchResultTable.setRowHeight(25);                                // Set row he
     private javax.swing.JButton sendButton;
     private javax.swing.JButton signOutButton;
     private javax.swing.JButton viewPetProfileButton;
+    private javax.swing.JButton viewPetProfileButton1;
     private javax.swing.JButton viewPetTab;
     // End of variables declaration//GEN-END:variables
 
@@ -646,6 +688,33 @@ public void addMessageTabListener(ActionListener listener) {
      public void addProfileButtonListener(ActionListener listener) {
     profileButton.addActionListener(listener);
     }
+     
+     public void addRequestButton1Listener(ActionListener listener) {
+    requestButton1.addActionListener(listener);
+     }
+     
+     public void addViewPetProfileButton1Listener(ActionListener listener) {
+         viewPetProfileButton1.addActionListener(listener);
+     }
+     public void setRequestStatusTableData(List<Map<String, Object>> requestList) {
+    String[] columns = {"Pet", "Breed", "Status"};
+    DefaultTableModel model = new DefaultTableModel(columns, 0);
+    for (Map<String, Object> req : requestList) {
+        Object[] row = {
+            req.get("pet_name"),
+            req.get("pet_breed"),
+            req.get("status")
+        };
+        model.addRow(row);
+    }
+    requestStatusTable.setModel(model);
+
+    // Hide table (scroll pane) if empty, show if not
+    jScrollPane2.setVisible(!requestList.isEmpty());
+    revalidate();
+    repaint();
+    
+}
 
 
 
