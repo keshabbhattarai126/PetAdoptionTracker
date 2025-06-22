@@ -109,5 +109,31 @@ public class RequestDao {
             return false;
         }
     } 
+    
+    //request status for user dashboard
+    public List<Map<String, Object>> getRequestsByUser(int userId) {
+    List<Map<String, Object>> requests = new ArrayList<>();
+    String sql = "SELECT ar.id AS request_id, p.name AS pet_name, p.breed AS pet_breed, ar.status, ar.request_date " +
+                 "FROM adoption_requests ar " +
+                 "JOIN pets p ON ar.pet_id = p.id " +
+                 "WHERE ar.user_id = ?";
+    try (Connection conn = mySql.openConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setInt(1, userId);
+        ResultSet rs = pstmt.executeQuery();
+        while (rs.next()) {
+            Map<String, Object> req = new HashMap<>();
+            req.put("request_id", rs.getInt("request_id"));
+            req.put("pet_name", rs.getString("pet_name"));
+            req.put("pet_breed", rs.getString("pet_breed"));
+            req.put("status", rs.getString("status"));
+            req.put("request_date", rs.getString("request_date"));
+            requests.add(req);
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+    return requests;
+}
 
 }

@@ -51,12 +51,12 @@ public class DashboardController {
         dashboardView.addSearchButtonListener(new SearchButtonListener());
         dashboardView.addSignOutButtonListener(new SignOutListener());
         dashboardView.viewPetTabButtonListener(new ViewPetTabListener());
-        dashboardView.requestButtonListener(new RequestButtonListener());
+//        dashboardView.requestButtonListener(new RequestButtonListener());
         dashboardView.addFavoriteButtonListener(new FavoriteButtonListener());
         dashboardView.addHeartButtonListener(new HeartButtonListener());
         dashboardView.addDashboardTabButtonListener(new DashboardTabListener());
 //        dashboardView.addProfileTabButtonListener(new ProfileTabListener());
-        dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
+//        dashboardView.addViewPetProfileListener(new ViewPetProfileListener()); //ViewPetProfileOperation
 
         dashboardView.addProfileSubmitListener(new ProfileSubmitListener());
         dashboardView.addSendMessageButtonListener(new SendMessageListener());
@@ -64,6 +64,12 @@ public class DashboardController {
         dashboardView.addReviewButtonListener(new ReviewListener());
         dashboardView.addBrowsePetButtonListener(new BrowsePetListener());
         dashboardView.addProfileButtonListener(new ProfileButtonListener());
+        dashboardView.requestButtonListener(e -> handlePetRequest(dashboardView.getPetTable()));
+        dashboardView.addViewPetProfileListener(e -> handleViewPetProfile(dashboardView.getPetTable()));
+        dashboardView.addRequestButton1Listener(e -> handlePetRequest(dashboardView.getSearchResultTable()));
+        dashboardView.addViewPetProfileButton1Listener(e -> handleViewPetProfile(dashboardView.getSearchResultTable()));
+
+
          loadPetTable();
 
 
@@ -77,6 +83,48 @@ public class DashboardController {
     public void close() {
         dashboardView.dispose();
     }
+    
+    // Generalized request logic
+private void handlePetRequest(JTable table) {
+    int selectedRow = table.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(dashboardView, "Please select a pet to request.");
+        return;
+    }
+    int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
+    UserData currentUser = SessionManager.getCurrentUser();
+    if (currentUser == null) {
+        JOptionPane.showMessageDialog(dashboardView, "User not logged in.");
+        return;
+    }
+    int userId = currentUser.getId();
+    RequestDao requestDao = new RequestDao();
+    boolean success = requestDao.createRequest(userId, petId);
+    if (success) {
+        JOptionPane.showMessageDialog(dashboardView, "Request submitted!");
+    } else {
+        JOptionPane.showMessageDialog(dashboardView, "Failed to submit request.");
+    }
+}
+
+// Generalized view profile logic
+private void handleViewPetProfile(JTable table) {
+    int selectedRow = table.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(dashboardView, "Please select a pet to view.");
+        return;
+    }
+    int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
+    AdminDao adminDao = new AdminDao();
+    PetModel pet = adminDao.getPetById(petId);
+    if (pet != null) {
+        PetProfileView profileView = new PetProfileView(pet);
+        profileView.setVisible(true);
+    } else {
+        JOptionPane.showMessageDialog(dashboardView, "Could not load pet details.");
+    }
+}
+
     
     public void loadUserChatHistory() {
     UserData currentUser = SessionManager.getCurrentUser();
@@ -171,39 +219,7 @@ class MessageTabListener implements ActionListener {
 
     
 
-    class RequestButtonListener implements ActionListener {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JTable table = dashboardView.getPetTable();
-        int selectedRow = table.getSelectedRow();
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(dashboardView, "Please select a pet to request.");
-            return;
-        }
-
-        // Assuming pet ID is in column 0
-        int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
-
-        // Get the current user (from session manager or controller)
-        UserData currentUser = SessionManager.getCurrentUser();
-        if (currentUser == null) {
-            JOptionPane.showMessageDialog(dashboardView, "User not logged in.");
-            return;
-        }
-        int userId = currentUser.getId();
-
-        // Save the request
-        RequestDao requestDao = new RequestDao();
-        boolean success = requestDao.createRequest(userId, petId);
-
-        if (success) {
-            JOptionPane.showMessageDialog(dashboardView, "Request submitted!");
-        } else {
-            JOptionPane.showMessageDialog(dashboardView, "Failed to submit request.");
-        }
-    }
     
-}
     class FavoriteButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -265,30 +281,6 @@ class ProfileTabListener implements ActionListener {
     }
 }
 
-class ViewPetProfileListener implements ActionListener {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JTable table = dashboardView.getPetTable(); // getPetTable() returns your JTable
-        int selectedRow = table.getSelectedRow();
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(dashboardView, "Please select a pet to view.");
-            return;
-        }
-        // Assuming pet ID is in column 0
-        int petId = (Integer) table.getModel().getValueAt(selectedRow, 0);
-
-        // Fetch pet details from DAO
-        AdminDao adminDao = new AdminDao();
-        PetModel pet = adminDao.getPetById(petId);
-
-        if (pet != null) {
-            PetProfileView profileView = new PetProfileView(pet);
-            profileView.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(dashboardView, "Could not load pet details.");
-        }
-    }
-}
 class SearchButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -399,6 +391,8 @@ class SearchButtonListener implements ActionListener {
         }
     
     }
+    
+    
 
 }
 
