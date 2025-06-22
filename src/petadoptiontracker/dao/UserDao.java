@@ -25,13 +25,16 @@ public class UserDao {
     public boolean registerUser(UserData userData){
         Connection conn= mySql.openConnection();
          String createTableSQL = "CREATE TABLE IF NOT EXISTS Users ("
-            + "id INT AUTO_INCREMENT PRIMARY KEY, "               
-            + "name VARCHAR(50) NOT NULL, "
-            + "email VARCHAR(100) UNIQUE NOT NULL, "
-            + "password VARCHAR(255) NOT NULL, "
-            + "image BLOB NOT NULL,"
-            + "role VARCHAR(10) NOT NULL DEFAULT 'USER'" 
-            + ")";
+                 + "id INT AUTO_INCREMENT PRIMARY KEY, "
+                 + "name VARCHAR(50) NOT NULL, "
+                 + "email VARCHAR(100) UNIQUE NOT NULL, "
+                 + "password VARCHAR(255) NOT NULL, "
+                 + "image BLOB NOT NULL, "
+                 + "role VARCHAR(10) NOT NULL DEFAULT 'USER', "
+                 + "gender VARCHAR(20), "
+                 + "phone VARCHAR(20), "
+                 + "preference TEXT"
+                 + ")";
          String query=  "INSERT INTO Users (name, email, password,image,role) VALUES (?, ?, ?,?,?)";
          
         try {
