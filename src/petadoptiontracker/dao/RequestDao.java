@@ -57,18 +57,18 @@ public class RequestDao {
     }
     public List<Map<String, Object>> getAllRequestsWithUserAndPet() {
     List<Map<String, Object>> requests = new ArrayList<>();
-    String sql = "SELECT u.name AS user_name, u.email, "
-               //+ "u.phone, " // Uncomment if/when you add phone to users table
-               + "p.name AS pet_name, p.breed AS pet_breed, "
-               + "ar.status, ar.request_date "
-               + "FROM adoption_requests ar "
-               + "JOIN users u ON ar.user_id = u.id "
-               + "JOIN pets p ON ar.pet_id = p.id";
+    String sql = "SELECT ar.id AS request_id, u.name AS user_name, u.email, "
+           + "p.name AS pet_name, p.breed AS pet_breed, "
+           + "ar.status, ar.request_date "
+           + "FROM adoption_requests ar "
+           + "JOIN users u ON ar.user_id = u.id "
+           + "JOIN pets p ON ar.pet_id = p.id";
     try (Connection conn = mySql.openConnection();
          PreparedStatement pstmt = conn.prepareStatement(sql);
          ResultSet rs = pstmt.executeQuery()) {
         while (rs.next()) {
             Map<String, Object> req = new HashMap<>();
+            req.put("request_id", rs.getInt("request_id"));
             req.put("user_name", rs.getString("user_name"));
             req.put("email", rs.getString("email"));
             // req.put("phone", rs.getString("phone")); // Uncomment when available
@@ -83,5 +83,31 @@ public class RequestDao {
     }
     return requests;
 }
+   // Update status
+    public boolean updateRequestStatus(int requestId, String newStatus) {
+        String sql = "UPDATE adoption_requests SET status = ? WHERE id = ?";
+        try (Connection conn = mySql.openConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newStatus);
+            pstmt.setInt(2, requestId);
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    // Delete request
+    public boolean deleteRequest(int requestId) {
+        String sql = "DELETE FROM adoption_requests WHERE id = ?";
+        try (Connection conn = mySql.openConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, requestId);
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    } 
 
 }

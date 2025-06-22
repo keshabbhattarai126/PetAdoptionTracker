@@ -10,11 +10,16 @@ package petadoptiontracker.model;
  */
 public class Request {
 
-    public Request(int userId1, int petId1) {
+    public Request(int userId1, int petId1, String status) {
+    this.userId = userId1;
+    this.petId = petId1;
+    this.status = status;
     }
+
     private int requestId;
     private int userId;
     private int petId;
+    private String status;
     public void setRequestId(int requestId) {
         this.requestId = requestId;
     }
@@ -32,5 +37,11 @@ public class Request {
     }
     public int getPetId() {
         return petId;
+    }
+    public void setStatus(String status) {
+    this.status = status;
+    }
+    public String getStatus() {
+    return status;
     }
 }

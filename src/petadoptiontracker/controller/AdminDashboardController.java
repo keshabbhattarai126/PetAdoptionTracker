@@ -56,6 +56,8 @@ public class AdminDashboardController {
         adminDashboardView.addSendMessageButtonListener(new SendMessageListener());
         adminDashboardView.addMessageTabButtonListener(new MessageTabListener());
     adminDashboardView.addUserListSelectionListener(new UserListSelectionListener());
+    adminDashboardView.addAcceptRequestListener(new AcceptRequestListener());
+    adminDashboardView.addDeleteRequestListener(new DeleteRequestListener());
     loadUsersWithChatHistory();
     loadRequestsTable();
     loadPetTable();
@@ -70,7 +72,7 @@ public class AdminDashboardController {
     public void close() {
         adminDashboardView.dispose();
     }
-    
+ 
     public void loadUsersWithChatHistory() {
         List<Map<String, Object>> usersWithChat = chatDao.getUsersWithChatHistory();
         adminDashboardView.setUserChatListData(usersWithChat);
@@ -519,5 +521,62 @@ public class AdminDashboardController {
         }
         }    
     }
+   // Listener for Accept Request
+    class AcceptRequestListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JTable table = adminDashboardView.getRequestsTable();
+            int selectedRow = table.getSelectedRow();
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(adminDashboardView, "Please select a request to accept.");
+                return;
+            }
+            Object value = table.getModel().getValueAt(selectedRow, 0);
+            int requestId = Integer.parseInt(value.toString());
+
+            RequestDao requestDao = new RequestDao();
+            boolean updated = requestDao.updateRequestStatus(requestId, "Accepted");
+            if (updated) {
+                JOptionPane.showMessageDialog(adminDashboardView, "Request accepted.");
+                loadRequestsTable(); // Refresh table data
+            } else {
+                JOptionPane.showMessageDialog(adminDashboardView, "Failed to update request status.");
+            }
+        }
+    }
+
+    // Listener for Delete Request
+    class DeleteRequestListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JTable table = adminDashboardView.getRequestsTable();
+            int selectedRow = table.getSelectedRow();
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(adminDashboardView, "Please select a request to delete.");
+                return;
+            }
+            int confirm = JOptionPane.showConfirmDialog(
+                adminDashboardView,
+                "Are you sure you want to delete this request?",
+                "Delete Confirmation",
+                JOptionPane.YES_NO_OPTION
+            );
+            if (confirm != JOptionPane.YES_OPTION) return;
+
+            Object value = table.getModel().getValueAt(selectedRow, 0);
+            int requestId = Integer.parseInt(value.toString());
+
+            RequestDao requestDao = new RequestDao();
+            boolean deleted = requestDao.deleteRequest(requestId);
+            if (deleted) {
+                JOptionPane.showMessageDialog(adminDashboardView, "Request deleted.");
+                loadRequestsTable(); // Refresh table data
+            } else {
+                JOptionPane.showMessageDialog(adminDashboardView, "Failed to delete request.");
+            }
+        }
+    }
+
+    
 }    
     
