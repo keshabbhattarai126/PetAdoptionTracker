@@ -199,6 +199,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(requestsTable);
+            // ---------------------------CUSTOMIZATION----------------------------------
+        requestsTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+        requestsTable.getTableHeader().setPreferredSize(new Dimension(
+            requestsTable.getTableHeader().getPreferredSize().width, 25));
+        requestsTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink (same as searchResultTable)
+        requestsTable.setSelectionForeground(Color.WHITE);             // White text for selection
+        requestsTable.setRowHeight(25);                                // Set row height to 25
 
         jPanel4.add(jScrollPane2);
         jScrollPane2.setBounds(10, 10, 660, 220);
@@ -232,6 +239,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+        // ---------------------------CUSTOMIZATION----------------------------------
+        jTable1.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+        jTable1.getTableHeader().setPreferredSize(new Dimension(
+            jTable1.getTableHeader().getPreferredSize().width, 25));
+            jTable1.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink
+            jTable1.setSelectionForeground(Color.WHITE);             // White text for selection
+            jTable1.setRowHeight(25);                                // Set row height to 25
 
         jPanel5.add(jScrollPane1);
         jScrollPane1.setBounds(10, 0, 500, 300);
@@ -614,7 +628,7 @@ public void addPetPhotoUploadButtonListener(ActionListener listener) {
 }
     public void setRequestsTableData(List<Map<String, Object>> requestList) {
     // Define the columns you want to display
-    String[] columns = {"User Name", "Email", "Pet Name", "Pet Breed", "Status", "Request Date"};
+    String[] columns = {"ID","User Name", "Email", "Pet Name", "Pet Breed", "Status", "Request Date"};
     DefaultTableModel model = new DefaultTableModel(columns, 0);
 
     for (Map<String, Object> request : requestList) {

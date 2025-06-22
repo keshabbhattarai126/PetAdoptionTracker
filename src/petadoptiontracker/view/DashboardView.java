@@ -194,6 +194,14 @@ public class DashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(requestStatusTable);
+        // ---------------------------CUSTOMIZATION----------------------------------
+requestStatusTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+requestStatusTable.getTableHeader().setPreferredSize(new Dimension(
+    requestStatusTable.getTableHeader().getPreferredSize().width, 25));
+
+requestStatusTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink
+requestStatusTable.setSelectionForeground(Color.WHITE);             // White text for selection
+requestStatusTable.setRowHeight(25);                                // Set row height to 25
 
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(460, 170, 220, 120);
@@ -220,6 +228,14 @@ public class DashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(petTable);
+        // ---------------------------CUSTOMIZATION----------------------------------
+        petTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+petTable.getTableHeader().setPreferredSize(new Dimension(
+    petTable.getTableHeader().getPreferredSize().width, 25));
+
+petTable.setSelectionBackground(new Color(225, 81, 177));
+petTable.setSelectionForeground(Color.WHITE);
+petTable.setRowHeight(25);
 
         jPanel4.add(jScrollPane1);
         jScrollPane1.setBounds(0, 0, 560, 370);
@@ -355,6 +371,14 @@ public class DashboardView extends javax.swing.JFrame {
             }
         ));
         jScrollPane5.setViewportView(searchResultTable);
+        // ---------------------------CUSTOMIZATION----------------------------------
+searchResultTable.getTableHeader().setDefaultRenderer(new CustomHeaderRenderer());
+searchResultTable.getTableHeader().setPreferredSize(new Dimension(
+    searchResultTable.getTableHeader().getPreferredSize().width, 25));
+
+searchResultTable.setSelectionBackground(new Color(225, 81, 177)); // Vibrant pink
+searchResultTable.setSelectionForeground(Color.WHITE);             // White text for selection
+searchResultTable.setRowHeight(25);                                // Set row height to 25
 
         jPanel7.add(jScrollPane5);
         jScrollPane5.setBounds(0, 0, 560, 370);
